@@ -1,0 +1,12 @@
+body {
+    overflow: hidden; 
+    background-color: green;
+    height: 100%;
+}
+.b-box {
+  border: 10px solid #000; }
+  .b-box_new {
+    overflow: hidden; }
+
+
+/*# sourceMappingURL=styles.css.map*/
