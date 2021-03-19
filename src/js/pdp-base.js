@@ -9,12 +9,12 @@ const pdp_page_data = {
         sku: '100512250',
         variations: {
             colors: {
-                color1: 'red',
-                color2: 'blue',
-                color3: 'green',
-                color4: 'gray',
-                color5: 'black',
-                color6: 'white',
+                color1: 'm-color-1',
+                color2: 'm-color-2',
+                color3: 'm-color-3',
+                color4: 'm-color-4',
+                color5: 'm-color-5',
+                color6: 'm-color-6',
             },
             sizes: {
                 size1: '10lbs',
