@@ -1,0 +1,99 @@
+.b-products_carousel {
+    @include g-carousel_style_1(root);
+    
+    margin-bottom: 50px;
+    
+    @include media(p-down) {
+        padding-left: 0;
+    }
+    
+    &-container {
+        @include g-carousel_style_1(container);
+    
+        @include media(p-down) {
+            overflow: visible;
+        }
+    }
+    
+    .tns-inner {
+        @include g-carousel_style_1(container-inner);
+    }
+    
+    &-list {
+        @include g-carousel_style_1(track);
+    
+        @include media(p-down) {
+            display: block;
+            margin: 0 -20px;
+            overflow: auto;
+        }
+        
+        &.m-type_3 {
+            @include media(p-down) {
+                margin-left: 0;
+                margin-right: 0;
+                display: flex;
+            }
+            
+            .b-products_carousel-item {
+                @include media(p-down) {
+                    margin-right: 20px;
+                    min-width: 75vw;
+                }
+            }
+        }
+    }
+    
+    &-controls {
+        button {
+            display: contents;
+        }
+    }
+    
+    &-control {
+        @include g-carousel_style_1(control);
+    }
+    
+    &-item {
+        @include g-carousel_style_1(slide);
+    
+        @include media(s) {
+            min-width: 50vw;
+        }
+    
+        @include media(m-up) {
+            min-width: 385px;
+        }
+    
+        @include media(p-down) {
+            padding-right: 0;
+            border-bottom: 1px solid color(gray-1);
+        }
+    
+        @include media(ls) {
+            min-width: 513px;
+        }
+    
+        @include media(l) {
+            min-width: 283px;
+        }
+    
+        @include media(xl) {
+            min-width: 343px;
+        }
+    }
+    
+    &-more {
+        text-align: center;
+        padding: 23px 0 0;
+        
+        @include media(l-up) {
+            display: none;
+        }
+    }
+    
+    &-more_btn {
+        @include icon(arrow-down-small, before, 20px);
+        @include text-link-underline(16px, 1.25, icon, inverse);
+    }
+}

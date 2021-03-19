@@ -1,0 +1,34 @@
+.b-pdp_visualize {
+    background-color: color(white);
+    margin: 0 -20px 4px;
+    position: relative;
+    
+    @include media(m-up) {
+        display: none;
+    }
+    
+    &-txt {
+        @include icon(scan, before, 24px);
+        @include icon(arrow-right-small, after, 24px);
+        
+        padding: 12px 52px;
+        color: color(black);
+        display: block;
+    
+        &::after,
+        &::before {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: color(red);
+        }
+    
+        &::before {
+            left: 20px;
+        }
+        
+        &::after {
+            right: 20px;
+        }
+    }
+}

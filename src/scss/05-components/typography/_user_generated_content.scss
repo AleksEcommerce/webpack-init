@@ -1,0 +1,120 @@
+@mixin user_content {
+    @include font(regular, 14px);
+
+    color: color(text);
+    text-align: left;
+
+    h1 {
+        @include t-title-1;
+
+        margin: rh(0 0 12);
+    }
+
+    h2 {
+        @include t-title-2;
+
+        margin: rh(0 0 7);
+    }
+
+    h3 {
+        @include t-title-3;
+
+        margin: rh(0 0 7);
+    }
+
+    h4 {
+        @include t-title-4;
+
+        margin: rh(0 0 5);
+    }
+
+    h5 {
+        @include t-title-5;
+
+        margin: rh(0 0 5);
+    }
+
+    a {
+        @include link(underlined);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
+    }
+
+    table,
+    iframe {
+        margin-bottom: rh(5);
+    }
+
+    p {
+        @include font(regular, 14px);
+    }
+
+    p + p {
+        margin-top: rh(6);
+
+        @include media(s) {
+            margin-top: rh(4);
+        }
+    }
+
+    ul {
+        @include t-unordered_list;
+    }
+
+    ol {
+        @include t-ordered_list;
+    }
+
+    table {
+        @include t-table;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+    }
+
+    b,
+    strong {
+        @include font(bold);
+    }
+
+    em,
+    i {
+        font-style: italic;
+    }
+
+    u {
+        text-decoration: underline;
+    }
+
+    li > h1,
+    li > h2,
+    li > h3,
+    li > h4,
+    li > h5 {
+        display: inline;
+    }
+
+    section + section {
+        margin-top: rh(13);
+
+        @include media(s) {
+            margin-top: rh(10);
+        }
+    }
+}

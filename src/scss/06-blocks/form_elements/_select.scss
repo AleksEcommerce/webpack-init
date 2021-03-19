@@ -1,0 +1,121 @@
+/*md
+@no-stat
+# Select
+
+## Default select //TODO: make description like for the input_text
+
+```html_example
+<div class="f-select">
+    <span class="f-select-element_wrapper">
+        <select class="f-select-element">
+            <option value="" disabled></option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+    </span>
+</div>
+```
+
+## Default select with label
+
+```html_example
+<div class="f-select">
+    <label class="f-select-label ">Choose a pet</label>
+    <span class="f-select-element_wrapper">
+        <select class="f-select-element">
+            <option value="" disabled></option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+    </span>
+</div>
+```
+
+### Select is required
+
+```html_example
+<div class="f-select m-required">
+    <label class="f-select-label">Choose a pet</label>
+    <span class="f-select-element_wrapper">
+        <select class="f-select-element" required>
+            <option value="" disabled></option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+    </span>
+</div>
+```
+
+### Active select (optional)
+
+```html_example
+<div class="f-select m-prefilled">
+    <label class="f-select-label">Choose a pet<span class="f-select-optional_copy"> (optional)</span></label>
+    <span class="f-select-element_wrapper">
+        <select class="f-select-element">
+            <option value="" disabled></option>
+            <option value="dog" selected>Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+    </span>
+</div>
+```
+
+### Select in error state
+
+```html_example
+<div class="f-select m-error">
+    <span class="f-select-element_wrapper">
+        <select class="f-select-element">
+            <option value="" disabled></option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+    </span>
+</div>
+```
+
+### Disabled select
+
+```html_example
+<div class="f-select m-disabled">
+    <span class="f-select-element_wrapper">
+        <select class="f-select-element" disabled>
+            <option value="" disabled></option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+    </span>
+</div>
+```
+*/
+
+@include f-select;
+
+.f-input_select {
+    @include f-select;
+}

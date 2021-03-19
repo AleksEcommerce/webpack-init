@@ -1,0 +1,67 @@
+/*
+    <div class="b-swatch">
+        <span class="b-swatch-thumb">Value 1</span>
+    </div>
+*/
+
+@mixin g-swatch(
+    $_: root,
+    $mod: default,
+) {
+    @if $_ == root {
+        @if $mod == default {
+            border: 1px solid currentColor;
+            color: color(gray-2);
+            cursor: pointer;
+            display: block;
+            overflow: hidden;
+            position: relative;
+
+            &::after {
+                border-top: 1px solid currentColor;
+                left: -50%;
+                position: absolute;
+                top: 50%;
+                transform: rotate(-45deg);
+                width: 200%;
+            }
+        }
+
+        @if $mod == selected {
+            color: color(black);
+        }
+
+        @if $mod == disabled {
+            color: color(gray-2);
+            pointer-events: none;
+
+            &::after {
+                content: '';
+            }
+        }
+
+        @if $mod == out_of_stock {
+            color: color(gray-2);
+
+            &::after {
+                content: '';
+            }
+        }
+
+        @if $mod == selected_out_of_stock {
+            color: color(black);
+
+            &::after {
+                content: '';
+            }
+        }
+    }
+
+    @if $_ == _thumb {
+        border: 6px solid color(light);
+        display: block;
+        height: rh(10);
+        pointer-events: none;
+        width: rh(10);
+    }
+}

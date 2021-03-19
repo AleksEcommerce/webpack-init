@@ -1,0 +1,21 @@
+
+.b-scs_empty {
+    text-align: center;
+
+    &-title {
+        @include font(bold, 24px, 1.33);
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 32px;
+
+        @include media(s) {
+            font-size: 20px;
+            margin-bottom: 24px;
+        }
+    }
+
+    &-btn {
+        @include g-button_1();
+    }
+}

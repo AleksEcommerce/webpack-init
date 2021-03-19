@@ -1,0 +1,55 @@
+.b-sss_video {
+    background-color: color(white);
+    box-sizing: border-box;
+    border-bottom: 2px solid color(white);
+    height: 100%;
+    cursor: pointer;
+
+    @include media(s) {
+        padding: 20px 20px 0;
+    }
+
+    &:hover {
+        @include media(m-up) {
+            box-shadow: 0 16px 24px -4px rgba(0, 0, 0, 0.16), 0 0 4px 0 rgba(0, 0, 0, 0.1);
+            border-color: color(red);
+        }
+
+        .b-sss_video-title_link {
+            @include media(m-up) {
+                color: color(red);
+            }
+        }
+    }
+
+    &-figure {
+        @include image_reflow_mix($width: 273, $height: 154, $type: container);
+
+        margin: 0;
+    }
+
+    &-figure_img {
+        @include image_reflow_mix($type: image);
+
+        height: 100%;
+    }
+
+    &-footer {
+        padding: 16px 16px 14px;
+    }
+
+    &-title {
+        @include font(bold, 14px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &-title_link {
+        color: color(black);
+
+        &:hover {
+            color: color(red);
+        }
+    }
+}

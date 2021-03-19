@@ -1,0 +1,92 @@
+.b-mobile_cta {
+    &-auth {
+        &.m-expanded .b-mobile_cta-group_1 {
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &-account {
+        @include icon(arrow-down-small, after, 24px);
+        @include icon(user, before, 22px);
+
+        padding: 0 32px;
+        position: relative;
+
+        &::after,
+        &::before {
+            color: color(red);
+            font-size: 24px;
+            line-height: 1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &::after {
+            right: 0;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+
+        &::before {
+            left: 0;
+        }
+    }
+
+    &-title {
+        @include font(regular, 16px, 1.29);
+
+        color: var(--secondary-color);
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.m-navigation {
+            color: color(black);
+        }
+    }
+
+    &-subtitle {
+        @include font(regular, 12px, 1.33);
+
+        color: color(gray-5);
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &-name {
+        @include icon(user, before, 22px);
+
+        padding: 0 20px 0 52px;
+        position: relative;
+        margin-bottom: 23px;
+
+        &::before {
+            color: color(red);
+            font-size: 24px;
+            line-height: 1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 20px;
+        }
+    }
+
+    &-group_1 {
+        @include mobile_group_1();
+    }
+
+    &-inner_1 {
+        @include mobile_inner_1();
+    }
+
+    &-back {
+        @include mobile_back-btn();
+    }
+}

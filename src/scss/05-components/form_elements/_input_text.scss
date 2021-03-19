@@ -1,0 +1,41 @@
+@mixin f-input_text {
+    .f-input_text {
+        @include f-input;
+
+        &.m-icon {
+            @include f-input(icon);
+        }
+
+        &-field {
+            @include f-input_field;
+        }
+
+        &.m-error &-field {
+            @include f-input_field(error);
+        }
+
+        &.m-disabled &-field {
+            @include f-input_field(disabled);
+        }
+
+        &-label {
+            @include f-input_label;
+        }
+
+        &-field:not(:placeholder-shown) ~ &-label {
+            @include f-input_label($mod: filled);
+        }
+
+        &.m-required &-label {
+            @include f-input_label($mod: required);
+        }
+
+        &-label_description {
+            @include f-input_label(_label_description); // TODO - move to a f-field level
+        }
+
+        &-label_link {
+            @include f-input_label(_label_link);
+        }
+    }
+}

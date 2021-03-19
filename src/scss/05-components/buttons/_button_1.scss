@@ -1,0 +1,33 @@
+@mixin g-button_1($mod: default, $state: null) {
+    @if $mod == default {
+        @include button;
+        @include button(normal_size);
+
+        background-color: color(black);
+        color: color(white);
+        width: 250px;
+        height: auto;
+
+        &:link,
+        &:visited {
+            color: color(white);
+        }
+
+        &:hover {
+            background-color: color(red);
+        }
+
+        &:disabled,
+        &.m-disabled {
+            @include button(disabled);
+        }
+    }
+
+    @if $mod == flex {
+        @include button(flex);
+    }
+
+    @if $mod == full {
+        @include button(full);
+    }
+}

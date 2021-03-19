@@ -1,0 +1,101 @@
+.b-account_dropdown {
+    &-menu {
+
+        @include media(m-up) {
+            @include header-dropdown-style(root);
+
+            width: 100%;
+            position: static; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &.m-auth {
+            @include media(m-up) {
+                @include header-dropdown-style(root, footer);
+            }
+
+            .b-account_dropdown-item {
+                @include media(s) {
+                    border-top: 1px solid color(gray-1);
+                    margin: 0 20px;
+                    font-size: 16px;
+                    font-weight: normal;
+                    line-height: 1.25;
+                }
+            }
+
+            .b-account_dropdown-link {
+                @include media(s) {
+                    @include font(regular, 16px, 1.25);
+
+                    background-color: transparent;
+                    color: var(black); //TODO: FE: should be refactored after old styles deleting
+                    cursor: pointer;
+                    display: block;
+                    padding: 14px 0; //TODO: FE: should be refactored after old styles deleting
+                    position: relative;
+                }
+            }
+        }
+
+        &.m-logout {
+            @include media(s) {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .b-account_dropdown-item:first-child {
+                @include media(s) {
+                    @include icon(user, before, 24px);
+
+                    border-right: 1px solid var(--border-color);
+                    margin-right: 16px;
+                    padding-left: 32px;
+                    padding-right: 16px;
+                }
+
+                &::before {
+                    color: color(red);
+                    left: 0;
+                    position: absolute;
+                }
+            }
+
+            .b-account_dropdown-item:last-child {
+                @include media(s) {
+                    @include icon(tracking, before, 24px);
+
+                    flex: 0 1 100%;
+                    margin-top: 26px;
+                    min-width: 100%;
+                    padding-left: 32px;
+                }
+
+                &::before {
+                    color: color(red);
+                    left: 0;
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+    &-item {
+        position: relative;
+
+        @include media(m-up) {
+            @include header-dropdown-style(item);
+        }
+    }
+
+    &-link {
+        @include media(m-up) {
+            @include header-dropdown-style(link);
+        }
+
+        @include media(s) {
+            @include font(regular, 14px, 1.71);
+
+            color: var(--secondary-color);
+        }
+    }
+}

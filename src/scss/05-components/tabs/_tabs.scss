@@ -1,0 +1,69 @@
+/*md
+#Tabs navigation - basic styling
+
+```
+    <div class="g-tabs"
+        data-component="global/Tabs">
+
+        <ul class="g-tabs-list" data-js-tabs>
+            <li class="g-tabs-control" data-js-tab-item="1">
+                <span class="g-tabs-control_name">Item 1 Title</span>
+            </li>
+            <li class="g-tabs-control" data-js-tab-item="2">
+                <span class="g-tabs-control_name">Item 2 Title</span>
+            </li>
+            <li class="g-tabs-control" data-js-tab-item="3">
+                <span class="g-tabs-control_name">Item 3 Title</span>
+            </li>
+            <li class="g-tabs-control" data-js-tab-item="4">
+                <span class="g-tabs-control_name">Item 4 Title</span>
+            </li>
+        </ul>
+
+        <div class="g-tabs-content" data-js-tabs-content>
+            <div class="g-tabs-item" data-js-tab-content="1">Item 1 Content</div>
+            <div class="g-tabs-item" data-js-tab-content="2">Item 2 Content</div>
+            <div class="g-tabs-item" data-js-tab-content="3">Item 3 Content</div>
+            <div class="g-tabs-item" data-js-tab-content="4">Item 4 Content</div>
+        </div>
+    </div>
+```
+*/
+
+@mixin g-tabs(
+    $el: root,
+    $mod: default
+) {
+    @if $el == root {}
+
+    @if $el == list {
+        display: flex;
+    }
+
+    @if $el == control {
+        @if $mod == default {
+            cursor: pointer;
+            display: flex;
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+
+        @if $mod == active {
+            cursor: default;
+        }
+    }
+
+    @if $el == control_name {
+        pointer-events: none;
+    }
+
+    @if $el == item {
+        @if $mod == default {
+            display: none;
+        }
+
+        @if $mod == active {
+            display: block;
+        }
+    }
+}

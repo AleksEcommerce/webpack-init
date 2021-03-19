@@ -1,0 +1,9 @@
+@mixin button($mod: default) {
+    @if $mod == normal_size {
+        padding: 16px !important;
+
+        &:link {
+            padding: 16px !important;
+        }
+    }
+}

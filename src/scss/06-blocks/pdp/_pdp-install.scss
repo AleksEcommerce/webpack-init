@@ -1,0 +1,74 @@
+
+.b-products_install {
+    &-container {
+        display: grid;
+        grid-gap: 32px;
+        margin-bottom: 32px;
+        grid-template-columns: repeat(6, 1fr);
+    
+        @include media(p-down) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+    }
+    
+    &-item {
+        background-color: color(white);
+        padding: 17px 17px 0;
+    }
+    
+    &-figure {
+        margin: 0;
+    }
+    
+    &-figure_icon {
+        color: color(red);
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        
+        &::before {
+            font-size: 46px;
+        }
+    }
+    
+    &-title {
+        @include font(bold, 14px, 1.29);
+        @include icon(arrow-right-small, before, 20px);
+    
+        color: color(black);
+        display: block;
+        border-bottom: 1px solid color(gray-1);
+        margin: 0 -17px;
+        padding: 16px 17px;
+        position: relative;
+        
+        &::before {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: color(red);
+        }
+    }
+    
+    &-link {
+        @include font(regular, 14px, 1.29);
+        @include icon(arrow-right-small, before, 20px);
+        
+        position: relative;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: color(black);
+    
+        &::before {
+            position: absolute;
+            right: -9px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: color(gray-1);
+        }
+    }
+}

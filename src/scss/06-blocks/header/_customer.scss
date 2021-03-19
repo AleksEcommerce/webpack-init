@@ -1,0 +1,64 @@
+// Customer Service
+.b-customer {
+    @include dropdown;
+
+    padding: 10px 16px 10px 0;
+    position: relative;
+    z-index: 4;
+
+    &.m-expanded {
+        .b-customer_menu {
+            @include dropdown(menu_opened);
+
+            min-width: 220px;
+            right: 0;
+            left: auto;
+        }
+
+        .b-customer_action {
+            color: color(red);
+
+            &::after {
+                transform: rotateX(180deg);
+            }
+        }
+    }
+
+    &_action {
+        @include font(regular, 14px, 1.29);
+        @include dropdown(control);
+        @include icon(arrow-down-small, after, 14px);
+
+        color: var(--secondary-color); //TODO: FE: should be refactored after old styles deleting
+
+        // Styles for print
+        @media print {
+            white-space: nowrap;
+        }
+
+        &:hover {
+            color: color(red); //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &::after {
+            margin-top: -8px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transition: all 0.5s linear;
+        }
+    }
+
+    &_menu {
+        @include dropdown(menu);
+        @include header-dropdown-style(root);
+    }
+
+    &_menu-item {
+        @include header-dropdown-style(item);
+    }
+
+    &_menu-link {
+        @include header-dropdown-style(link);
+    }
+}

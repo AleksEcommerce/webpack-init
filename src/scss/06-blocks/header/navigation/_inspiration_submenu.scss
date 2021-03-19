@@ -1,0 +1,172 @@
+.b-inspiration_submenu {
+    z-index: 4;
+
+    @include media(l-up) {
+        border-bottom: 1px solid color(red);
+        position: absolute;
+        background: color(gray-3);
+        top: var(--top-menu-height);
+        left: -100%;
+        right: -100%;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s ease all;
+        transition-delay: 0.5s;
+    }
+
+    // Styles for print
+    @media print {
+        display: none;
+    }
+
+    &-wrapper {
+        margin: 0 auto;
+        max-width: $max-content-width;
+        padding: 8px 0;
+
+        @include media(xl) {
+            max-width: $max-content-width-xl;
+        }
+    }
+
+    &-contents {
+        @include font(bold, 16px, 1.25);
+
+        color: color(black);
+        letter-spacing: 2px;
+        min-width: 100%;
+        padding: 24px 16px;
+        text-transform: uppercase;
+
+        @include media(m-down) {
+            font-size: 12px;
+            display: flex;
+            padding: 16px 20px;
+            flex-direction: column;
+        }
+    }
+
+    &-contents_desc {
+        font-weight: normal;
+        letter-spacing: normal;
+        text-transform: none;
+
+        @include media(m-down) {
+            font-size: 14px;
+            padding-top: 8px;
+        }
+    }
+
+    &-list {
+        @include media(l-up) {
+            display: flex;
+            padding-bottom: 34px;
+        }
+
+        @include media(m-down) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    &-figure {
+        height: 300px;
+
+        @include media(m-down) {
+            height: 250px;
+        }
+    }
+
+    &-figure img {
+        object-fit: cover;
+        height: 100%;
+
+        @include media(m-down) {
+            width: 100%;
+        }
+    }
+
+    &-item {
+        margin-bottom: 24px;
+
+        @include media(l-up) {
+            flex: 0 1 auto;
+            margin: 0 16px;
+            max-width: 25%;
+            min-width: 160px;
+        }
+
+        @include media(m-down) {
+            padding: 0 24px;
+        }
+    }
+
+    &-category {
+        &:hover {
+            .b-inspiration_submenu-title {
+                @include media(l-up) {
+                    border-color: color(red);
+                    color: color(red);
+                }
+            }
+
+            .b-inspiration_submenu-title_link {
+                &::after {
+                    @include media(l-up) {
+                        display: block;
+                    }
+                }
+
+                @include media(l-up) {
+                    color: color(red);
+                    text-decoration: none; //TODO: FE: should be refactored after old styles deleting
+                    border-color: color(red); //TODO: FE: should be refactored after old styles deleting
+                }
+            }
+        }
+    }
+
+    &-title {
+        @include font(bold, 16px, 1.25);
+
+        position: relative;
+        text-transform: none;
+
+        &:hover {
+            border-color: color(red);
+            color: color(red);
+        }
+    }
+
+    &-title_link {
+        @include icon(arrow-right-small, after, 24px);
+
+        border-bottom: 1px solid color(gray-1); //TODO: FE: should be refactored after old styles deleting
+        color: color(black); //TODO: FE: should be refactored after old styles deleting
+        display: block;
+        padding: 12px 0; //TODO: FE: should be refactored after old styles deleting
+        transition: all 0.3s ease;
+
+        &:hover {
+            text-decoration: none; //TODO: FE: should be refactored after old styles deleting
+            border-color: color(red); //TODO: FE: should be refactored after old styles deleting
+
+            &::after {
+                display: block;
+            }
+
+            @include media(l-up) {
+                color: color(red);
+            }
+        }
+
+        &::after {
+            display: none;
+            color: color(red);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}

@@ -1,0 +1,30 @@
+/* stylelint-disable */
+///    Indents rhythm
+///    @example
+///        @include rh(2); > 8px
+///        @include rh(2 4 0); > 8px 16px 0
+///    @param {number, list} $parameter
+///    @return {String}
+
+@function rh($parameter) {
+    $const: 4;
+    $result: null;
+
+    @if type-of($parameter) == list {
+        @for $i from 1 through length($parameter) {
+            $item: nth($parameter, $i);
+            $el: 0;
+
+            @if $item != 0 {
+                $el: nth($parameter, $i) * $const * 1px;
+            }
+
+            $result: join($result, $el);
+        }
+    } @else {
+        $result: $const * $parameter * 1px;
+    }
+
+    @return $result;
+}
+/* stylelint-enable */

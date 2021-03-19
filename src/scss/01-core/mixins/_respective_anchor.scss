@@ -1,0 +1,17 @@
+// This mixin let you to use native HTML anchors with fixed positioned header
+
+@mixin respective_anchor($general-offset: 150px, $phones-offset: 75px) {
+    &::before {
+        content: '';
+        display: block;
+        height: $general-offset;
+        margin-top: -$general-offset;
+        pointer-events: none;
+        visibility: hidden;
+
+        @include media (phones) {
+            height: $phones-offset;
+            margin-top: -$phones-offset;
+        }
+    }
+}

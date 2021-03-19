@@ -1,0 +1,23 @@
+.b-button_asset {
+    display: flex;
+    height: 100%;
+    padding: 0 30px;
+    width: 100%;
+    z-index: z-index(content);
+
+    &.m-x-left {
+        justify-content: flex-start;
+    }
+
+    &.m-x-right {
+        justify-content: flex-end;
+    }
+
+    &.m-x-center {
+        justify-content: center;
+    }
+
+    &.m-top-margin {
+        margin-top: 35px;
+    }
+}

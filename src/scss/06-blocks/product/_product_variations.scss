@@ -1,0 +1,59 @@
+.b-product_variations {
+    display: flex;
+
+    &-item {
+        @include font(regular, 14px, 24px);
+
+        width: 23px;
+        height: 23px;
+        margin: 0 4px;
+        border: 1px solid color(black);
+
+        &.m-active {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                height: 2px;
+                left: -1px;
+                right: -1px;
+                background-color: color(red);
+                bottom: -7px;
+                content: '';
+            }
+        }
+
+        &.m-color-1 {
+            background-color: color(white);
+        }
+
+        &.m-color-2 {
+            background-color: color(green);
+        }
+
+        &.m-color-3 {
+            background-color: color(black);
+        }
+
+        &.m-color-4 {
+            background-color: color(red);
+        }
+
+        &.m-color-5 {
+            background-color: color(red);
+        }
+
+        &.m-color-6 {
+            background-color: color(red);
+        }
+
+        &.m-color-7 {
+            background-color: color(red);
+        }
+
+        &.m-additional {
+            border: none;
+            color: color(gray-5);
+        }
+    }
+}

@@ -1,0 +1,139 @@
+.b-pdp_thumbnail {
+    display: flex;
+    position: relative;
+    
+    @include media(p-up) {
+        padding-left: 96px;
+    }
+    
+    @include media(p-down) {
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+    
+    &-carousel {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    
+        @include media(p-up) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            max-height: 100%;
+        }
+        
+        @include media(p-down) {
+            flex-direction: row;
+            overflow: hidden;
+            padding-top: 12px;
+            padding-bottom: 16px;
+        }
+    }
+    
+    &-figure {
+        position: relative;
+        margin: 0 0 20px;
+        padding: 0;
+    
+        @include media(p-down) {
+            margin: 0 12px 0 0;
+        }
+        
+        &.m-active {
+            &:after {
+                position: absolute;
+                height: 2px;
+                background-color: color(red);
+                left: 0;
+                right: 0;
+                bottom: -5px;
+                content: '';
+            }
+        }
+    }
+    
+    &-figure_img {
+        margin: 0;
+        display: block;
+    }
+    
+    &-view {
+        @include image_reflow_mix($width: 684, $height: 684, $type: container);
+        
+        position: relative;
+    }
+    
+    &-view_link {
+    
+    }
+    
+    &-view_img {
+        @include image_reflow_mix($type: image);
+    }
+    
+    &-view_label {
+        @include font(bold, 21px, 1.33);
+        
+        position: absolute;
+        padding: 11px 14px;
+        letter-spacing: 4px;
+        left: 0;
+        top: 16px;
+        text-transform: uppercase;
+        background-color: color(red);
+        color: color(white);
+    
+        @include media(p-down) {
+            @include font(bold, 12px, 1.33);
+            
+            padding: 6px;
+        }
+    }
+    
+    &-quick-view {
+        @include icon(search, before, 24px);
+        
+        position: absolute;
+        padding: 3px;
+        bottom: 0;
+        right: 0;
+        color: color(black);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    &-navigate {
+    
+    }
+    
+    &-navigate_btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: color(red);
+        color: color(white);
+        line-height: 40px;
+        cursor: pointer;
+        
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        &.m-back {
+            @include icon(arrow-left-small, before, 24px);
+            
+            left: 0;
+        }
+        
+        &.m-next {
+            @include icon(arrow-right-small, before, 24px);
+            
+            right: 0;
+        }
+    }
+}

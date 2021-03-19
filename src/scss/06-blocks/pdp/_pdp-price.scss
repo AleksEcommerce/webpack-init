@@ -1,0 +1,57 @@
+.b-pdp_price {
+    padding-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    @include media(m-down) {
+        padding-bottom: 10px;
+    }
+    
+    @include media(m-down) {
+        justify-content: space-between;
+    }
+    
+    
+    &-cost {
+        @include font(bold, 24px, 0.83);
+    }
+    
+    &-cost_unit {
+        @include font(regular, 16px, 1.25);
+    }
+    
+    &-desc {
+        @include font(regular, 14px, 1.29);
+    
+        color: color(gray-5);
+        margin: 0;
+        padding-top: 9px;
+        width: 100%;
+    
+        
+    }
+    
+    &-unit {
+        @include media(l-up) {
+            margin-left: 24px;
+        }
+    
+        @include media(m-down) {
+            width: 100%;
+            padding-top: 11px;
+        }
+    }
+    
+    &-options {
+        @include font(regular, 14px, 1.29);
+    
+        @include media(l-up) {
+            display: none;
+        }
+    }
+    
+    &-options_name {
+        color: color(gray-5);
+    }
+}

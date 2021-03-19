@@ -1,0 +1,58 @@
+.b-pdp_delivery {
+    padding-top: 12px;
+    
+    @include media(s) {
+        margin: 0 -20px;
+    }
+    
+    &-item {
+        position: relative;
+        background-color: color(white);
+        padding: 24px;
+        margin-bottom: 12px;
+        
+        &.m-active {
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 2px;
+                top: 0;
+                bottom: 0;
+                background-color: color(black);
+            }
+        }
+    }
+    
+    &-radio {
+        display: block;
+    }
+    
+    &-input {
+    
+    }
+    
+    &-label {
+        @include font(bold, 14px, 1.33);
+    
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    
+    &-desc {
+        @include font(regular, 14px, 1.29);
+    
+        padding-left: 32px;
+        padding-top: 17px;
+        margin-bottom: -17px;
+    }
+    
+    &-text {
+        margin: 0;
+        padding: 0 0 17px;
+    }
+    
+    &-link {
+        @include text-link-underline(14px, 1.29);
+    }
+}

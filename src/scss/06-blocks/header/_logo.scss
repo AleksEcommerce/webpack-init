@@ -1,0 +1,23 @@
+.b-logo {
+    align-items: center;
+    display: flex;
+    height: $height-middle-header-desc;
+
+    @include media(l-up) {
+        width: 175px;
+    }
+
+    @include media(m) {
+        margin-left: 48px;
+    }
+
+    @include media(s) {
+        height: $height-middle-header-mobile;
+        width: 91px;
+        margin-left: 40px;
+    }
+
+    &-img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,192 @@
+
+.l-plp {
+    background-color: color(gray-3);
+    
+    &-container {
+        @include container();
+        
+        box-sizing: border-box;
+        display: grid;
+        grid-column-gap: 30px;
+        padding: 0 30px;
+        grid-template:
+            [start b-plp-breadcrumbs-s]
+            auto
+            [b-plp-breadcrumbs-e b-plp-aside-s b-plp-banners-s]
+            auto
+            [b-plp-banners-e b-plp-filters-s b-plp-no-results-s]
+            auto
+            [b-plp-filters-e b-plp-main-s b-plp-no-results-e]
+            1fr
+            [b-plp-aside-e b-plp-main-e b-plp-description-s]
+            auto
+            [end b-plp-description-e]
+            /
+            [start b-plp-breadcrumbs-s b-plp-aside-s]
+            minmax(0, 1fr) //1
+            []
+            minmax(0, 1fr) //2
+            [b-plp-aside-e b-plp-banners-s b-plp-filters-s b-plp-main-s b-plp-description-s b-plp-no-results-s]
+            minmax(0, 1fr) //3
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //5
+            []
+            minmax(0, 1fr) //6
+            []
+            minmax(0, 1fr) //7
+            []
+            minmax(0, 1fr) //8
+            []
+            minmax(0, 1fr) //9
+            []
+            minmax(0, 1fr) //10
+            []
+            minmax(0, 1fr) //11
+            []
+            minmax(0, 1fr) //12
+            [end b-plp-breadcrumbs-e b-plp-banners-e b-plp-filters-e b-plp-main-e b-plp-description-e b-plp-no-results-e];
+        @include media(m-down) {
+            padding: 0;
+            grid-template:
+            [b-plp-banners-s]
+            auto
+            [b-plp-banners-e b-plp-filters-s]
+            auto
+            [b-plp-filters-e b-plp-main-s]
+            auto
+            [b-plp-main-e b-plp-description-s]
+            auto
+            [end b-plp-description-e]
+            /
+            [start b-plp-banners-s b-plp-filters-s b-plp-main-s b-plp-description-s]
+            minmax(0, 1fr) //1
+            []
+            minmax(0, 1fr) //2
+            []
+            minmax(0, 1fr) //3
+            []
+            minmax(0, 1fr) //4
+            [end b-plp-banners-e b-plp-filters-e b-plp-main-e b-plp-description-e];
+        }
+    }
+
+    &-breadcrumbs {
+        grid-area: b-plp-breadcrumbs-s/b-plp-breadcrumbs-s / b-plp-breadcrumbs-e/b-plp-breadcrumbs-e;
+    
+        @include media(m-down) {
+            display: none;
+        }
+    }
+    
+    &-results_empty {
+        grid-area: b-plp-no-results-s/b-plp-no-results-s / b-plp-no-results-e/b-plp-no-results-e;
+    }
+    
+    &-search_header {
+        background-color: color(white);
+    }
+    
+    &-search_container {
+        @include container();
+    }
+
+    &-aside {
+        grid-area: b-plp-aside-s/b-plp-aside-s / b-plp-aside-e/b-plp-aside-e;
+    
+        @include media(m-down) {
+            display: none;
+        }
+    }
+
+    &-banners {
+        grid-area: b-plp-banners-s/b-plp-banners-s / b-plp-banners-e/b-plp-banners-e;
+    }
+
+    &-filters {
+        grid-area: b-plp-filters-s/b-plp-filters-s / b-plp-filters-e/b-plp-filters-e;
+    
+        @include media(m) {
+            padding: 0 34px;
+        }
+    
+        @include media(m-down) {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-width: 100%;
+        }
+    }
+
+    &-main {
+        grid-area: b-plp-main-s/b-plp-main-s / b-plp-main-e/b-plp-main-e;
+    }
+
+    &-description {
+        grid-area: b-plp-description-s/b-plp-description-s / b-plp-description-e/b-plp-description-e;
+    }
+
+    &-carousels {
+    
+    }
+    
+    &-carousels_inner {
+        @include container();
+        
+        border-top: 1px solid color(gray-1);
+        padding: 47px 0;
+        max-width: 1674px;
+        margin: 0 auto;
+    }
+    
+    &_grid {
+        @include media(m) {
+            padding: 0 34px;
+        }
+    }
+    
+    &_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+    
+        @include media(m-up) {
+            grid-gap: 12px;
+        }
+    
+        @include media(l) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    
+        @include media(m-down) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+     
+        @include media(s) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    
+        .l-plp_grid-item:first-child {
+            border-top: none;
+        }
+    }
+    
+    &_grid-item {
+        @include media(s) {
+            border-top: 1px solid color(gray-1);
+        }
+    }
+    
+    &_grid-more {
+        text-align: center;
+        padding-top: 32px;
+    }
+    
+    &_grid-btn {
+        @include g-button-2();
+     
+        width: 130px;
+        box-sizing: border-box;
+    }
+}

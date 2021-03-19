@@ -1,0 +1,93 @@
+
+.b-projects_carousel {
+    @include media(s) {
+        padding-left: 20px;
+    }
+
+    &-control {
+        @include g-carousel_style_2(control);
+    }
+
+    div,
+    img {
+        max-width: none;
+    }
+
+    &-container {
+        @include g-carousel_style_2(container);
+    }
+
+    .tns-ovh {
+        overflow: hidden;
+    }
+
+    .tns-inner {
+        @include g-carousel_style_2(container-inner);
+    }
+
+    .tns-liveregion {
+        display: none;
+    }
+
+    &-list {
+        position: relative;
+        display: flex;
+    }
+
+    &-link {
+        display: block;
+    }
+
+    &-item {
+        @include g-carousel_style_2(slide);
+    }
+
+    &-thumbnail_img {
+        display: block;
+        width: 100%;
+    }
+
+    &-btns {
+        display: flex;
+        justify-content: center;
+        padding-top: 32px;
+
+        @include media(s) {
+            flex-direction: column;
+            padding: 10px 20px 0 0;
+        }
+    }
+
+    &-btn {
+        &.m-more {
+            @include g-button-2();
+
+            order: 2;
+        }
+
+        &.m-photo {
+            @include g-button-1();
+
+            order: 1;
+        }
+
+        &.m-photo,
+        &.m-more {
+            box-sizing: border-box;
+
+            @include media(m-up) {
+                margin: 0 10px;
+                width: 192px;
+            }
+
+            @include media(s) {
+                width: auto;
+                margin-bottom: 10px;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

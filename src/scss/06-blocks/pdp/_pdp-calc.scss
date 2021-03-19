@@ -1,0 +1,162 @@
+
+.b-pdp_calc {
+    @include media(s) {
+        margin: 0 -20px;
+    }
+    
+    &-accordeon {
+        @include g-accordion_style_2(root);
+    }
+    
+    &-accordeon_item {
+        @include g-accordion_style_2(item);
+    
+        &.m-expanded {
+            .b-pdp_calc-accordeon_content {
+                @include g-accordion_style_2($el: content, $mod: expanded);
+            }
+        
+            .b-pdp_calc-accordeon_control {
+                @include g-accordion_style_2($el: control, $mod: expanded);
+            }
+        }
+    }
+    
+    &-accordeon_control {
+        @include g-accordion_style_2(control);
+        
+        cursor: pointer;
+        position: relative;
+        display: block;
+    
+        &::after {
+            color: color(red);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    
+    &-accordeon_content {
+        @include g-accordion_style_2(content);
+    }
+    
+    &-error {
+        @include error-text(14px, 1.25);
+    
+        padding: 8px 0;
+    }
+    
+    &-error_phone {
+        @include text-link-underline(14px, 1.29);
+    }
+    
+    &-fields {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 24px;
+    }
+    
+    &-field {
+        padding-top: 30px;
+        position: relative;
+        flex-grow: 1;
+        max-width: calc(50% - 15px);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    &-field_label {
+        @include font(bold, 14px, 1.29);
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    &-field_text {
+        @include font(bold, 14px, 1.29);
+    }
+    
+    &-field_text {
+        @include font(bold, 14px, 1.29);
+    }
+    
+    &-field_cost {
+        @include font(regular, 14px, 1.29);
+    
+        color: color(gray-5);
+    }
+    
+    &-field_input {
+        display: block;
+    }
+    
+    &-checkbox {
+    
+    }
+    
+    &-checkbox_field {
+        display: block;
+    }
+    
+    &-checkbox_icon {
+        @include text-thumbnail(root);
+        
+        color: color(red);
+        padding-left: 5px;
+        
+        &::after {
+            font-size: 24px;
+        }
+    }
+    
+    &-checkbox_text {
+        @include text-thumbnail(msg);
+    
+        display: none;
+    }
+    
+    &-checkbox_close {
+        @include text-thumbnail(close);
+    }
+    
+    &-footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid color(gray-1);
+        padding-top: 18px;
+        margin-top: 24px;
+    }
+    
+    &-footer_sizes {
+        @include font(regular, 14px, 1.29);
+    }
+    
+    &-footer_view {
+        @include font(bold, 14px, 1.43);
+    
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    &-footer_subtotal {
+        @include font(bold, 24px, 1.29);
+    }
+    
+    &-numbers {
+        @include font(bold, 16px, 1.25);
+    }
+    
+    &-btn {
+        @include g-button_2();
+        
+        min-width: 100%;
+        box-sizing: border-box;
+        margin-top: 20px;
+    }
+}

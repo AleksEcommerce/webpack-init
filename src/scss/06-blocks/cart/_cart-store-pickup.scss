@@ -1,0 +1,221 @@
+.b-store_pickup {
+    background-color: color(gray-9);
+    padding: 20px;
+
+    @include media(m-up) {
+        display: flex;
+        padding: 16px $padding-inner 16px 64px;
+    }
+
+    &.m-home-delivery {
+        .b-store_pickup-block_2 {
+            @include media(s) {
+                text-align: left;
+                min-height: 0;
+            }
+        }
+    }
+
+    &-block_1 {
+        @include media(m-up) {
+            flex-grow: 1;
+        }
+
+        @include media(s) {
+            margin-bottom: 12px;
+        }
+    }
+
+    &-block_2 {
+        @include media(m-up) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        @include media(s) {
+            text-align: center;
+            min-height: 88px;
+        }
+    }
+
+    &-title {
+        @include font(bold, 14px, 1.43);
+        @include icon(in-store, before, 24px);
+
+        position: relative;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        @include media(s) {
+            margin-left: 30px;
+        }
+
+        &.m-home-delivery {
+            &.m-sticky {
+                @include media(t-down) {
+                    top: 158px;
+                    margin-left: 30px;
+                    position: fixed;
+                    left: 20px;
+                    z-index: 100;
+                    font-size: 14px;
+                    line-height: 1.29;
+                    color: color(black);
+                }
+
+                @include media(s) {
+                    top: 72px;
+                }
+
+                &::after {
+                    position: fixed;
+                    top: 60px;
+                    left: 0;
+                    right: 0;
+                    background-color: color(stickbg);
+                    z-index: -1;
+
+                    @include media(t-down) {
+                        top: 146px;
+                        height: 43px;
+                        content: '';
+                    }
+
+                    @include media(s) {
+                        top: 60px;
+                        height: 70px;
+                    }
+                }
+            }
+        }
+
+        &::before {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: color(red);
+        }
+    }
+
+    &-title_text {
+        @include font(regular, 12px, 1.33);
+
+        color: color(gray-5);
+        text-transform: none;
+        letter-spacing: 0;
+    }
+
+    &-location {
+        padding-top: 12px;
+
+        @include media(s) {
+            min-height: 49px;
+        }
+    }
+
+    &-location_title {
+        @include icon(location, before, 16px);
+        @include font(bold, 14px, 1.29);
+
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 4px;
+
+        &.m-sticky {
+            @include media(t-down) {
+                top: 158px;
+                position: fixed;
+                left: 20px;
+                z-index: 100;
+                font-size: 14px;
+                line-height: 1.29;
+                color: color(black);
+            }
+
+            @include media(s) {
+                top: 72px;
+            }
+
+            &::after {
+                position: fixed;
+                left: 0;
+                right: 0;
+                height: 43px;
+                background-color: color(stickbg);
+                z-index: -1;
+
+                @include media(t-down) {
+                    top: 146px;
+                    content: '';
+                }
+
+                @include media(s) {
+                    top: 60px;
+                }
+            }
+        }
+
+        &::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: color(red);
+            margin-right: 4px;
+            line-height: 16px;
+        }
+    }
+
+    &-location_subtitle {
+        @include font(regular, 12px, 1.33);
+    }
+
+    &-btn {
+        &:not(.m-sticky) {
+            @include g-button_2();
+
+            margin-bottom: 12px;
+            width: 160px;
+
+            @include media(s) {
+                width: 100%;
+                margin-bottom: $margin-inner;
+                box-sizing: border-box;
+            }
+        }
+
+        &.m-sticky {
+            @include media(t-down) {
+                @include text-link-underline(14px, 1.29);
+
+                top: 157px;
+                position: fixed;
+                right: 20px;
+                z-index: 101;
+            }
+
+            @include media(s) {
+                top: 72px;
+            }
+        }
+    }
+
+    &-link {
+        @include text-link-underline(14px, 1.29);
+
+        &.m-home-delivery.m-sticky {
+            @include media(t-down) {
+                position: fixed;
+                left: 20px;
+                top: 98px;
+                z-index: 101;
+            }
+        }
+
+        &:link {
+            overflow: visible;
+        }
+    }
+}

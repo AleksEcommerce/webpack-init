@@ -1,0 +1,159 @@
+.b-pdp_specifications {
+    @include g-accordion_styles($el: root);
+
+    background-color: transparent;
+
+    &-title {
+        @include g-accordion_styles($el: control);
+
+        &::after {
+            right: 0;
+            color: color(red);
+        }
+    }
+
+    &-title2 {
+        @include font(bold, 14px, 1.33);
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+
+    &-list {
+        margin: 0 0 20px 20px;
+        padding: 0;
+        list-style-type: disc;
+    }
+
+    &-list_item {
+        padding: 8px 0;
+        list-style-type: disc;
+    }
+
+    &-content {
+        @include g-accordion_styles($el: content);
+
+        &.m-carousel {
+            margin-right: -20px;
+        }
+    }
+
+    &-accordeon {
+        //@include g-accordion_styles(item);
+
+        border-bottom: none;
+
+        &.m-expanded {
+            .b-pdp_specifications-content {
+                @include g-accordion_styles($el: content, $mod: expanded);
+            }
+
+            .b-pdp_specifications-title {
+                @include g-accordion_styles($el: control, $mod: expanded);
+            }
+        }
+    }
+
+    &-subtitle {
+        @include font(bold, 12px, 1.33);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding-bottom: 18px;
+    }
+
+    &-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+    }
+
+    &-box {
+        flex-basis: 100%;
+        border-top: 1px solid color(gray-1);
+
+        @include media(p-up) {
+            flex: 0 1 calc(33% - 21px);
+        }
+
+        @include media(p-down) {
+            min-width: 100%;
+        }
+    }
+
+    &-item {
+        @include font(regular, 14px, 1.29);
+
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid color(gray-1);
+    }
+
+    &-name {
+        position: relative;
+        color: color(black);
+    }
+
+    &-number {
+        font-weight: bold;
+    }
+
+    &-name_icon {
+        @include text-thumbnail(root);
+
+        color: color(red);
+    }
+
+    &-name_text {
+        @include text-thumbnail(msg);
+
+        right: auto;
+        left: -20px;
+        transform: translate(0, 0);
+        top: auto;
+        bottom: calc(100% + 13px);
+
+        @include media(p-up) {
+            right: auto;
+            left: -20px;
+            transform: translate(0, 0);
+            top: auto;
+            bottom: calc(100% + 13px);
+        }
+
+        @include media(p-down) {
+            left: -28px;
+        }
+
+        &::before {
+            top: auto;
+            bottom: 0;
+            left: 25px;
+        }
+    }
+
+    &-txt {
+        @include font(regular, 16px, 1.43);
+
+        margin-bottom: 24px;
+    }
+
+    &-name_close {
+        @include text-thumbnail(close);
+    }
+
+    &-more {
+        text-align: center;
+
+        @include media(p-down) {
+            padding-bottom: 20px;
+        }
+    }
+
+    &-more_btn {
+        @include icon(arrow-down-small, before, 20px);
+        @include text-link-underline(16px, 1.25, icon, inverse);
+    }
+}

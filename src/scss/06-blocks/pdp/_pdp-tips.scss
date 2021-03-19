@@ -1,0 +1,156 @@
+
+.b-tips_carousel {
+    @include g-carousel_style_1(root);
+    
+    &.m-fourth {
+        margin-bottom: 24px;
+    }
+    
+    &.m-third {
+        margin-bottom: 24px;
+        
+        .b-tips_carousel-list {
+            margin-right: -12px;
+        }
+    
+        .b-tips_carousel-control {
+            top: 37%;
+        }
+        
+        .b-tips_carousel-item {
+    
+            @include media(p-up) {
+                min-width: 385px;
+            }
+    
+            @include media(p-down) {
+                padding-right: 0;
+                border-bottom: none;
+                min-width: 80vw;
+                margin-right: 20px;
+            }
+    
+            @include media(ls) {
+                min-width: 513px;
+            }
+    
+            @include media(l) {
+                min-width: 378px;
+            }
+    
+            @include media(xl) {
+                min-width: 458px;
+            }
+        }
+    }
+    
+    &-container {
+        @include g-carousel_style_1(container);
+    
+        @include media(p-down) {
+            overflow: visible;
+        }
+    }
+    
+    &-list {
+        @include g-carousel_style_1(track);
+        
+        @include media(p-down) {
+            display: block;
+            margin: 0 -20px;
+            overflow: auto;
+            padding-right: 20px;
+        }
+    
+        @include media(s) {
+            display: flex;
+        }
+    }
+    
+    &-controls {
+        button {
+            display: contents;
+        }
+    }
+    
+    &-control {
+        @include g-carousel_style_1(control);
+    
+        top: 90px;
+    }
+    
+    &-item {
+        padding-bottom: 8px;
+    
+        @include g-carousel_style_1(slide);
+     
+        @include media(p-up) {
+            min-width: 385px;
+        }
+    
+        @include media(p-down) {
+            padding-right: 0;
+            border-bottom: none;
+            min-width: 80vw;
+            margin-right: 20px;
+        }
+    
+        @include media(ls) {
+            min-width: 513px;
+        }
+    
+        @include media(l) {
+            min-width: 283px;
+        }
+    
+        @include media(xl) {
+            min-width: 343px;
+        }
+    }
+    
+    &-figure {
+        @include image_reflow_mix($width: 331, $height: 187, $type: container);
+    
+        margin: 0;
+    }
+    
+    &-video {
+        @include image_reflow_mix($width: 445, $height: 251, $type: container);
+    
+        margin: 0;
+    }
+    
+    &-video_img {
+        @include image_reflow_mix($type: image);
+    
+        height: 100%;
+    }
+    
+    &-figure_img {
+        @include image_reflow_mix($type: image);
+    }
+    
+    &-title {
+        @include font(bold, 14px, 1.43);
+     
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        margin-bottom: 12px;
+    }
+    
+    &-inner {
+        background-color: color(white);
+        padding: 16px;
+    }
+    
+    &-text {
+        @include font(regular, 14px, 1.29);
+    
+        margin-bottom: 16px;
+    }
+    
+    &-link {
+        @include text-link-underline(14px, 1.29);
+    }
+}

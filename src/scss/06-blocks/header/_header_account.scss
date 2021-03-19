@@ -1,0 +1,57 @@
+
+.b-header_account {
+    @include header_attribute(root);
+    @include dropdown;
+    @include icon(arrow-down-small, after, 24px);
+    @include icon(user, before, 24px);
+
+    @include media(m-up) {
+        max-width: 200px;
+    }
+
+    &.m-expanded .b-header_account-list {
+        @include dropdown(menu_opened);
+    }
+
+    &:hover,
+    &.m-expanded {
+        .b-header_account-title,
+        &::after {
+            @include header_attribute(hover-elements);
+        }
+    }
+
+    &-control {
+        @include dropdown(control);
+
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    &-title {
+        @include header_attribute(title);
+    }
+
+    &-subtitle {
+        @include header_attribute(details);
+    }
+
+    &-points {
+        color: color(red);
+        font-weight: bold;
+    }
+
+    &-list {
+        @include dropdown(menu);
+
+        left: 0;
+
+        @include media(m-up) {
+            width: 100%;
+        }
+    }
+}

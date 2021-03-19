@@ -1,0 +1,278 @@
+// Header Cart
+.l-main .mini-cart-total {
+    background-color: transparent !important; //TODO: FE: should be refactored after old styles deleting
+    border-radius: 0 !important; //TODO: FE: should be refactored after old styles deleting
+    top: auto !important; //TODO: FE: should be refactored after old styles deleting
+    float: none !important; //TODO: FE: should be refactored after old styles deleting
+}
+
+.l-main .mini-cart-content { //TODO: FE: should be refactored after old styles deleting
+    top: 100%;
+}
+
+.l-main #mini-cart { //TODO: FE: should be refactored after old styles deleting
+    float: none;
+    top: auto;
+    width: auto;
+    height: auto;
+    z-index: 2;
+    margin: auto;
+    padding: 0;
+    display: block !important;
+    background: none !important;
+    position: relative;
+    border: none;
+
+    @include media(s) {
+        display: none;
+    }
+
+    &::after {
+        display: none !important; //TODO: FE: should be refactored after old styles deleting
+    }
+}
+
+.b-cart_header {
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 2 !important; //TODO: FE: should be refactored after old styles deleting
+
+    @include media(m-up) {
+        border-left: 1px solid var(--border-color);
+        height: 48px !important; //TODO: FE: should be refactored after old styles deleting
+        width: 45px !important; //TODO: FE: should be refactored after old styles deleting
+        margin: 0 !important; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    @include media(m) {
+        height: 40px;
+    }
+
+    @include media(s) {
+        height: 25px;
+        width: 25px;
+        margin-right: 10px !important; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    &:hover {
+        .b-cart_header-icon {
+            @include media(m-up) {
+                background-color: var(--header-minicart-bg);
+            }
+        }
+    }
+
+    &-action {
+        &:hover {
+            text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+
+    /* stylelint-disable */
+    &-icon {
+        @include icon(cart, before, 22px);
+
+        background: none;
+        box-sizing: border-box;
+        color: color(red);
+        display: block;
+        margin: 0 0 0 4px !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 12px 8px 14px;
+        text-align: center;
+        font-size: 0;
+
+        @include media(s) {
+            color: var(--secondary-color);
+            padding: 0;
+            margin: 0 !important; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        // Styles for print
+        @media print {
+            margin-top: -20px;
+        }
+    }
+    /* stylelint-enable */
+
+    &-count {
+        @include font(bold, 11px, 1.2);
+
+        background-color: color(black);
+        border-top: 0;
+        border-radius: 0 !important; //TODO: FE: should be refactored after old styles deleting
+        color: color(white) !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 0; //TODO: FE: should be refactored after old styles deleting
+        position: absolute;
+        right: -6px;
+        text-align: center;
+        top: 0;
+        width: auto;
+        min-width: 14px !important; //TODO: FE: should be refactored after old styles deleting
+        z-index: 2 !important; //TODO: FE: should be refactored after old styles deleting
+
+        @include media(s) {
+            background-color: color(red);
+            right: -12px;
+            top: -10px;
+        }
+
+        // Styles for print
+        @media print {
+            display: none;
+        }
+    }
+}
+
+.b-minicart {
+    @include scrollbar();
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 352px;
+    min-height: 80px;
+    box-sizing: border-box;
+    padding: 24px 24px 0;
+    background-color: color(white);
+    box-shadow: 0 16px 24px -4px rgba(0, 0, 0, 0.16), 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    border-bottom: 2px solid color(red);
+    z-index: 10;
+
+    @include media(m-down) {
+        display: none;
+    }
+
+    .b-spinner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: auto;
+    }
+
+    &-header {
+        @include font(bold, 14px, 1.43);
+
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &-header_numbers {
+        font-weight: normal;
+    }
+
+    &:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+
+    &-products {
+        @include scrollbar();
+        @include prevent-scroll-chain();
+
+        max-height: 350px;
+        margin-right: -24px;
+        padding-right: 24px;
+        overflow: auto;
+    }
+
+    &-product {
+        overflow: hidden;
+        border-top: 1px solid color(gray-3);
+        margin-bottom: 15px;
+        padding-top: 24px;
+    }
+
+    &-product_image {
+        width: 75px;
+        height: 75px;
+        margin: 0 16px 20px 0;
+        float: left;
+    }
+
+    &-product_name {
+        @include font(bold, 16px, 1.25);
+
+        margin: 0 0 14px;
+        padding-right: 26px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &-product_label-txt {
+        @include font(bold, 10px, 1.67);
+
+        display: block;
+        background-color: color(gray-1);
+        color: color(black);
+        text-transform: uppercase;
+        padding: 0 2px;
+        width: 45px;
+        margin: 0 0 7px;
+        text-align: center;
+    }
+
+    &-product_pricing {
+        @include font(bold, 16px, 1.25);
+
+        display: flex;
+        margin-left: 90px;
+    }
+
+    &-product_label {
+        font-weight: normal;
+        color: color(gray-5);
+        flex-grow: 1;
+    }
+
+    &-product_value {
+        font-size: 14px;
+        line-height: 1.5;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    &-totals {
+        margin: 0 -24px;
+        padding: 24px;
+        background-color: color(gray-3);
+    }
+
+    &-subtotals {
+        @include font(bold, 16px, 1.25);
+
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    &-btn,
+    &-btn:link,
+    &-btn:visited {
+        @include g-button_1();
+
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &-product_remove_btn {
+        @include icon(close-big, before, 24px);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        &::before {
+            color: color(black);
+            font-size: 24px;
+        }
+    }
+}

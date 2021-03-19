@@ -1,0 +1,19 @@
+@mixin g-back_button {
+    @include font(regular, 12px);
+
+    align-items: center;
+    background-color: color(gray-3);
+    cursor: pointer;
+    display: flex;
+    text-transform: uppercase;
+
+    @include icon(arrow-left) {
+        margin-right: rh(4);
+        opacity: 0.5;
+    }
+
+    @include media(m-down) {
+        padding: rh(5);
+        width: 100%;
+    }
+}

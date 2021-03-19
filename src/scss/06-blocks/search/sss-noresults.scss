@@ -1,0 +1,130 @@
+.b-sss_noresults {
+    text-align: center;
+    max-width: 544px;
+    margin: 0 auto;
+
+    @include media(s) {
+        padding: 0 20px;
+    }
+
+    &-title {
+        @include font(bold, 14px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    &-txt {
+        @include font(regular, 16px, 1.25);
+
+        margin-bottom: 24px;
+    }
+
+    &-form {
+        margin-bottom: 48px;
+    }
+
+    &-form_input {
+        height: 48px;
+        margin: 0;
+        width: 100%;
+    }
+
+    &-form_submit {
+        @include icon(search, after, 24px);
+
+        border: none;
+        color: color(red);
+        cursor: pointer;
+        height: 48px;
+        outline: none;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 48px;
+        background: none;
+
+        &::after {
+            line-height: 48px;
+        }
+    }
+
+    &-form_clear {
+        @include font(regular, 16px, 1.25);
+
+        color: color(black);
+        cursor: pointer;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        right: 52px;
+        width: auto;
+        height: 100%;
+        text-transform: none;
+        display: none;
+        background: none;
+        border: none;
+
+        &.m-show {
+            display: block;
+        }
+
+        span {
+            margin-top: 2px;
+            border-bottom: 1px solid color(red);
+        }
+    }
+
+    &-category {
+        text-align: left;
+
+        @include media(m-up) {
+            display: flex;
+        }
+    }
+
+    &-category_nav {
+        @include media(m-up) {
+            flex-grow: 1;
+            width: 50%;
+        }
+
+        @include media(s) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &-category-title {
+        @include font(bold, 16px, 1.25);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    &-category_list {
+        margin: 0;
+        padding: 0;
+
+        @include media(s) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &-category_item {
+        margin-bottom: 16px;
+        list-style-type: none;
+
+        @include media(s) {
+            width: 50%;
+        }
+    }
+
+    &-category_link {
+        @include text-link-underline(16px, 1.33);
+    }
+}

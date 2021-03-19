@@ -1,0 +1,118 @@
+@charset 'UTF-8';
+
+$fonts_locale: null !default;
+$fonts: (
+    default: (
+        regular: (
+            font-family: ('Lato', 'Arial', sans-serif),
+            font-weight: normal,
+        ),
+        bold: (
+            font-family: ('Lato', 'Arial', sans-serif),
+            font-weight: 700,
+        ),
+    ),
+);
+
+/*md
+@no-stat
+
+# Fonts
+
+We have a `font()` mixin which is a SSOT for fonts site wide.
+
+`font()` mixin uses `$fonts` map where you should
+configure all font definitions
+
+## Configuration
+
+From the structure below you can see that we can define
+locale specific font family substitutions.
+
+```scss
+$fonts: ( // main fonts definition map
+    default: ( // locale
+        regular: ( // font type
+            font-family: ('Lato', 'Arial', sans-serif),
+            font-weight: normal,
+        ),
+        bold: (
+            font-family: ('Lato', 'Arial', sans-serif),
+            font-weight: bold,
+        ),
+    ),
+);
+```
+
+Also we need this as a map, not a plain variable, because
+sometimes we can't just use variables with the font-family
+value.
+
+There might be an additional letter-spacing setting or
+other adjustments on that global font definition level.
+
+## Usage
+
+Suppose we have regular, italic, bold and italic bold variant of custom font.
+`font()` mixin will help us to use them easily.
+
+Here is a list of parameters you can pass to this mixin:
+
+```
+@include font (
+    $type: [main], // type from the $fonts map
+    $size: [null], // font-size
+    $line-height: [null] // line-height
+)
+```
+
+**Examples:**
+
+```scss
+.b-block {
+    @include font(regular);
+    @include font(bold);
+    @include font(regular, 14px); //type: regular, font-size: 14px
+}
+```
+*/
+
+/* stylelint-disable
+    scss/at-function-named-arguments,
+    function-comma-space-after
+*/
+
+@mixin font(
+    $type: main,
+    $size: null,
+    $line-height: null
+) {
+    @if $type != null {
+        $__fonts_map: map-get($fonts, default);
+
+        @if $fonts_locale != null {
+            $__fonts_map: map-merge(
+                map-get($fonts, default),
+                map-get($fonts, $fonts_locale)
+            );
+        }
+
+        $__current_font_type_map: map-get($__fonts_map, $type);
+
+        @if type-of($__current_font_type_map) == map {
+            @each $property, $value in $__current_font_type_map {
+                #{$property}: $value;
+            }
+        } @else {
+            @warn('There is no such font type:' + $type);
+        }
+    }
+
+    font-size: $size;
+    line-height: $line-height;
+}
+
+@mixin font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

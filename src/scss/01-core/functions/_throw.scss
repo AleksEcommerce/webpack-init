@@ -1,0 +1,6 @@
+// Function throws a warn message
+
+@function throw($log) {
+    @warn $log;
+    @return false;
+}

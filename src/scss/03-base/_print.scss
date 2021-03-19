@@ -1,0 +1,7 @@
+.h-for_print {
+    display: none !important; // stylelint-disable-line
+}
+
+@media print {
+    // special styles here
+}

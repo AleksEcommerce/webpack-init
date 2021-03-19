@@ -1,0 +1,32 @@
+/*md
+@no-stat
+# Radiobuttons
+
+## Default radio
+
+```html_example
+<div class="f-input_radio">
+	<input id="male" class="f-input_radio-field" type="radio" name="gender" value="male" checked>
+	<label class="f-input_radio-label" for="male">Male</label>
+</div>
+<div class="f-input_radio h-left-50">
+	<input id="female" class="f-input_radio-field" type="radio" name="gender" value="female">
+	<label class="f-input_radio-label" for="female">Female</label>
+</div>
+```
+
+## Disabled
+
+```html_example
+<div class="f-input_radio">
+	<input id="male1" class="f-input_radio-field" type="radio" name="gender1" value="male" checked disabled>
+	<label class="f-input_radio-label" for="male1">Male</label>
+</div>
+<div class="f-input_radio h-left-50">
+	<input id="female1" class="f-input_radio-field" type="radio" name="gender1" value="female" disabled>
+	<label class="f-input_radio-label" for="female1">Male</label>
+</div>
+```
+*/
+
+@include f-radio;

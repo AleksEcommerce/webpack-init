@@ -1,0 +1,61 @@
+///    Image Loader
+///    @example
+///        @include image_loader;
+
+@mixin image_loader {
+    background: url('../../images/loader.svg') no-repeat 50% 50%;
+    background-size: contain;
+}
+
+@mixin image_container($type: root) {
+    @if $type == root {
+        padding-bottom: 100%;
+        position: relative;
+        width: 100%;
+    }
+
+    @if $type == _children {
+        @include image_loader;
+
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+@mixin image_reflow($type: root, $precent: precent) {
+    @if $type == container {
+        width: 100%;
+        height: 0;
+        padding-bottom: $precent;
+        position: relative;
+        display: block;
+    }
+
+    @if $type == image {
+        width: 100%;
+        height: auto;
+        position: absolute;
+    }
+}
+
+@mixin image_reflow_mix($width: width, $height: height, $type: root) {
+    $precent: calc(#{$height} * 100 / #{$width} * 1%);
+    
+    @if $type == container {
+        width: 100%;
+        height: 0;
+        padding-bottom: $precent;
+        position: relative;
+        display: block;
+    }
+    
+    @if $type == image {
+        width: 100%;
+        height: auto;
+        position: absolute;
+    }
+}

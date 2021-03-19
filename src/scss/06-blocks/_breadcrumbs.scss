@@ -1,0 +1,33 @@
+.b-breadcrumbs {
+    @include font(regular, 12px, 20px);
+
+    color: color(black);
+    margin: 21px 0;
+    
+    @include media(s) {
+        display: none;
+    }
+
+    &-item {
+        @include icon(arrow-right-small, after, 12px);
+        
+        padding-right: 10px;
+        position: relative;
+        
+        &.m-current {
+            font-size: 14px;
+            color: color(gray-5);
+            
+            &::after {
+                display: none;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: color(gray-5);
+        }
+    }
+}

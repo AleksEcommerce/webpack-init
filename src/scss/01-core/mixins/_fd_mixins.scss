@@ -1,0 +1,67 @@
+
+@mixin body-styles {
+    // @include font(regular, 16px, 20px); //TODO: FE: should be refactored after old styles deleting
+
+    color: color(black);
+    font-feature-settings: 'liga', 'kern';
+    box-sizing: border-box;
+}
+
+@mixin local-normalize {
+    @include body-styles();
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    input[type="search"] {
+        box-sizing: border-box;
+    }
+
+    menu,
+    ol,
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    input[type='search'] {
+        appearance: none;
+        box-sizing: border-box;
+    }
+
+    button {
+        appearance: none;
+        background: none;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    button::-moz-focus-inner {
+        border: 0 !important;
+        padding: 0 !important;
+    }
+
+    // article,
+    // aside,
+    // details,
+    // figcaption,
+    // figure,
+    // footer,
+    // header,
+    // hgroup,
+    // main,
+    // nav,
+    // section,
+    // summary {
+    //     display: block;
+    // }
+
+    img {
+        max-width: 100%;
+        vertical-align: bottom;
+    }
+}

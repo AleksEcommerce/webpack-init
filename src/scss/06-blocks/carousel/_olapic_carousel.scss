@@ -1,0 +1,152 @@
+.l-hp_projects-carousel {
+    .olapic.olapic-widget-rendered:not(.olapic-mobile):not(.olapic-tablet) #olapic-slider-widget a.olapic-nav-button:hover {
+        background-color: color(red);
+        color: color(white);
+    }
+
+    .olapic {
+        #olapic-slider-widget {
+            &.olapic-slider-widget {
+                max-width: 1360px;
+
+                @include media(s) {
+                    max-width: 100%;
+                    padding-bottom: 0;
+                }
+            }
+
+            .olapic-slider-footer {
+                padding-top: 32px;
+                width: 100% !important;
+
+                .olapic-action-buttons {
+                    float: none;
+                    width: 100%;
+                    text-align: center;
+
+                    .olapic-action-button {
+                        @include media(s) {
+                            display: block;
+                        }
+
+                        a {
+                            box-sizing: border-box;
+
+                            @include media(s) {
+                                margin-bottom: 10px;
+                            }
+
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+
+                        &.olapic-see-all a {
+                            @include g-button-2();
+
+                            @include media(m-up) {
+                                width: 192px;
+                            }
+
+                            @include media(s) {
+                                width: 100%;
+                                display: block;
+                            }
+
+                            &:hover {
+                                background-color: color(red) !important;
+                                color: color(white) !important;
+                                border-color: color(red) !important;
+                            }
+                        }
+
+                        &.olapic-upload a {
+                            @include g-button-1();
+
+                            @include media(m-up) {
+                                width: 192px;
+                            }
+
+                            @include media(s) {
+                                width: 100%;
+                                display: block;
+                            }
+
+                            &:hover {
+                                background-color: color(red) !important;
+                                color: color(white) !important;
+                                border-color: color(red) !important;
+                            }
+                        }
+                    }
+                }
+
+                .olapic-slider-copy {
+                    a.olapic-copyright:link,
+                    a.olapic-copyright:visited {
+                        color: color(black);
+                        opacity: 0.2;
+                    }
+                }
+            }
+
+            .olapic-carousel {
+                li {
+                    margin: 0 16px;
+
+                    @include media(s) {
+                        margin: 0 10px;
+                    }
+                }
+            }
+
+            a.olapic-nav-button:link {
+                background-color: color(red);
+                color: color(white);
+                height: 40px;
+                margin-top: -20px;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                width: 40px;
+                z-index: 3;
+                transition: all 0.3s ease;
+
+                @include media(s) {
+                    display: none !important;
+                }
+
+                &:hover {
+                    background-color: color(red);
+                    color: color(white);
+                }
+
+                &::before {
+                    font-size: 24px;
+                    line-height: 40px;
+                }
+
+                &[disabled] {
+                    opacity: 0.5;
+                }
+
+                &.olapic-nav-prev {
+                    @include icon(arrow-left-small, 24px);
+
+                    left: 16px;
+                }
+
+                &.olapic-nav-next {
+                    @include icon(arrow-right-small, 24px);
+
+                    right: 16px;
+                }
+
+                &:hover::before {
+                    font-size: 32px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

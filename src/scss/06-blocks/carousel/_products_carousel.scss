@@ -1,0 +1,62 @@
+.b-hp_products {
+    @include g-carousel_style_1(root);
+
+    margin: 0 auto;
+
+    div,
+    img {
+        max-width: none;
+    }
+
+    &-title {
+        @include g-carousel_style_1(title);
+    }
+
+    &-container {
+        @include g-carousel_style_1(container-items);
+    }
+    
+    .tns-ovh {
+        overflow: hidden;
+    }
+
+    .tns-inner {
+        @include g-carousel_style_1(container-inner);
+    }
+
+    &-control {
+        @include g-carousel_style_1(control);
+    }
+
+    &-list {
+        @include g-carousel_style_1(track);
+    }
+
+    &-item {
+        @include g-carousel_style_1(slide);
+
+        @include media(s) {
+            min-width: 50vw;
+        }
+
+        @include media(m-up) {
+            min-width: 385px;
+        }
+
+        @include media(ls) {
+            min-width: 513px;
+        }
+
+        @include media(l) {
+            min-width: 310px;
+        }
+
+        @include media(xl) {
+            min-width: 292px;
+        }
+
+        @include media(xxl) {
+            min-width: 234px;
+        }
+    }
+}

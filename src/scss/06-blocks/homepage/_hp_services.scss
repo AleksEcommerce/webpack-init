@@ -1,0 +1,75 @@
+.b-services_list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+
+    @include media(m-up) {
+        margin: 0 -16px;
+    }
+
+    &-item {
+        width: calc(25% - 32px);
+        padding: 0 24px 24px;
+        box-sizing: border-box;
+        background-color: color(gray-7);
+
+        @include media(m-up) {
+            margin-right: 16px;
+            margin-left: 16px;
+        }
+
+        @include media(m) {
+            width: calc(50% - 32px);
+            margin-bottom: 32px;
+        }
+
+        @include media(s) {
+            width: 100%;
+            margin-bottom: 24px;
+        }
+    }
+
+    &-thumbnail {
+        @include image_reflow(container, 65%);
+
+        margin: 0 -24px 24px;
+        width: auto;
+    }
+
+    &-thumbnail_img {
+        @include image_reflow(image);
+
+        width: 100%;
+    }
+
+    &-title {
+        @include font(bold, 16px, 1.25);
+
+        color: color(white);
+        margin: 0 0 16px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &-text {
+        @include font(regular, 16px, 1.25);
+
+        color: color(white);
+        margin: 0 0 24px;
+    }
+
+    &-btn {
+        @include g-button-3();
+
+        width: auto;
+        display: block;
+
+        &:link,
+        &:visited {
+            @include g-button-3();
+
+            width: auto;
+            display: block;
+        }
+    }
+}

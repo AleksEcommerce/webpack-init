@@ -1,0 +1,30 @@
+$z-indexes: (
+    content: (),
+    footer: (),
+    header: (
+        navigation_flyout: (),
+    ),
+);
+
+// more info: https://codepen.io/stowball/post/sassier-z-index-management-for-complex-layouts
+// stylelint-disable
+@function z-index($keys) {
+    $map: $z-indexes;
+    $found-index: null;
+
+    @each $key in $keys {
+        @if (type-of($map) == "map") {
+            $found-index: index(map-keys($map), $key);
+            $map: map-get($map, $key);
+        }
+        @else {
+            $found-index: index($map, $key);
+        }
+    }
+
+    @return $found-index;
+}
+
+@function z($keys...) {
+    @return z-index($keys);
+}

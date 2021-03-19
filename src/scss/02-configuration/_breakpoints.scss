@@ -1,0 +1,81 @@
+$breakpoint-medium: 768px;
+$breakpoint-medium-landscape: 1024px;
+$breakpoint-large: 1200px;
+$breakpoint-xlarge: 1440px;
+$breakpoint-extralarge: 1920px;
+$media: (
+    s: 'screen and (max-width: #{$breakpoint-medium - 1})',
+    m: 'screen and (min-width: #{$breakpoint-medium}) and (max-width: #{$breakpoint-large - 1})',
+    l: 'screen and (min-width: #{$breakpoint-large}) and (max-width: #{$breakpoint-xlarge - 1})',
+    ls: 'screen and (min-width: #{$breakpoint-medium-landscape}) and (max-width: #{$breakpoint-large - 1})',
+    xxl: 'screen and (min-width: #{$breakpoint-extralarge})',
+    xl: 'screen and (min-width: #{$breakpoint-xlarge})',
+    m-up: 'screen and (min-width: #{$breakpoint-medium})',
+    m-down: 'screen and (max-width: #{$breakpoint-large - 1})',
+    t-down: 'screen and (max-width: #{$breakpoint-medium-landscape})',
+    p-down: 'screen and (max-width: #{$breakpoint-medium-landscape - 1})',
+    p-up: 'screen and (min-width: #{$breakpoint-medium-landscape})',
+    l-up: 'screen and (min-width: #{$breakpoint-large})',
+);
+
+/*md
+@no-stat
+
+# Media queries (breakpoints)
+
+We have a `media()` mixin for make it easier to implement responsive styling via media queries.
+
+## Configuration
+
+`media` mixin works with `$media` map where there're key-value pairs:
+`media-name: media query`
+
+This is how `$media` map looks:
+
+```
+$media: (
+    s: 'screen and (max-width: 767px)',
+    m: 'screen and (min-width: 768px) and (max-width: 1199px)',
+    l: 'screen and (min-width: 1200px)',
+    xl: 'screen and (min-width: 1440px)',
+);
+```
+
+## Usage
+
+Here is how to use `media()` mixin:
+
+```scss
+.b-block {
+    // styles outside of a media query
+
+    @include media(s) {
+        // styles for "s" viewports
+    };
+
+    @include media(m l) {
+        // styles for "m" and "l" viewports
+    };
+}
+```
+
+Simply edit this file and add your own media queries to `$media` map.
+
+*/
+
+// stylelint-disable
+@mixin media($query) {
+    $__query: null;
+
+    @each $type in $query {
+        @if map-has-key($media, $type) {
+            $__query: append($__query, unquote(map-get($media, $type)), comma);
+        } @else {
+            @warn $type;
+        }
+    }
+
+    @media #{$__query} {
+        @content;
+    }
+}

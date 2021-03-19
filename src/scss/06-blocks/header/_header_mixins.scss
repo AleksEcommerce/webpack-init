@@ -1,0 +1,242 @@
+@import 'header_animation';
+
+// Logo
+$height-middle-header-desc: 86px;
+$height-middle-header-mobile: 60px;
+$mobile-menu-header-height: 65px;
+
+@mixin transition-light() {
+    transition: all 0.3s ease;
+}
+
+@mixin header-dropdown-style($el: root, $mod: default) {
+
+    @if $mod == footer {
+        > *:last-child {
+            border-top: 1px solid color(gray-1);
+            margin-top: 12px;
+            padding-top: 10px !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+
+    @if $el == root {
+        background-color: color(white) !important; //TODO: FE: should be refactored after old styles deleting
+        border-bottom: 2px solid color(red);
+        box-shadow: 0 16px 24px -4px rgba(0, 0, 0, 0.16), 0 0 4px 0 rgba(0, 0, 0, 0.1) !important; //TODO: FE: should be refactored after old styles deleting
+        margin: 0 !important; //TODO: FE: should be refactored after old styles deleting
+        min-width: 186px;
+        padding: 12px 0 !important; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    @if $el == link {
+        background-color: transparent;
+        color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+        display: block;
+        padding: 10px 20px 10px 24px !important; //TODO: FE: should be refactored after old styles deleting
+        text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            background-color: color(gray-3);
+            color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+
+    @if $el == item {
+        @include font(regular, 16px, 1.25);
+
+        padding: 0 !important; //TODO: FE: should be refactored after old styles deleting
+    }
+}
+
+@mixin header_attribute($el: root, $mod: default) {
+    @if $el == root {
+        background-color: transparent;
+        cursor: pointer;
+        max-width: 164px;
+        padding: 7px 32px 8px;
+        position: relative;
+        z-index: 3;
+
+        @include media(l-up) {
+            transition: all 0.3s ease;
+        }
+
+        @include media(m-down) {
+            padding-top: 3px;
+            padding-bottom: 4px;
+            z-index: 2;
+        }
+
+        &:hover,
+        &.m-expanded {
+            @include media(m-up) {
+                background-color: var(--header-attribute-bg);
+            }
+
+            @include media(s) {
+                color: color(red);
+            }
+        }
+
+        &.m-expanded::after {
+            transform: rotateX(180deg) translateY(2px);
+        }
+
+        &::after,
+        &::before {
+            height: 24px;
+            margin-top: -12px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 24px;
+
+            @include media(m-down) {
+                margin-top: -12px;
+            }
+        }
+
+        &::before {
+            color: color(red);
+            left: 4px;
+
+            // Styles for print
+            @media print {
+                display: none;
+            }
+        }
+
+        &::after {
+            color: color(gray-4);
+            right: 3px;
+            transition: all 0.3s ease;
+        }
+    }
+
+    @if $el == hover-elements {
+        @include media(m-up) {
+            color: color(red);
+        }
+    }
+
+    @if $el == title {
+        @include font(regular, 14px, 1.29);
+
+        color: var(--secondary-color);
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @include media(s) {
+            font-size: 13px;
+            line-height: 16px;
+        }
+    }
+
+    @if $el == details {
+        @include font(regular, 12px, 1.33);
+
+        color: color(gray-5);
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @include media(s) {
+            font-size: 11px;
+            line-height: 16px;
+        }
+    }
+}
+
+@mixin mobile_group_1() {
+    @include media(m-down) {
+        letter-spacing: normal;
+        padding-top: $mobile-menu-header-height;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        left: 0; //
+        overflow: hidden;
+        display: block;
+        transition: all 0.5s linear;
+        width: $width-mobile-nav;
+
+        .m-inner-mobile {
+            @include media(m-down) {
+                left: 290px;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+
+    &.m-active {
+        transition: all 0.5s linear;
+
+        .m-inner-mobile {
+            @include media(m-down) {
+                left: 0;
+                opacity: 1;
+                visibility: visible;
+                animation: menuIn 0.5s;
+            }
+        }
+    }
+
+    &.m-fade-out {
+        @include media(m-down) {
+            display: none;
+        }
+    }
+
+    &:not(.m-active) .m-inner-mobile {
+        @include media(m-down) {
+            left: 290px;
+        }
+    }
+}
+
+@mixin mobile_inner_1() {
+    @include scrollbar();
+
+    background-color: color(white);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+
+    @include media(m-down) {
+        width: $width-mobile-nav;
+        min-width: $width-mobile-nav;
+        position: absolute;
+        top: 65px;
+        transition: 0.5s ease all;
+        height: calc(100% - #{$mobile-menu-header-height});
+    }
+}
+
+@mixin mobile_back-btn() {
+    @include font(regular, 16px, 1.25);
+    @include icon(arrow-down-small, before, 24px);
+
+    background-color: color(gray-3);
+    color: color(black);
+    margin-bottom: 24px;
+    padding: 15px 0 13px 52px;
+    position: relative;
+    text-transform: none;
+
+    &::before {
+        color: color(red);
+        left: 20px;
+        margin-top: 2px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+    }
+}

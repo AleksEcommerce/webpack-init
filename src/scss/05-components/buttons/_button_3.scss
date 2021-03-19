@@ -1,0 +1,40 @@
+@mixin g-button_3($mod: default) {
+    @if $mod == default {
+        @include button;
+        @include button(normal_size_border);
+
+        align-items: center;
+        background-color: color(red);
+        border-color: color(red);
+        border-style: solid;
+        color: color(white);
+        padding-left: 10px !important; //TODO: FE: should be refactored after old styles deleting
+        padding-right: 10px !important; //TODO: FE: should be refactored after old styles deleting
+        width: 250px;
+
+        &:hover {
+            background-color: color(black);
+            border-color: color(black);
+            color: color(white);
+            text-decoration: none;
+        }
+
+        &:disabled,
+        &.m-disabled {
+            @include button(disabled);
+        }
+    }
+
+    @if $mod == flex {
+        @include button(flex);
+    }
+
+    @if $mod == full {
+        @include button(full);
+    }
+
+    @if $mod == inverted {
+        border-color: color(white);
+        color: color(white);
+    }
+}

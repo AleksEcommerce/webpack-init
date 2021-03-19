@@ -1,0 +1,57 @@
+.b-accessibility {
+    &-link {
+        color: var(--secondary-color) !important; //TODO: FE: should be refactored after old styles deleting
+
+        .b-navigation-accessibility & {
+            color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &:hover {
+            color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+}
+
+.b-customer {
+    &_action {
+        color: var(--secondary-color) !important; //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+}
+
+.b-search_result {
+    &-link {
+        padding: 10px 24px !important; //TODO: FE: should be refactored after old styles deleting
+        text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+    }
+}
+
+.b-store_details {
+    &-btn {
+        padding: 14px 0 15px !important; //TODO: FE: should be refactored after old styles deleting
+        border: 1px solid color(black) !important; //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            background-color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+            border-color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+            color: color(white) !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+
+    &-directions_link,
+    &-details {
+        border-bottom: 1px solid color(red) !important; //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+
+    &-find {
+        padding: 15px 0 !important; //TODO: FE: should be refactored after old styles deleting
+        text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+    }
+}

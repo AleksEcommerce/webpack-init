@@ -1,0 +1,39 @@
+.l-pdp {
+    background-color: color(gray-3);
+    height: 95000px;
+    
+    &-container {
+        @include container();
+    
+        box-sizing: border-box;
+        padding: 0 40px;
+    
+        @include media(m-down) {
+            padding: 0 20px;
+        }
+    }
+    
+    &-specifications {
+    
+    }
+    
+    &-product {
+    
+    }
+    
+    &-carousel {
+    
+    }
+    
+    &-overview {
+    
+    }
+    
+    &-liked {
+    
+    }
+    
+    &-viewed {
+    
+    }
+}

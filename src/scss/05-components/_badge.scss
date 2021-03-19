@@ -1,0 +1,117 @@
+/*md
+# Badges
+
+## Mixin configuration:
+
+- @param `$bg` {string} The background color of the badge, can be also `red`; **default value**: `dark`
+
+- @param `$type` {string} The type of the badge, can be: `pdp`, `plp`, `cart`; **default value**: `pdp`
+
+## Simple badge HTML example:
+
+```
+<div class="g-badge">
+    <span>bonus</span>
+</div>
+```
+
+## Multiline badge HTML example:
+
+```
+<div class="g-badge">
+    <span>SEASON</span><span>Sale</span>
+</div>
+```
+
+## SCSS usage example:
+```
+.g-badge {
+    @include g-badge;
+}
+```
+```
+*/
+
+@mixin g-badge($bg: dark, $type: pdp) {
+    $size: null;
+    $mobileSize: null;
+    $fontSize: null;
+    $mobileFontSize: null;
+    $mlFontSize: null;
+    $mlFontSizeMobile: null;
+    $mlFontSizeFirst: null;
+    $mlFontSizeFirstMobile: null;
+
+    @if $type == plp {
+        $size: 65px;
+        $mobileSize: 50px;
+        $fontSize: 14px;
+        $mobileFontSize: 11px;
+        $mlFontSize: 14px;
+        $mlFontSizeMobile: 11px;
+        $mlFontSizeFirst: 10px;
+        $mlFontSizeFirstMobile: 7.5px;
+    } @else if $type == cart {
+        $size: 50px;
+        $mobileSize: 50px;
+        $fontSize: 10px;
+        $mobileFontSize: 10px;
+        $mlFontSize: 10px;
+        $mlFontSizeMobile: 10px;
+        $mlFontSizeFirst: 7.5px;
+        $mlFontSizeFirstMobile: 5px;
+    } @else {
+        $size: 70px;
+        $mobileSize: 65px;
+        $fontSize: 14px;
+        $mobileFontSize: 14px;
+        $mlFontSize: 18px;
+        $mlFontSizeMobile: 14px;
+        $mlFontSizeFirst: 10px;
+        $mlFontSizeFirstMobile: 10px;
+    }
+
+    background-color: color($bg);
+    border-radius: 50%;
+    color: color(light);
+    display: flex;
+    flex-direction: column;
+    height: $size;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    width: $size;
+
+    @include media(s) {
+        height: $mobileSize;
+        width: $mobileSize;
+    }
+
+    > span {
+        display: block;
+
+        &:first-child {
+            @include font(medium, $mlFontSizeFirst);
+
+            @include media(s) {
+                @include font(medium, $mlFontSizeFirstMobile);
+            }
+        }
+
+        &:last-child {
+            @include font(bold, $mlFontSize);
+
+            @include media(s) {
+                font-size: $mlFontSizeMobile;
+            }
+        }
+
+        &:first-child:last-child {
+            @include font(bold, $fontSize);
+
+            @include media(s) {
+                font-size: $mobileFontSize;
+            }
+        }
+    }
+}

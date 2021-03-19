@@ -1,0 +1,86 @@
+.b-pdp_btns {
+    padding: 15px 0 25px;
+    
+    &-top {
+        @include font(regular, 14px, 1.29);
+    
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    &-top_text {
+    
+    }
+    
+    &-top_link {
+        @include text-link-underline(14px, 1.29);
+    }
+    
+    &-button {
+        @include g-button_1();
+    
+        width: 100%;
+        box-sizing: border-box;
+        
+        .i-cart-before {
+            color: color(red);
+            font-size: 24px;
+            margin-right: 8px;
+        }
+        
+        &:hover {
+            .i-cart-before {
+                color: color(white);
+            }
+        }
+    }
+    
+    &-footer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 25px;
+    
+        @include media(p-down) {
+            position: relative;
+            padding-bottom: 60px;
+        }
+        
+        &::after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 42px;
+            height: 1px;
+            background-color: color(gray-1);
+    
+            @include media(p-down) {
+                content: '';
+            }
+        }
+    }
+    
+    &-link {
+        @include text-link-underline(14px, 1.29, icon);
+        
+        white-space: nowrap;
+        
+        &.m-project {
+            @include icon(favorites, before, 24px);
+     
+            @include media(s) {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        &.m-print {
+            @include icon(secure, before, 24px);
+        }
+        
+        &.m-copy {
+            @include icon(link, before, 24px);
+        }
+    }
+}

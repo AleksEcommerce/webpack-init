@@ -1,0 +1,87 @@
+.ss-main .ss-single-selected {
+    border: none;
+    font-size: 14px;
+    height: auto;
+    padding: 0;
+
+    &.ss-disabled {
+        background: none;
+
+        .ss-arrow span {
+            border-color: color(gray-5);
+        }
+    }
+
+    .ss-arrow {
+        margin-right: 10px;
+
+        span {
+            border: solid color(red);
+            border-width: 0 1px 1px 0;
+        }
+    }
+}
+
+.ss-single-selected {
+    &.ss-open-above {
+        &::before {
+            @include media(s) {
+                position: fixed;
+                z-index: 1002;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 230px;
+                width: auto;
+                min-width: 0;
+                content: '';
+                background-color: rgba(#000, 0.5);
+            }
+        }
+    }
+}
+
+.ss-content {
+    box-shadow: 0 16px 24px -4px rgba(0, 0, 0, 0.16), 0 0 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+    top: calc(100% + 10px);
+    min-width: 323px;
+    max-height: 234px;
+    overflow-y: auto;
+    left: -25px;
+    border-bottom: 2px solid color(red);
+
+    @include media(s) {
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        min-width: 0;
+    }
+
+    .ss-list {
+        @include scrollbar;
+
+        margin: 0;
+
+        .ss-option.ss-hide {
+            display: flex;
+            background-color: transparent;
+            color: color(black);
+        }
+
+        .ss-option.ss-option-selected {
+            color: color(black);
+            font-weight: bold;
+        }
+
+        .ss-option:not(.ss-disabled):hover,
+        .ss-option.ss-highlighted {
+            color: color(red);
+            background-color: color(gray-3);
+        }
+    }
+}

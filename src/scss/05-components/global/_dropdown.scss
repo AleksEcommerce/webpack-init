@@ -1,0 +1,41 @@
+/*
+Example:
+.g-dropdown {
+    @include dropdown;
+
+    &-control {
+        @include dropdown(control);
+    }
+
+    &-menu {
+        @include dropdown(menu);
+    }
+
+    &.m-opened &-menu {
+        @include dropdown(menu_opened);
+    }
+}
+*/
+
+@mixin dropdown($el: root) {
+    @if $el == root {
+        position: relative;
+    }
+
+    @if $el == control {
+        appearance: none;
+        background: none;
+        border: 0;
+        cursor: pointer;
+    }
+
+    @if $el == menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+    }
+
+    @if $el == menu_opened {
+        display: block;
+    }
+}

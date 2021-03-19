@@ -1,0 +1,27 @@
+///    Animation
+///    @example
+///        @include scrollbar;
+
+@mixin scrollbar(
+    $_scrollbar-color:  color(white),
+    $_thumb-color:      #d8d8d8,
+    $_scrollbar-height: 119px,
+    $_scrollbar-width:  4px
+) {
+    scrollbar-color: $_thumb-color $_scrollbar-color;
+    scrollbar-width: thin;
+    overscroll-behavior-y: contain;
+
+    &::-webkit-scrollbar {
+        background-color: $_scrollbar-color;
+        height: $_scrollbar-height; // horizontal
+        width: $_scrollbar-width; // vertical
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $_thumb-color;
+        border-radius: 0;
+    }
+
+    @content;
+}

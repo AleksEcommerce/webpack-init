@@ -1,0 +1,18 @@
+.b-footer_container {
+    @include media(m-up) {
+        display: flex;
+        margin: 0 auto;
+        max-width: $max-content-width-xl;
+        padding: 40px 24px 0;
+    }
+
+    @include media(m) {
+        flex-wrap: wrap;
+        padding-top: 32px;
+    }
+
+    // Styles for print
+    @media print {
+        display: none;
+    }
+}

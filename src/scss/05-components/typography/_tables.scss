@@ -1,0 +1,73 @@
+@mixin table-heading-replace-inline($position: before, $attribute: data-title, $device: phones, $colon: true) {
+    &:#{$position} {
+        @include font(regular, 14px);
+
+        color: color(text);
+
+        @if $colon == false {
+            content: attr(#{$attribute});
+        } @else {
+            content: attr(#{$attribute}) ':';
+        }
+
+        display: none;
+
+        @include media(#{$device}) {
+            display: inline-block;
+        }
+    }
+}
+
+@mixin table-heading-replace($attribute: data-title, $device: phones) {
+    position: relative;
+
+    &::before {
+        @include font(bold, 12px, 16px);
+
+        background: color(light);
+        color: color(text);
+        content: attr(#{$attribute});
+        display: none;
+        left: 0;
+        min-height: 38px;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        @include media(#{$device}) {
+            display: block;
+        }
+    }
+}
+
+@mixin t-table {
+    margin: 0 auto;
+    padding: rh(0 5);
+    width: 100%;
+
+    &,
+    thead {
+        border: 1px solid color(gray-2);
+    }
+
+    & + & {
+        margin-bottom: rh(3);
+        margin-top: rh(7);
+    }
+
+    caption {
+        margin: rh(0 0 5);
+        text-align: left;
+    }
+
+    td,
+    th {
+        padding: rh(5);
+        text-align: center;
+    }
+
+    th {
+        @include font(medium, 14px);
+    }
+}

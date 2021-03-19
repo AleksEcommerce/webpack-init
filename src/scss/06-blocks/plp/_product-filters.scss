@@ -1,0 +1,98 @@
+.b-product_filters {
+    display: flex;
+    padding: 24px 0;
+
+    @include media(m-up) {
+        justify-content: space-between;
+    }
+
+    @include media(s) {
+        flex-direction: column;
+        padding-bottom: 20px;
+        order: 1;
+        border-bottom: 1px solid color(gray-1);
+        margin: 0 20px 24px;
+    }
+
+    &.m-sss {
+        @include media(s) {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    &-result {
+        @include font(bold, 14px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &-sort {
+        @include font(regular, 14px, 1.43);
+    }
+
+    &-sort_item {
+        font-weight: bold;
+        position: relative;
+        padding-right: 15px;
+
+        &.m-current {
+            @include icon(arrow-up-small, after, 14px);
+
+            &::after {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: color(red);
+            }
+        }
+    }
+
+    &-btns {
+        padding: 16px 0 24px;
+
+        @include media(m-up) {
+            display: none;
+        }
+
+        .b-product_filters-btn:first-child {
+            margin-right: 12px;
+        }
+    }
+
+    &-btn {
+        @include g-button-2();
+
+        width: 132px;
+        box-sizing: border-box;
+    }
+
+    &-checkbox {
+        @include media(m-up) {
+            display: none;
+        }
+
+        @include media(s) {
+            padding-bottom: 20px;
+        }
+
+        .f-input_checkbox-label {
+            @include font(regular, 16px, 1.25);
+        }
+
+        .f-input_checkbox {
+            margin-bottom: 12px;
+        }
+    }
+
+    &-checkbox_mall {
+        display: contents;
+    }
+
+    &-checkbox_btn {
+        @include text-link-underline(14px, 1.25);
+
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,487 @@
+
+/* Main header layout */
+
+.l-header {
+    min-height: auto;
+    position: relative;
+    z-index: 102;
+    margin: 0;
+
+    &.js-sticky {
+        z-index: 1001;
+
+        .l-header-banner {
+            display: none;
+        }
+
+        @include media(l-up) {
+            .l-header-navigation,
+            .l-header-service,
+            .l-header-accessibility,
+            &::before {
+                display: none;
+            }
+        }
+
+        @include media(s) {
+            .l-header-accessibility,
+            &::before {
+                display: none;
+            }
+        }
+
+        .l-header-container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 300;
+            @include media(s) {
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+    }
+
+    &.js-sticky {
+        .l-header-container {
+            &::before {
+                border: none;
+            }
+
+            @include media(s) {
+                grid-template:
+                    [start b-header-baner-start]
+                    auto
+                    [b-header-baner-end b-header-accessibility-start b-header-nav-start b-header-service-start line-top-panel-start]
+                    auto
+                    [line-top-panel-end b-header-accessibility-end b-header-search-start b-header-store-start b-header-nav-end b-header-service-end b-header-logo-start b-header-humburger-start b-header-store-start b-header-account-start b-header-project-start b-header-cart-start]
+                    auto
+                    [b-header-logo-end b-header-humburger-end b-header-search-end b-header-store-end b-qr-start b-header-account-end b-header-project-end b-header-cart-end b-header-navigation-start]
+                    auto
+                    [b-qr-end b-header-navigation-end]
+                    /
+                    [start b-header-baner-start b-header-navigation-start]
+                    minmax(2px, calc((100vw - 1440px) / 2))
+                    [b-header-humburger-start b-header-logo-start]
+                    minmax(0, 1fr) //1
+                    [b-header-humburger-end]
+                    minmax(0, 1fr) //2
+                    []
+                    minmax(0, 1fr) //3
+                    [b-header-nav-start]
+                    minmax(0, 1fr) //4
+                    []
+                    minmax(0, 1fr) //5
+                    [b-header-logo-end b-header-account-start b-header-accessibility-start]
+                    minmax(0, 1fr) //6
+                    []
+                    minmax(0, 1fr) //7
+                    [b-header-account-end b-qr-start b-header-search-start b-header-store-start b-header-project-start b-header-cart-start]
+                    minmax(0, 1fr) //8
+                    []
+                    minmax(0, 1fr) //9
+                    [ b-header-service-start]
+                    minmax(0, 1fr) //10
+                    [b-header-nav-end]
+                    minmax(0, 1fr) //11
+                    []
+                    minmax(0, 1fr) //12
+                    [b-header-service-end b-header-cart-end b-header-project-end b-header-search-end b-header-store-end b-qr-end b-header-accessibility-end]
+                    minmax(2px, calc((100vw - 1440px) / 2))
+                    [end b-header-baner-end b-header-navigation-end line-top-panel-end];
+                padding-bottom: 0;
+            }
+        }
+
+        .l-header-store,
+        .l-header-search {
+            @include media(s) {
+                align-self: center;
+                justify-self: flex-end;
+                max-width: none; //TODO: FE: should be refactored after old styles deleting
+            }
+        }
+
+        .l-header-qr {
+            @include media(s) {
+                display: none;
+            }
+        }
+    }
+
+    &-container {
+        background-image: var(--header-primary-bg);
+        display: grid;
+        grid-column-gap: 10px;
+        grid-template:
+            [start b-header-baner-start]
+            auto
+            [b-header-baner-end b-header-accessibility-start b-header-nav-start b-header-service-start line-top-panel-start]
+            auto
+            [line-top-panel-end b-header-accessibility-end b-header-nav-end b-header-service-end b-header-logo-start b-header-search-start b-header-store-start b-header-account-start b-header-project-start b-header-cart-start]
+            auto
+            [b-header-logo-end b-header-search-end b-header-store-end b-header-account-end b-header-project-end b-header-cart-end b-header-navigation-start]
+            auto
+            [b-header-navigation-end]
+            /
+            [start b-header-baner-start b-header-navigation-start]
+            minmax(20px, calc((100vw - 1440px) / 2))
+            [b-header-accessibility-start b-header-logo-start]
+            minmax(0, 1fr) //1
+            []
+            minmax(0, 1fr) //2
+            []
+            minmax(0, 1fr) //3
+            [b-header-accessibility-end b-header-nav-start]
+            minmax(0, 1fr) //4
+            [b-header-logo-end b-header-search-start]
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            [b-header-search-end b-header-store-start]
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            []
+            minmax(0, 1fr) //4
+            [b-header-store-end b-header-account-start]
+            minmax(0, 1fr) //5
+            []
+            minmax(0, 1fr) //6
+            []
+            minmax(0, 1fr) //7
+            []
+            minmax(0, 1fr) //8
+            [b-header-account-end b-header-project-start ]
+            minmax(0, 1fr) //9
+            [b-header-service-start b-header-nav-end]
+            minmax(0, 1fr) //10
+            []
+            minmax(0, 1fr) //11
+            [b-header-cart-start b-header-project-end]
+            minmax(0, 1fr) //12
+            [b-header-service-end b-header-cart-end]
+            minmax(20px, calc((100vw - 1440px) / 2))
+            [end b-header-baner-end b-header-navigation-end line-top-panel-end];
+
+        @include media(l) {
+            grid-template:
+                [start b-header-baner-start]
+                auto
+                [b-header-baner-end b-header-accessibility-start b-header-nav-start b-header-service-start line-top-panel-start]
+                auto
+                [line-top-panel-end b-header-accessibility-end b-header-nav-end b-header-service-end b-header-logo-start b-header-search-start b-header-store-start b-header-account-start b-header-project-start b-header-cart-start]
+                auto
+                [b-header-logo-end b-header-search-end b-header-store-end b-header-account-end b-header-project-end b-header-cart-end b-header-navigation-start]
+                auto
+                [b-header-navigation-end]
+                /
+                [start b-header-baner-start b-header-navigation-start]
+                minmax(20px, calc((100vw - 1440px) / 2))
+                [b-header-accessibility-start b-header-logo-start]
+                minmax(0, 1fr) //1
+                []
+                minmax(0, 1fr) //2
+                []
+                minmax(0, 1fr) //3
+                [b-header-accessibility-end b-header-nav-start]
+                minmax(0, 1fr) //4
+                [b-header-logo-end b-header-search-start]
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                [b-header-search-end b-header-store-start]
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //4
+                [b-header-store-end b-header-account-start]
+                minmax(0, 1fr) //4
+                []
+                minmax(0, 1fr) //5
+                []
+                minmax(0, 1fr) //6
+                []
+                minmax(0, 1fr) //7
+                []
+                minmax(0, 1fr) //8
+                [b-header-account-end b-header-project-start ]
+                minmax(0, 1fr) //9
+                [b-header-service-start b-header-nav-end]
+                minmax(0, 1fr) //10
+                []
+                minmax(0, 1fr) //11
+                [b-header-cart-start b-header-project-end]
+                minmax(0, 1fr) //12
+                [b-header-service-end b-header-cart-end]
+                minmax(20px, calc((100vw - 1440px) / 2))
+                [end b-header-baner-end b-header-navigation-end line-top-panel-end];
+        }
+
+        @include media(m) {
+            border-bottom: 1px solid color(gray-1);
+            padding-bottom: 12px;
+            grid-template:
+                [start b-header-baner-start]
+                auto
+                [b-header-baner-end b-header-accessibility-start b-header-nav-start b-header-service-start]
+                auto
+                [line-top-panel-start line-top-panel-end b-header-accessibility-end b-header-nav-end b-header-service-end b-header-logo-start b-header-humburger-start b-header-store-start b-header-account-start b-header-project-start b-header-cart-start]
+                auto
+                [b-header-logo-end b-header-humburger-end b-header-search-start b-qr-start b-header-store-end b-header-account-end b-header-project-end b-header-cart-end b-header-navigation-start]
+                auto
+                [b-header-search-end b-qr-end b-header-navigation-end]
+                /
+                [start b-header-baner-start b-header-navigation-start]
+                minmax(2px, calc((100vw - 1440px) / 2))
+                [b-header-accessibility-start b-header-humburger-start b-header-search-start b-header-logo-start]
+                minmax(0, 1fr) //1
+                [b-header-humburger-end]
+                minmax(0, 1fr) //2
+                []
+                minmax(0, 1fr) //3
+                [b-header-nav-start]
+                minmax(0, 1fr) //4
+                [b-header-accessibility-end]
+                minmax(0, 1fr) //5
+                []
+                minmax(0, 1fr) //6
+                [b-header-logo-end b-header-store-start]
+                minmax(0, 1fr) //7
+                []
+                minmax(0, 1fr) //8
+                []
+                minmax(0, 1fr) //9
+                []
+                minmax(0, 1fr) //10
+                []
+                minmax(0, 1fr) //11
+                []
+                minmax(0, 1fr) //12
+                [b-header-store-end b-header-account-start]
+                minmax(0, 1fr) //13
+                []
+                minmax(0, 1fr) //14
+                []
+                minmax(0, 1fr) //15
+                []
+                minmax(0, 1fr) //16
+                []
+                minmax(0, 1fr) //17
+                []
+                minmax(0, 1fr) //18
+                [b-header-account-end b-header-project-start]
+                minmax(0, 1fr) //19
+                []
+                minmax(0, 1fr) //20
+                []
+                minmax(0, 1fr) //21
+                [b-header-service-start b-qr-start]
+                minmax(0, 1fr) //22
+                [b-header-nav-end b-header-cart-start]
+                minmax(0, 1fr) //23
+                [b-header-project-end]
+                minmax(0, 1fr) //24
+                [b-header-service-end b-header-search-end b-header-cart-end b-qr-end]
+                minmax(2px, calc((100vw - 1440px) / 2))
+                [end b-header-baner-end b-header-navigation-end line-top-panel-end];
+        }
+
+        @include media(s) {
+            grid-template:
+                [start b-header-baner-start]
+                auto
+                [b-header-baner-end b-header-accessibility-start  b-header-store-start b-header-nav-start b-header-service-start line-top-panel-start]
+                auto
+                [line-top-panel-end b-header-accessibility-end b-header-store-end b-header-nav-end b-header-service-end b-header-logo-start b-header-humburger-start b-header-store-start b-header-account-start b-header-project-start b-header-cart-start]
+                auto
+                [b-header-logo-end b-header-humburger-end b-header-search-start b-qr-start b-header-account-end b-header-project-end b-header-cart-end b-header-navigation-start]
+                auto
+                [b-header-search-end b-qr-end b-header-navigation-end]
+                /
+                [start b-header-baner-start b-header-navigation-start]
+                minmax(2px, calc((100vw - 1440px) / 2))
+                [b-header-humburger-start b-header-search-start b-header-store-start b-header-logo-start]
+                minmax(0, 1fr) //1
+                []
+                minmax(0, 1fr) //2
+                [b-header-humburger-end]
+                minmax(0, 1fr) //3
+                [b-header-nav-start]
+                minmax(0, 1fr) //4
+                [b-header-logo-end]
+                minmax(0, 1fr) //5
+                [b-header-store-end b-header-account-start b-header-accessibility-start]
+                minmax(0, 1fr) //6
+                []
+                minmax(0, 1fr) //7
+                [b-header-account-end b-qr-start]
+                minmax(0, 1fr) //8
+                [b-header-cart-start b-header-project-start]
+                minmax(0, 1fr) //9
+                [b-header-service-start ]
+                minmax(0, 1fr) //10
+                [b-header-nav-end]
+                minmax(0, 1fr) //11
+                []
+                minmax(0, 1fr) //12
+                [b-header-service-end b-header-search-end b-header-cart-end b-qr-end b-header-accessibility-end b-header-project-end]
+                minmax(2px, calc((100vw - 1440px) / 2))
+                [end b-header-baner-end b-header-navigation-end line-top-panel-end];
+            padding-bottom: 10px;
+        }
+
+        &::before {
+            border-bottom: 1px solid var(--border-color);
+            content: '';
+            grid-area: line-top-panel-start/start / line-top-panel-end/end;
+
+            @include media(m) {
+                display: none;
+            }
+        }
+    }
+
+    &-banner {
+        grid-area: b-header-baner-start/b-header-baner-start / b-header-baner-end/b-header-baner-end;
+    }
+
+    &-accessibility {
+        align-self: center;
+        grid-area: b-header-accessibility-start/b-header-accessibility-start / b-header-accessibility-end/b-header-accessibility-end;
+
+        @include media(s) {
+            justify-self: flex-end;
+        }
+    }
+
+    &-navigation {
+        grid-area: b-header-nav-start/b-header-nav-start / b-header-nav-end/b-header-nav-end;
+
+        @include media(m-down) {
+            display: none;
+        }
+    }
+
+    &-service {
+        align-self: center;
+        grid-area: b-header-service-start/b-header-service-start / b-header-service-end/b-header-service-end;
+        justify-self: flex-end;
+
+        @include media(m-down) {
+            display: none;
+        }
+    }
+
+    &-logo {
+        grid-area: b-header-logo-start/b-header-logo-start / b-header-logo-end/b-header-logo-end;
+        align-self: center;
+    }
+
+    &-search {
+        grid-area: b-header-search-start/b-header-search-start / b-header-search-end/b-header-search-end;
+        align-self: center;
+    }
+
+    &-store {
+        grid-area: b-header-store-start/b-header-store-start / b-header-store-end/b-header-store-end;
+        align-self: center;
+        justify-self: center;
+
+        @include media(m) {
+            justify-self: flex-end;
+        }
+
+        @include media(s) {
+            justify-self: flex-start;
+        }
+    }
+
+    &-account {
+        grid-area: b-header-account-start/b-header-account-start / b-header-account-end/b-header-account-end;
+        justify-self: center;
+        align-self: center;
+
+        @include media(s) {
+            display: none;
+        }
+    }
+
+    &-project {
+        grid-area: b-header-project-start/b-header-project-start / b-header-project-end/b-header-project-end;
+        align-self: center;
+
+        @include media(s) {
+            justify-self: flex-end;
+        }
+    }
+
+    &-cart {
+        grid-area: b-header-cart-start/b-header-cart-start / b-header-cart-end/b-header-cart-end;
+        align-self: center;
+        position: relative;
+
+        @include media(s) {
+            justify-self: flex-end;
+        }
+    }
+
+    &-main_navigation {
+        grid-area: b-header-navigation-start/b-header-navigation-start / b-header-navigation-end/b-header-navigation-end;
+    }
+
+    &-hamburger {
+        align-self: center;
+        grid-area: b-header-humburger-start/b-header-humburger-start / b-header-humburger-end/b-header-humburger-end;
+
+        @include media(l-up) {
+            display: none;
+        }
+
+        // Styles for print
+        @media print {
+            display: none;
+        }
+    }
+
+    &-qr {
+        align-self: center;
+        grid-area: b-qr-start/b-qr-start / b-qr-end/b-qr-end;
+        justify-self: flex-end;
+
+        @include media(l-up) {
+            display: none;
+        }
+    }
+
+    &-navigation_wrapper {
+        pointer-events: all;
+    }
+}

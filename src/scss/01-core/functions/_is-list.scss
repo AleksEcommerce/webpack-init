@@ -1,0 +1,11 @@
+// Function to determine a list with comma separated values
+
+@function is-list($parameter) {
+    @if type-of ($parameter) == list {
+        @if list-separator ($parameter) == comma {
+            @return true;
+        }
+    }
+
+    @return false;
+}

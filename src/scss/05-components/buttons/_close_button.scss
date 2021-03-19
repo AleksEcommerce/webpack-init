@@ -1,0 +1,9 @@
+@mixin g-close_button($icon-size: 18px) {
+    align-items: center;
+    display: inline-flex;
+    padding: 10px 18px;
+
+    @include icon(close, before, $icon-size) {
+        font-weight: bold;
+    }
+}

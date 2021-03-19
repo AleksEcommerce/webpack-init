@@ -1,0 +1,63 @@
+.b-categories_navigation {
+    &-item_1 {
+        &:hover {
+            .b-categories_navigation-link_1 {
+                @include media(l-up) {
+                    color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+                    background-color: color(white) !important; //TODO: FE: should be refactored after old styles deleting
+                }
+            }
+        }
+    }
+
+    &-link_1 {
+        color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 14px 25px 13px 0 !important; //TODO: FE: should be refactored after old styles deleting
+
+        @include media(l-up) {
+            color: color(white) !important; //TODO: FE: should be refactored after old styles deleting
+            padding: 14px 16px !important; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &:hover {
+            text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+
+    &-title_2 {
+        @include media(l-up) {
+            margin-bottom: 32px !important; //TODO: FE: should be refactored after old styles deleting
+            padding-bottom: 5px !important; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        @include media(m-down) {
+            padding: 14px 0 13px !important; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &.m-single {
+            @include media(l-up) {
+                padding-bottom: 4px !important; //TODO: FE: should be refactored after old styles deleting
+            }
+        }
+    }
+
+    &-link_3 {
+        @include media(m-down) {
+            padding: 12px 0 !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+}
+
+.b-category_slot {
+    &-subtitle_link {
+        color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+        border-bottom: 1px solid color(gray-1) !important; //TODO: FE: should be refactored after old styles deleting
+        text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 12px 30px 12px 0 !important; //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+            border-color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+}

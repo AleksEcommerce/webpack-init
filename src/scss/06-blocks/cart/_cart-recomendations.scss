@@ -1,0 +1,120 @@
+.b-scs_recommendations {
+    background-color: color(white);
+    padding: $padding-inner 0 0;
+    margin-bottom: $padding-inner;
+
+    &-title {
+        @include font(bold, 14px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding-left: $padding-inner;
+        padding-right: $padding-inner;
+
+        &.m-hide {
+            border-top: 1px solid color(gray-1);
+            text-align: center;
+            padding: 16px 0;
+            margin: 0;
+
+            @include media(s) {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+    }
+
+    &-subtitle {
+        @include font(regular, 14px, 1.29);
+
+        margin-bottom: 0;
+        padding: 0 $padding-inner $padding-inner;
+    }
+
+    &-item {
+        @include font(regular, 14px, 1.29);
+
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid color(gray-1);
+        padding: 15px $padding-inner 17px;
+
+        @include media(s) {
+            display: grid;
+            grid-column-gap: 10px;
+            font-size: 14px;
+            padding: 11px 0 12px;
+            margin-left: 20px;
+            margin-right: 20px;
+            grid-template:
+                [start recomendation-name-s recomendation-shop-s recomendation-hide-s]
+                auto
+                [recomendation-name-e recomendation-address-s]
+                auto
+                [recomendation-address-e recomendation-hide-e recomendation-shop-e]
+                /
+                [start recomendation-name-s recomendation-address-s]
+                minmax(0, 3fr)
+                [recomendation-name-e recomendation-address-e recomendation-address-s recomendation-shop-s]
+                minmax(0, 1fr)
+                [end recomendation-address-e recomendation-shop-e];
+        }
+    }
+
+    &-item_name {
+        font-weight: bold;
+        flex-grow: 1;
+
+        @include media(s) {
+            font-weight: normal;
+            grid-area: recomendation-name-s/recomendation-name-s/recomendation-name-e/recomendation-name-e;
+            justify-self: flex-start;
+            margin-bottom: 9px;
+        }
+    }
+
+    &-item_name-span {
+        @include media(s) {
+            border-bottom: 1px solid color(red);
+        }
+    }
+
+    &-item_shop {
+        @include text-link-underline(14px, 1.33, icon);
+        @include icon(arrow-right-small, before, 24px);
+
+        margin: 0 20px;
+
+        @include media(s) {
+            grid-area: recomendation-shop-s/recomendation-shop-s/recomendation-shop-e/recomendation-shop-e;
+            align-self: center;
+            justify-self: flex-end;
+        }
+    }
+
+    &-item_hide {
+        @include text-link-underline(14px, 1.33);
+
+        margin: 0 20px;
+
+        @include media(s) {
+            grid-area: recomendation-hide-s/recomendation-hide-s/recomendation-hide-e/recomendation-hide-e;
+            align-self: center;
+            justify-self: flex-end;
+            margin: 0;
+        }
+    }
+
+    &-item_addres {
+        font-size: 12px;
+
+        @include media(m-up) {
+            margin: 0 20px;
+        }
+
+        @include media(s) {
+            grid-area: recomendation-address-s/recomendation-address-s/recomendation-address-e/recomendation-address-e;
+            justify-self: flex-start;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+///    Animation
+///    @example
+///        @include fade(out);
+///        @include fade(in);
+
+@mixin fade($mod: out) {
+    @if $mod == out {
+        opacity: 0;
+        transition: visibility 0s 0.5s, opacity 0.5s;
+        visibility: hidden;
+    }
+
+    @if $mod == in {
+        opacity: 1;
+        transition: visibility, opacity 0.5s;
+        visibility: visible;
+    }
+}

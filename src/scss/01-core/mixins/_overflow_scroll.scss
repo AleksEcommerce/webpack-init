@@ -1,0 +1,17 @@
+@mixin overflow($type: all, $value: auto) {
+    @if $type == all {
+        overflow: $value;
+
+        @supports (overflow: overlay) {
+            overflow: overlay;
+        }
+    } @else {
+        overflow-#{$type}: $value;
+
+        @supports (overflow: overlay) {
+            overflow-#{$type}: overlay;
+        }
+    }
+
+    overscroll-behavior: contain;
+}

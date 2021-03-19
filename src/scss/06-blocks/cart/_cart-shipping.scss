@@ -1,0 +1,77 @@
+.b-shipping_product {
+    @include font(regular, 14px, 1.29);
+
+    border: 1px solid color(gray-1);
+
+    @include media(m-up) {
+        margin-left: $margin-inner;
+    }
+
+    @include media(s) {
+        font-style: 12px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &-top {
+        border-bottom: 1px solid color(gray-1);
+        padding: 14px;
+
+        @include media(m-up) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &-name {
+        @include media(m-up) {
+            max-width: 72%;
+            flex-grow: 1;
+        }
+
+        @include media(s) {
+            margin-bottom: 12px;
+        }
+
+        &_info {
+
+        }
+
+        &_icon {
+            @include text-thumbnail(root);
+
+            color: color(red);
+            padding-left: 5px;
+        }
+
+        &_text {
+            @include text-thumbnail(msg);
+        }
+
+        &_close {
+            @include text-thumbnail(close);
+        }
+    }
+
+    &-link {
+        @include text-link-underline(14px, 1.29);
+
+        &.m-bottom {
+            @include text-link-underline(14px, 1.29, icon);
+        }
+
+        &.m-store {
+            @include icon(in-store, before, 24px);
+        }
+
+        &.m-home {
+            @include icon(delivery, before, 24px);
+        }
+    }
+
+    &-bottom {
+        padding: 14px;
+        align-items: center;
+    }
+}

@@ -1,0 +1,38 @@
+@mixin g-accordion(
+    $el: root,
+    $mod: default
+) {
+    @if $el == root {
+        -webkit-tap-highlight-color: color(transparent);
+    }
+
+    @if $el == control {
+        @if $mod == default {
+            cursor: pointer;
+            display: block;
+            position: relative;
+        }
+
+        @if $mod == expanded {
+        }
+    }
+
+    @if $el == content {
+        @if $mod == default {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.3s cubic-bezier(0, 1, 1, 1), opacity 0.3s, visibility 0.3s ease 0.3s, padding 0.3s;
+            visibility: hidden;
+            will-change: max-height, opacity, visibility;
+        }
+
+        @if $mod == expanded {
+            max-height: 3000px;
+            opacity: 1;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 1), opacity 0.3s;
+            visibility: visible;
+        }
+    }
+}

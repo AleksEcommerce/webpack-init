@@ -1,0 +1,133 @@
+.b-store_details {
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+    }
+
+    &-name {
+        @include font(bold, 14px, 1.29);
+
+        color: color(black);
+        letter-spacing: 2px;
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+
+    &-distance {
+        @include font(bold, 14px, 1.29);
+
+        color: color(black);
+    }
+
+    &-coordinates {
+        @include font(regular, 14px, 1.29);
+
+        color: color(black);
+        margin-bottom: 15px;
+    }
+
+    &-tel {
+        @include font(bold, 14px, 1.29);
+        @include icon(phone, before, 14px);
+
+        margin-bottom: 15px;
+        padding: 6px 0 5px 32px;
+        position: relative;
+
+        &::before {
+            color: color(red);
+            font-size: 24px;
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    &-phone {
+        color: color(black);
+    }
+
+    &-operating {
+        @include font(regular, 14px, 1.29);
+
+        color: color(black);
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    &-footer {
+        @include font(regular, 14px, 1.29);
+
+        align-items: center;
+        color: color(black);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-btn {
+        @include font(bold, 14px, 1.25);
+
+        letter-spacing: 2px;
+        width: 174px;
+        text-transform: uppercase;
+        padding: 14px 0 15px; //TODO: FE: should be refactored after old styles deleting
+        border: 1px solid color(black); //TODO: FE: should be refactored after old styles deleting
+        text-align: center;
+        background-color: color(white);
+
+        &:hover {
+            background-color: color(red); //TODO: FE: should be refactored after old styles deleting
+            border-color: color(red); //TODO: FE: should be refactored after old styles deleting
+            color: color(white); //TODO: FE: should be refactored after old styles deleting
+            text-decoration: none;
+        }
+    }
+
+    &-directions {
+        @include icon(location, before, 24px);
+        @include font(regular, 16px, 1.25);
+
+        padding: 6px 0 5px 32px;
+        position: relative;
+
+        &::before {
+            color: color(red);
+            font-size: 24px;
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    &-directions_link,
+    &-details {
+        @include font(regular, 16px, 1.25);
+
+        border-bottom: 1px solid color(red); //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            text-decoration: none; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+
+    &-find {
+        @include font(regular, 16px, 1.29);
+
+        display: block;
+        padding: 15px 0; //TODO: FE: should be refactored after old styles deleting
+        text-decoration: none; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    &-other {
+        @include font(regular, 16px, 1.29);
+
+        display: block;
+        padding: 15px 0;
+    }
+
+    &-find_text {
+        border-bottom: 1px solid color(red);
+    }
+}

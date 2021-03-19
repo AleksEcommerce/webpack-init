@@ -1,0 +1,32 @@
+/*
+##Layout
+*/
+
+@mixin css-variables-layout {
+    :root {
+        --top-menu-height: 40px;
+        --top-banner-height: 40px;
+        --header-height: 110px;
+        --header-height-mini: 62px;
+        --header-container-width: 1440px;
+        --content-width: 1200px;
+        --content-width-tablet: 768px;
+        --main-content-width: 1200px;
+        --exl-content-width: 1920px;
+        --grid-gutter: 20px;
+        --content-width-xl: 1440px;
+    }
+}
+
+$max-content-width: var(--content-width);
+$max-content-width-main: var(--main-content-width);
+$max-content-width-xl: var(--content-width-xl);
+$max-content-width-exl: var(--exl-content-width);
+$max-content-width-md: var(--content-width-tablet);
+$top-menu-height: var(--top-menu-height);
+$top-banner-height: var(--top-banner-height);
+
+/*
+##Font
+*/
+$global-letter-spacing: normal;

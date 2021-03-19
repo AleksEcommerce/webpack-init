@@ -1,0 +1,63 @@
+/*
+    <div class="b-dropdown" data-component="global/Dropdown">
+        <div class="b-dropdown-title" data-js-dropdown-control>
+            <span class="b-dropdown-item_name">Value 1</span>
+        </div>
+
+         <div class="b-dropdown-wrapper" data-js-dropdown-wrapper>
+            <div class="b-dropdown-item" data-js-dropdown-item>
+                <span class="b-dropdown-item_name">Value 1</span>
+            </div>
+
+            <div class="b-dropdown-item" data-js-dropdown-item>
+                <span class="b-dropdown-item_name">Value 2</span>
+            </div>
+        </div>
+    </div>
+*/
+
+//Functional Dropdown styles
+
+@mixin g-dropdown(
+    $_: root
+) {
+    @if $_ == root {}
+
+    @if $_ == _title {
+        @include icon(arrow-down, after, 6px);
+
+        display: flex;
+    }
+
+    @if $_ == _title_expanded {
+        &::after {
+            content: icon-char(arrow-up);
+        }
+    }
+
+    @if $_ == _wrapper {
+        @include scrollbar ($_scrollbar-color: lighter5, $_thumb-color: lighter3);
+
+        max-height: 0;
+        position: relative;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    @if $_ == _wrapper_expanded {
+        max-height: rh(52);
+    }
+
+    @if $_ == _item {
+        cursor: pointer;
+        display: flex;
+    }
+
+    @if $_ == _item_disabled {
+        pointer-events: none;
+    }
+
+    @if $_ == _item_name {
+        flex-grow: 1;
+        pointer-events: none;
+    }
+}

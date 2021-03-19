@@ -1,0 +1,62 @@
+.b-sss_tabs {
+    &-nav {
+        max-width: 544px;
+        margin: 0 auto;
+    }
+
+    &-nav_list {
+        display: flex;
+        list-style-type: none;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    &-nav_item {
+        @include font(regular, 16px, 24px);
+        @include icon(help, before, 24px);
+
+        cursor: pointer;
+        color: color(black);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        padding: 12px 0 14px;
+        border-bottom: 2px solid color(white);
+        transition: all 0.3s ease;
+
+        &::before {
+            color: color(red);
+            line-height: 24px;
+            margin-right: 8px;
+        }
+
+        &:hover,
+        &.m-active {
+            font-weight: bold;
+            border-bottom-color: color(red);
+        }
+    }
+
+    &-nav_numbers {
+        color: color(red);
+        font-weight: bold;
+    }
+
+    &-container {
+        padding-top: 15px;
+
+        @include media(m-up) {
+            padding-top: 35px;
+        }
+    }
+
+    &-content {
+        display: none;
+
+        &.m-active {
+            display: block;
+        }
+    }
+}

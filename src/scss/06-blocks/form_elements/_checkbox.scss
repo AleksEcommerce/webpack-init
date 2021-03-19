@@ -1,0 +1,51 @@
+/*md
+@no-stat
+# Checkboxes
+
+## HTML structure example:
+
+```
+<div class="f-input_checkbox">
+	<input id="checkbox-1" class="f-input_checkbox-field" type="checkbox">
+	<label for="checkbox-1" class="f-input_checkbox-label">I have a car</label>
+</div>
+```
+
+### Default
+
+```html_example
+<div class="f-input_checkbox">
+	<input id="checkbox-1" class="f-input_checkbox-field" type="checkbox">
+	<label for="checkbox-1" class="f-input_checkbox-label">I have a car</label>
+</div>
+```
+
+### Checked
+
+```html_example
+<div class="f-input_checkbox">
+	<input id="checkbox-2" class="f-input_checkbox-field" type="checkbox" checked>
+	<label for="checkbox-2" class="f-input_checkbox-label">I have a car</label>
+</div>
+```
+
+### Default disabled
+
+```html_example
+<div class="f-input_checkbox">
+	<input id="checkbox-3" class="f-input_checkbox-field" type="checkbox" disabled>
+	<label for="checkbox-3" class="f-input_checkbox-label">I have a car</label>
+</div>
+```
+
+### Checked disabled
+
+```html_example
+<div class="f-input_checkbox">
+	<input id="checkbox-4" class="f-input_checkbox-field" type="checkbox" checked disabled>
+	<label for="checkbox-5" class="f-input_checkbox-label">I have a car</label>
+</div>
+```
+*/
+
+@include f-checkbox;

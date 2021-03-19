@@ -1,0 +1,68 @@
+/*md
+@no-stat
+# Textarea
+
+## HTML structure example:
+
+```
+<div class="f-textarea">
+	<label for="textarea-1 " class="f-textarea-label">Label</label>
+	<textarea id="textarea-1" name="textarea" class="f-textarea-field"></textarea>
+</div>
+```
+
+### Default textarea
+
+```html_example
+<div class="f-textarea">
+	<label for="textarea-2" class="f-textarea-label">Label</label>
+	<textarea id="textarea-2" name="textarea" class="f-textarea-field"></textarea>
+</div>
+```
+
+### Textarea is required
+
+```html_example
+<div class="f-textarea m-required">
+	<label for="textarea-3" class="f-textarea-label">Label</label>
+	<textarea id="textarea-3" name="textarea" class="f-textarea-field" required></textarea>
+</div>
+```
+
+### Active textarea (optional)
+
+```html_example
+<div class="f-textarea m-prefilled">
+	<label for="textarea-4" class="f-textarea-label">Label<span class="f-textarea-optional_copy"> (optional)</span></label>
+	<textarea id="textarea-4" name="textarea" class="f-textarea-field">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum eaque incidunt accusantium, sint debitis culpa.</textarea>
+</div>
+```
+
+### Textarea in error state
+
+```html_example
+<div class="f-textarea m-error">
+	<label for="textarea-5" class="f-textarea-label">Label</label>
+	<textarea id="textarea-5" name="textarea" class="f-textarea-field">asdf asf</textarea>
+</div>
+```
+
+### Disabled textarea
+
+```html_example
+<div class="f-textarea m-disabled">
+	<label for="textarea-6" class="f-textarea-label">Label</label>
+	<textarea id="textarea-6" name="textarea" class="f-textarea-field" disabled></textarea>
+</div>
+```
+
+### Textarea without label
+
+```html_example
+<div class="f-textarea">
+	<textarea name="textarea" class="f-textarea-field"></textarea>
+</div>
+```
+*/
+
+@include f-textarea;

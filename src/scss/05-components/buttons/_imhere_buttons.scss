@@ -1,0 +1,60 @@
+@mixin g-imhere-active_btn($flexDirection, $height, $color) {
+    display: flex;
+    flex-direction: $flexDirection;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $color !important;
+    border-radius: 4px;
+    height: $height;
+    width: 28%;
+    margin-right: 3%;
+
+    &:last-child {
+        margin-right: 0 !important;
+    }
+
+    p {
+        color: $color !important;
+    }
+}
+
+@mixin g-imhere-vehicle_btn($flexDirection, $height) {
+    display: flex;
+    flex-direction: $flexDirection;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e2e2e2;
+    border-radius: 4px;
+    margin-right: 3%;
+    height: $height;
+    width: 28%;
+    // margin-right: 4%;
+    white-space: nowrap;
+
+    &:last-child {
+        margin-right: 0 !important;
+    }
+}
+
+@mixin g-imhere-survey_btn($borderColor, $outlineColor, $color) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    background-color: white;
+    color: $color !important;
+    outline-color: $outlineColor !important;
+    border-color: $borderColor;
+}
+
+@mixin i-imhere-btn_color($color) {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #bababa;
+    border-radius: 50%;
+    background-color: $color;
+    margin-right: 0.5em;
+}

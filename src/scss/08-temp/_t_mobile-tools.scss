@@ -1,0 +1,60 @@
+/*Mobile Tools*/
+.b-quick_search {
+    max-width: none; //TODO: FE: should be refactored after old styles deleting
+
+    &-inner {
+        max-width: none; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    &-submit {
+        color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 0 !important; //TODO: FE: should be refactored after old styles deleting;
+    }
+
+    &-clear {
+        color: color(black) !important;
+        padding: 0 !important; //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+}
+
+.b-account_dropdown {
+    &-menu {
+        @include media(m-up) {
+            position: static !important; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &.m-auth {
+            .b-account_dropdown-link {
+                @include media(s) {
+                    color: var(black) !important; //TODO: FE: should be refactored after old styles deleting
+                    padding: 14px 0 !important; //TODO: FE: should be refactored after old styles deleting
+                }
+            }
+        }
+    }
+}
+
+.b-header_projects {
+    &-action {
+        &:hover {
+            text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+}
+
+.b-header_scan {
+    &-close {
+        border-bottom: 1px solid color(red) !important; //TODO: FE: should be refactored after old styles deleting
+        color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 0 !important; //TODO: FE: should be refactored after old styles deleting
+        text-transform: none !important; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    &-btn {
+        padding: 0 32px 0 0 !important; //TODO: FE: should be refactored after old styles deleting
+    }
+}

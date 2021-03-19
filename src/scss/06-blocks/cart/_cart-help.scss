@@ -1,0 +1,59 @@
+.b-scs_help {
+    @include font(regular, 14px, 1.43);
+
+    margin-bottom: 40px;
+
+    @include media(m-up) {
+        padding-bottom: 40px;
+        border-bottom: 1px solid color(gray-1);
+    }
+
+    @include media(s) {
+        position: relative;
+        padding: 0 $padding-inner;
+    }
+
+    &::after {
+        position: absolute;
+        left: 20px;
+        right: 0;
+        top: -20px;
+        height: 1px;
+        background-color: color(gray-1);
+
+        @include media(s) {
+            content: '';
+        }
+    }
+
+    &-title {
+        @include icon(delivery, before, 24px);
+        @include font(bold, 14px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding-left: 30px;
+
+        &::before {
+            @include media(m-up) {
+                position: absolute;
+                left: 0;
+                top: -9px;
+            }
+
+            @include media(s) {
+                display: block;
+            }
+        }
+    }
+
+    &-list {
+        margin: 0;
+        padding: 0 0 0 15px;
+        list-style-type: disc;
+    }
+
+    &-item {
+        margin-bottom: 8px;
+    }
+}

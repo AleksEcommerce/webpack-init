@@ -1,0 +1,408 @@
+/*md
+# Product tiles
+
+## Type 1 (default)
+
+```html_example
+    <div class="b-product">
+        <div class="b-product_tile m-type_1">
+            <figure class="b-product_tile-figure">
+                <a href="#" class="b-product_tile-figure_link">
+                    <picture>
+                        <source srcset="//placehold.it/286x328&text=S+143x164 2x" media="all and (max-width:767px)">
+                        <source srcset="//placehold.it/500x570&text=M+250x285 2x" media="all and (max-width:1023px)">
+                        <source srcset="//placehold.it/250x285&text=L+250x285" media="all and (min-width:1024px)">
+                        <img src="//placehold.it/250x285">
+                    </picture>
+                </a>
+            </figure>
+            <a href="#" class="b-product_tile-category">Valley Ridge</a>
+            <div class="b-product_tile-title">
+                <a href="#" class="b-product_tile-title_link">Dayton Oak Wood Plank Ceramic Tile</a>
+            </div>
+            <div class="b-product_tile-footer">
+                <span class="b-product_tile-price">$0.65 <span class="b-product_tile-numbers">/ sqft</span></span>
+                <span class="b-product_tile-various">Size: 3 x 12</span>
+            </div>
+        </div>
+    </div>
+```
+*/
+$product-padding-inner: 16px;
+$product-padding-inner-sm: 20px;
+
+.b-product {
+    height: 100%;
+}
+
+.b-product_tile {
+    display: grid;
+    background-color: color(white);
+    box-sizing: border-box;
+    border-bottom: 4px solid color(white);
+    height: 100%;
+    padding-bottom: $product-padding-inner;
+    position: relative;
+    grid-template:
+        [start b-product-img-s]
+        auto
+        [start b-product-img-e b-product-pagination-s b-product-panel-s b-product-panel-e]
+        auto
+        [b-product-pagination-e b-product-category-s]
+        auto
+        [b-product-category-e b-product-title-s]
+        auto
+        [b-product-title-e b-product-details-s]
+        minmax(0, 1fr)
+        [b-product-details-e b-product-variations-s]
+        auto
+        [b-product-variations-e b-product-compare-s b-product-sample-s b-product-projects-s]
+        auto
+        [b-product-compare-e b-product-sample-e b-product-projects-e]
+        auto
+        [b-product-counter-s]
+        auto
+        [b-product-counter-e]
+        auto
+        [b-product-add-to-cart-s]
+        auto
+        [end b-product-add-to-cart-e]
+        /
+        [start b-product-img-s b-product-pagination-s b-product-category-s b-product-title-s b-product-details-s b-product-variations-s b-product-compare-s b-product-panel-s b-product-counter-s b-product-add-to-cart-s]
+        minmax(0, 1fr) //1
+        [b-product-compare-e b-product-sample-s]
+        minmax(0, auto) //2
+        [b-product-sample-e b-product-projects-s]
+        minmax(0, auto) //3
+        [end b-product-img-e b-product-pagination-e b-product-category-e b-product-title-e b-product-details-e b-product-variations-e b-product-projects-e b-product-panel-e b-product-counter-e b-product-add-to-cart-e];
+
+    @include media(m-down) {
+        padding: $product-padding-inner-sm;
+    }
+    
+    &.m-type_2 {
+        @include media(m-down) {
+            grid-column-gap: 20px;
+            grid-template:
+                [start b-product-img-s b-product-title-s]
+                auto
+                [b-product-title-e b-product-details-s]
+                minmax(0, 1fr)
+                [b-product-img-e b-product-details-e b-product-variations-s]
+                auto
+                [b-product-variations-e b-product-counter-s]
+                auto
+                [b-product-counter-e b-product-add-to-cart-s]
+                auto
+                [end b-product-add-to-cart-e]
+                /
+                [start b-product-img-s b-product-variations-s b-product-counter-s b-product-add-to-cart-s]
+                minmax(0, 1fr) //1
+                []
+                minmax(0, 1fr) //2
+                [b-product-img-e b-product-title-s b-product-details-s]
+                minmax(0, 1fr) //3
+                []
+                minmax(0, 1fr) //4
+                [end b-product-title-e b-product-details-e b-product-variations-e b-product-counter-e b-product-add-to-cart-e];
+            }
+    
+            .b-product_tile-figure {
+                @include media(m-down) {
+                    @include image_reflow_mix($width: 110, $height: 110, $type: container);
+    
+                    margin-right: 20px;
+                }
+            }
+    
+            .b-product_tile-title {
+                padding-bottom: 8px;
+            }
+     
+            .b-product_price {
+                @include media(m-down) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                }
+                
+                &-cost {
+                    @include media(m-down) {
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    
+    &.m-type_3 {
+        $type3-mobile-padding: 16px;
+        
+        @include media(m-down) {
+            padding: 0 0 $type3-mobile-padding;
+        }
+    
+        .b-product_tile {
+            &-category {
+                @include media(m-down) {
+                    margin-left: $type3-mobile-padding;
+                    margin-right: $type3-mobile-padding;
+                }
+            }
+            
+            &-title,
+            &-details,
+            &-counter,
+            &-cart {
+                @include media(m-down) {
+                    padding-left: $type3-mobile-padding;
+                    padding-right: $type3-mobile-padding;
+                }
+            }
+        }
+    }
+
+    &.m-type_1,
+    &.m-type_2,
+    &.m-type_3 {
+        box-shadow: inset 0 0 0 1px transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 16px 24px -4px rgba(0, 0, 0, 0.16), 0 0 4px 0 rgba(0, 0, 0, 0.1);
+            border-color: color(red);
+
+            .b-product_tile-title_link {
+                color: color(red);
+            }
+
+            .b-product_tile-panel_inner {
+                bottom: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &-figure {
+        @include image_reflow_mix($width: 291, $height: 291, $type: container);
+
+        grid-area: b-product-img-s/b-product-img-s / b-product-img-e/b-product-img-e;
+        background-color: color(gray-5);
+        margin: 0 0 12px;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+
+    &-figure_link {
+        display: block;
+    }
+
+    &-figure_img {
+        @include image_reflow_mix($type: image);
+    }
+
+    &-pagination {
+        grid-area: b-product-pagination-s/b-product-pagination-s / b-product-pagination-e/b-product-pagination-e;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    &-pagination_item {
+        width: calc(50% - 4px);
+        height: 2px;
+        background-color: color(gray-1);
+
+        &.m-active {
+            background-color: color(red);
+        }
+    }
+
+    &-label {
+        @include font(bold, 12px, 1.25);
+
+        padding: 6px 8px 4px;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        @include media(m-down) {
+            left: 20px;
+            top: 40px;
+        }
+
+        &.m-clearance {
+            background-color: color(yellow);
+            color: color(black);
+        }
+
+        &.m-new {
+            background-color: color(red);
+            color: color(white);
+        }
+
+        & + .b-product_tile-label {
+            top: 50px;
+
+            @include media(m-down) {
+                top: 70px;
+            }
+        }
+    }
+
+    &-title {
+        @include font(bold, 14px, 1.25);
+
+        grid-area: b-product-title-s/b-product-title-s / b-product-title-e/b-product-title-e;
+        padding: 0 0 22px;
+        color: color(black);
+        margin: 0;
+
+        @include media(m-up) {
+            margin: 0 $product-padding-inner;
+        }
+    }
+
+    &-title_link {
+        color: color(black);
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &-panel {
+        grid-area: b-product-panel-s/b-product-panel-s / b-product-panel-e/b-product-panel-e;
+        margin-top: -53px;
+        height: 41px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &-panel_inner {
+        position: absolute;
+        bottom: -41px;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: space-between;
+        padding: 13px 8px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    &-projects {
+        grid-area: b-product-projects-s/b-product-projects-s / b-product-projects-e/b-product-projects-e;
+
+        @include media(m-up) {
+            margin-right: $product-padding-inner;
+        }
+
+        @include media(s) {
+            margin-left: $product-padding-inner;
+        }
+    }
+
+    &-projects_btn {
+        @include icon(favorites, before, 20px);
+        @include text-link-underline(12px, 1.33, icon);
+    }
+
+    &-projects_icon {
+        @include icon(favorites, before, 20px);
+
+        &::before {
+            color: color(red);
+        }
+    }
+
+    &-quick_btn {
+        @include icon(search, before, 20px);
+        @include text-link-underline(12px, 1.33, icon, inverse);
+    }
+
+    &-category {
+        @include font(bold, 11px, 1.2);
+
+        grid-area: b-product-category-s/b-product-category-s / b-product-category-e/b-product-category-e;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 0 0 4px;
+
+        @include media(m-up) {
+            margin: 0 $product-padding-inner 4px;
+        }
+    }
+
+    &-category_link {
+        color: color(gray-5);
+
+        &:link,
+        &:visited {
+            color: color(gray-5);
+        }
+    }
+
+    &-details {
+        grid-area: b-product-details-s/b-product-details-s / b-product-details-e/b-product-details-e;
+        margin: 0 0 25px;
+
+        @include media(m-up) {
+            margin: 0 $product-padding-inner;
+        }
+    }
+
+    &-variations {
+        grid-area: b-product-variations-s/b-product-variations-s / b-product-variations-e/b-product-variations-e;
+        margin: 0 -4px 34px;
+
+        @include media(m-up) {
+            padding: $product-padding-inner;
+            margin: 0 -4px 4px;
+            border-top: 1px solid color(gray-3);
+        }
+    }
+
+    &-compare {
+        grid-area: b-product-compare-s/b-product-compare-s / b-product-compare-e/b-product-compare-e;
+
+        @include media(m-up) {
+            padding: 0 $product-padding-inner;
+        }
+    }
+
+    &-sample {
+        grid-area: b-product-sample-s/b-product-sample-s / b-product-sample-e/b-product-sample-e;
+
+        @include media(m-up) {
+            padding: 0 $product-padding-inner;
+        }
+    }
+    
+    &-counter {
+        grid-area: b-product-counter-s/b-product-counter-s / b-product-counter-e/b-product-counter-e;
+    
+        @include media(m-up) {
+            padding: 0 $product-padding-inner;
+        }
+    }
+    
+    &-cart {
+        grid-area: b-product-add-to-cart-s/b-product-add-to-cart-s / b-product-add-to-cart-e/b-product-add-to-cart-e;
+    
+        @include media(m-up) {
+            padding: 0 $product-padding-inner;
+        }
+    }
+    
+    &-cartbtn {
+        @include g-button_2();
+    
+        display: block;
+        width: auto;
+    }
+}

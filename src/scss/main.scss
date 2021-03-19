@@ -1,11 +1,6 @@
-@import "mixins";
-@import "fonts";
-@import "vendor";
-@import "vars";
-@import "settings";
+@import 'global.scss';
+@import '08-temp/t_udemy';
 
 body {
-  color: #ff0000;
-	background-image: url("../img/2.jpg");
-	background-color: #008000;
+
 }

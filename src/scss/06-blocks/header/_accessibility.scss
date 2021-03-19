@@ -1,0 +1,31 @@
+// Accessibility
+.b-accessibility {
+    @include font(regular, 14px, 1.29);
+
+    padding: 10px 0;
+
+    // Styles for print
+    @media print {
+        white-space: nowrap;
+    }
+
+    @include media(s) {
+        align-items: center;
+        display: flex;
+        font-size: 12px;
+        padding: 0;
+        height: $top-menu-height;
+    }
+
+    &-link {
+        color: var(--secondary-color); //TODO: FE: should be refactored after old styles deleting
+
+        .b-navigation-accessibility & {
+            color: color(black); //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &:hover {
+            color: color(red); //TODO: FE: should be refactored after old styles deleting
+        }
+    }
+}

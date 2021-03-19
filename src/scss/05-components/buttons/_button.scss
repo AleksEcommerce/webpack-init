@@ -1,0 +1,94 @@
+/*
+# Button component
+
+This component is used for common styling for all buttons
+
+*/
+
+@mixin button($mod: default) {
+    @if $mod == default {
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        max-width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        transition: background-color 0.2s;
+        vertical-align: top;
+
+        &:link {
+
+        }
+
+        &::before,
+        &::after {
+            font-size: 24px;
+            transition: color 0.2s;
+            color: color(red);
+        }
+
+        &::before {
+            padding-right: 8px; // padding for left icon
+        }
+
+        &::after {
+            padding-left: 8px; // padding for right icon
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            &::before,
+            &::after {
+                color: color(white);
+            }
+        }
+    }
+
+    @if $mod == disabled {
+        background-color: color(gray-1);
+        border-color: color(gray-1);
+        color: color(gray-4);
+        pointer-events: none;
+    }
+
+    @if $mod == disabled_colored {
+        background-color: rgba(color(gray-1), 0.5);
+        color: rgba(color(gray-4), 0.5);
+        pointer-events: none;
+    }
+
+    @if $mod == flex {
+        width: auto;
+    }
+
+    @if $mod == normal_size {
+        @include font(bold, 14px, 16px);
+
+        letter-spacing: 2px;
+        padding: 16px !important; // FE Todo
+
+        &:link {
+            padding: 16px !important; // FE Todo
+        }
+    }
+
+    @if $mod == normal_size_border {
+        @include font(bold, 14px, 16px);
+
+        border-width: 1px;
+        letter-spacing: 2px;
+        padding: 14px;
+    }
+
+    @if $mod == small_size {
+        @include font(bold, 12px, 14px);
+
+        letter-spacing: 4px;
+        padding: 7px;
+    }
+
+    @if $mod == full {
+        width: 100%;
+    }
+}

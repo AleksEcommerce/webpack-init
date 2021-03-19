@@ -1,0 +1,223 @@
+.b-footer_signup {
+
+    @include media(l-up) {
+        flex: 0 1 350px;
+        margin: 0 $footer-column-indent;
+        min-width: 350px;
+    }
+
+    @include media(m) {
+        flex: 1 1 auto;
+        min-width: 100%;
+    }
+
+    &-inner_1 {
+        display: block;
+        padding: 20px;
+        text-align: center;
+
+        &#emailCTA2-m {
+            display: block;
+        }
+
+        @include media(m) {
+            max-width: 459px;
+            margin: 0 auto;
+            padding-top: 32px;
+            padding-bottom: 32px;
+        }
+
+        @include media(s) {
+            padding-top: 24px;
+            padding-bottom: 32px;
+        }
+    }
+
+    &-title {
+        @include font(bold, 24px, 1.33);
+
+        color: color(red);
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    &-subtitle {
+        @include font(bold, 12px, 1.67);
+
+        color: color(black);
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+    }
+
+    &-text {
+        @include font(regular, 12px, 1.33);
+
+        color: color(gray-5);
+        margin-bottom: 16px;
+    }
+
+    &-form {
+
+    }
+}
+
+.b-footer_form {
+    display: flex;
+    flex-wrap: wrap;
+
+    &-first_name {
+        padding-right: 4px;
+
+        @include media(m) {
+            padding-right: 6px;
+        }
+    }
+
+    &-first_name,
+    &-last_name {
+        box-sizing: border-box;
+        flex-basis: 50%;
+        margin-bottom: 8px;
+
+        @include media(m) {
+            margin-bottom: 12px;
+        }
+    }
+
+    &-last_name {
+        padding-left: 4px;
+
+        @include media(m) {
+            padding-left: 6px;
+        }
+    }
+
+    &-email {
+        flex-basis: 100%;
+        min-width: 100%;
+    }
+
+    &-input {
+        @include font(regular, 16px, 1.25);
+
+        border: none;
+        box-shadow: inset 1px 1px transparent, inset -1px -1px transparent;
+        box-sizing: border-box;
+        color: color(black);
+        height: 48px;
+        padding: 12px 16px;
+        transition: all 0.3s ease;
+        width: 100%;
+
+        &:focus {
+            box-shadow: inset 1px 1px #000, inset -1px -1px #000;
+            outline: none;
+        }
+
+        &.error {
+            background-color: color(white);
+            box-shadow: inset 1px 1px red, inset -1px -1px red;
+        }
+
+        &::placeholder,
+        &:-ms-input-placeholder,
+        &::-ms-input-placeholder {
+            color: color(gray-5);
+        }
+    }
+
+    &-radio_block {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 24px;
+        padding-top: 14px;
+
+        .b-footer_form-error {
+            padding-top: 5px;
+            min-width: 100%;
+        }
+    }
+
+    &-radio_labels {
+        align-items: center;
+        display: flex;
+        margin-right: 24px;
+    }
+
+    &-radio_btn {
+        margin: 0;
+    }
+
+    &-radio_label {
+        @include font(regular, 16px, 1.25);
+
+        margin-left: 16px;
+    }
+
+    &-btn_wrap {
+        flex-basis: 100%;
+    }
+
+    &-btn {
+        @include font(bold, 14px, 20px);
+
+        background-color: color(black);
+        color: color(white);
+        height: 48px;
+        letter-spacing: 2px;
+        padding: 12px 0;
+        transition: all 0.3s ease;
+        width: 100%;
+
+        &:hover {
+            background-color: color(red);
+        }
+    }
+
+    &-btn_sign {
+
+    }
+
+    &-error {
+        @include font(regular, 10px, 12px);
+
+        color: color(red);
+        text-align: left;
+    }
+
+    &-footer {
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 2px;
+        padding: 40px 0;
+    }
+
+    &-success {
+        @include icon(tick-big, before, 16px);
+        @include font(bold, 24px, 24px);
+
+        display: inline-block;
+        padding-left: 32px;
+        position: relative;
+        margin-bottom: 8px;
+
+        &::before {
+            border: 2px solid color(green);
+            color: color(green);
+            line-height: 20px;
+            font-weight: bold;
+            width: 20px;
+            text-align: right;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &-thank {
+        @include font(bold, 12px, 20px);
+    }
+}

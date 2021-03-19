@@ -1,0 +1,172 @@
+/*md
+@no-stat
+
+# Color palette
+
+All colors have to be grouped into 2 main lists - `palette` and `semantic_colors`
+
+You can't use hard-coded color values while styling - use `color()` function instead
+
+## Palette
+
+Palette is like an artist's palette. In this list we
+have a basic colors, which then can be mapped to `semantic_colors`.
+Here we can have main dark and main light colors (originally it's black and white) and etc.
+
+## Semantic colors
+
+It's a good idea to map palette's colors to semantic colors.
+For example: in `palette` map we have a red color which then might be used for an error color in
+`semantic_colors` map.
+
+```html_example
+<style>
+.colors {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+[data-color] {
+    align-items: stretch;
+    border: 1px solid;
+    display: flex;
+    flex-flow: column;
+    height: 150px;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+[data-color]::before,
+[data-color]::after {
+    background: #fff;
+    content: attr(data-color);
+    font-weight: bold;
+    padding: 5px;
+}
+
+[data-color]::before {
+    background: #fff;
+    content: attr(data-text);
+}
+
+</style>
+
+<p>Primary colors</p>
+<div class="colors">
+    <div data-color="#ed1c24" data-text="Highlights and icons" style="background-color: #ed1c24" ></div>
+    <div data-color="#000000" data-text="Text and icons" style="background-color: #000000"></div>
+    <div data-color="#DFDFDF" data-text="Lines" style="background-color: #DFDFDF"></div>
+    <div data-color="#DFDFDF, Opacity: 0.2" data-text="Lines for darkbackground" style="background-color: rgba(223, 223, 223, 0.2)"></div>
+    <div data-color="#F3F3F3" data-text="Background" style="background-color: #F3F3F3"></div>
+</div>
+
+<p>Additional colors</p>
+<div class="colors">
+    <div data-color="#FF6A00" data-text="Errors" style="background-color: #FF6A00" ></div>
+    <div data-color="#BAB9B3" data-text="Disabled" style="background-color: #BAB9B3"></div>
+</div>
+```
+
+## Usage
+
+As it was mentioned before - in order to use colors you have to use `color()` function.
+
+Here is how it looks
+
+```scss
+.b-block {
+    background: color(black); // this function returns a value from the palette map
+}
+```
+*/
+
+/* stylelint-disable */
+// Function returns color from the Color Palette ($palette map)
+
+@function get-color-from($map, $colorName) {
+    @if map-has-key($map, $colorName) == false {
+        @warn There is no such color '#{$colorName}';
+        @return null;
+    } @else {
+        @return map-get($map, $colorName);
+    }
+}
+
+// Function searches for a color in both color palettes
+
+@function color($colorName) {
+    @if map-has-key($palette, $colorName) {
+        @return get-color-from($palette, $colorName);
+    } @else if map-has-key($semantic_colors, $colorName) {
+        @return get-color-from($semantic_colors, $colorName);
+    } @else {
+        @warn There is no such color '#{$colorName}';
+        @return null;
+    }
+}
+
+$palette: (
+    red:             #ed1c24,
+    black:           #000000,
+    orange:          #ff6a00,
+    yellow:          #fff200,
+    green:           #80b023,
+    gray-1:          #dfdfdf,
+    gray-2:          rgba(223, 223, 223, 0.2),
+    gray-3:          #f3f3f3,
+    gray-4:          #bababa,
+    gray-5:          #8a8a8a,
+    gray-6:          rgba(0, 0, 0, 0.5),
+    gray-7:          #3d3d3d,
+
+    gray-8:          #5A7D7C,
+    gray-9:          #e9e9e9,
+    stickbg:           #e9e9e9,
+    white:           #fff,
+    transparent:     transparent,
+);
+
+@mixin css-variables-colors { // for mapping palette colors into CSS variables which should reflect ones from semantic colors
+    :root {
+        --color-main:     #{color(black)};
+        --color-error:    #{color(red)};
+
+        --color-red-primary:     #{color(red)};
+        --color-theme-white: #{color(white)};
+        --color-theme-black: #{color(black)};
+
+        --header-primary-bg: linear-gradient(to bottom, #ffffff, #ffffff);
+        --header-attribute-bg: #{color(gray-3)};
+        --header-minicart-bg: #{color(gray-1)};
+        --border-color: #{color(gray-1)};
+        --primary-color: #{color(white)};
+        --secondary-color: #{color(black)};
+    }
+
+    .ug-pro {
+        --header-primary-bg: radial-gradient(circle at 50% 2%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 139%), linear-gradient(to bottom, #000000, #000000);
+        --header-attribute-bg: #{color(black)};
+        --header-minicart-bg: #{color(black)};
+        --border-color: rgba(223, 223, 223, 0.2);
+        --primary-color: #{color(black)};
+        --secondary-color: #{color(white)};
+        --color-red-primary:  #{color(black)};
+    }
+}
+
+$semantic_colors: (
+    black:                     color(black),
+    white:                     color(white),
+    none:                      color(transparent),
+    green:                     color(green),
+    //# Core semantic colors
+    main:                      var(--color-main),
+    error:                     var(--color-error),
+    text:                      color(black),
+    text_hover:                color(black),
+    error-color:               #fae1e2
+);
+/* stylelint-enable */

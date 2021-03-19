@@ -1,0 +1,192 @@
+@mixin g-carousel_style_1($el: root, $mod: default) {
+    $carousel-item-width: 269px;
+    $carousel-item-padding: 6px;
+    $carousel-container-padding: calc(#{$carousel-item-padding} * 2 * -1);
+
+    @if $el == root {
+        @include g-carousel;
+
+        --carousel-1-side-padding: #{$carousel-item-padding};
+        --carousel-1-item-width: #{$carousel-item-width};
+
+        @include media(m-down) {
+            --carousel-1-side-padding: 10px;
+
+            justify-content: flex-start;
+            padding-left: var(--carousel-1-side-padding);
+        }
+
+        @include media(s) {
+            --carousel-1-side-padding: 20px;
+        }
+    }
+
+    @if $el == title {
+        @include font(bold, 24px, 1.33);
+
+        text-transform: uppercase;
+        position: relative;
+        align-self: center;
+        box-sizing: border-box;
+
+        @include media(l-up) {
+            text-align: center;
+            width: calc(#{$carousel-item-width} + #{$carousel-item-padding} + #{$carousel-item-padding});
+        }
+
+        @include media(m-down) {
+            margin-bottom: 32px;
+        }
+
+        &::after {
+            position: absolute;
+            bottom: -16px;
+            height: 4px;
+            left: 0;
+            background-color: color(red);
+            width: 100px;
+            content: '';
+
+            @include media(l-up) {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -10px;
+            }
+        }
+    }
+
+    @if $el == container-items {
+        @include media(l-up) {
+            width: calc(100% - (#{$carousel-item-width} + #{$carousel-item-padding} + #{$carousel-item-padding}));
+            flex-grow: 1;
+        }
+    }
+
+    @if $el == container-inner {
+        margin-right: $carousel-container-padding !important;
+    }
+
+    @if $el == container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    @if $el == track {
+        @if $mod == default {
+            @include g-carousel(track);
+        }
+    }
+
+    @if $el == control {
+        @if $mod == default {
+            @include g-carousel(control);
+
+            background-color: color(red);
+            color: color(white);
+            height: 40px;
+            margin-top: -20px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 40px;
+            z-index: 2;
+            transition: all 0.3s ease;
+
+            @include media(s) {
+                display: none;
+            }
+
+            &::before {
+                line-height: 40px;
+            }
+
+            &[disabled] {
+                opacity: 0.5;
+            }
+
+            &.m-previous {
+                @include icon(arrow-left-small, 24px);
+
+                left: 0;
+            }
+
+            &.m-next {
+                @include icon(arrow-right-small, 24px);
+
+                right: 0;
+            }
+
+            &:hover::before {
+                font-size: 32px;
+            }
+        }
+
+        @if $mod == no_scroll {
+            display: none;
+        }
+    }
+
+    @if $el == pagination_container {
+        @if $mod == default {
+            margin: 5px;
+            text-align: center;
+        }
+
+        @if $mod == no_scroll {
+            display: none;
+        }
+    }
+
+    @if $el == pagination_control {
+        @if $mod == default {
+            @include g-carousel(pagination_control);
+
+            background-color: color(gray-3);
+            border-radius: 50%;
+            height: 10px;
+            margin: 3px 12px;
+            transition: background-color ease 0.4s;
+            width: 10px;
+        }
+
+        @if $mod == active {
+            background-color: color(regular-black);
+        }
+    }
+
+    @if $el == slide {
+        @if $mod == default {
+            @include g-carousel(slide);
+            @include g-carousel(slide, snap-to-start);
+            @include g-carousel(slide, product-tile);
+
+            // Right side padding after the last slide
+            // fix for https://blog.alexandergottlieb.com/overflow-scroll-and-the-right-padding-problem-a-css-only-solution-6d442915b3f4
+
+            position: relative;
+            box-sizing: border-box;
+            padding-right: calc(#{$carousel-item-padding} * 2);
+
+            @include media(s) {
+                padding-right: var(--carousel-1-side-padding);
+            }
+
+            &:last-child::after {
+                content: '';
+                height: 1px;
+                left: 100%;
+                position: absolute;
+                right: 0;
+            }
+            // EO: Right side padding after the last slide
+
+            &.m-first {//stylelint-disable-line
+                scroll-margin-left: var(--carousel-1-side-padding);
+            }
+
+            &.m-last {
+                scroll-margin-right: var(--carousel-1-side-padding);
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+@mixin f-select {
+    .f-select {
+        &-element_wrapper {
+            display: block;
+            position: relative;
+
+            @include icon(select-chevron, after) {
+                font-size: 9px;
+                opacity: 0.8;
+                pointer-events: none;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        &-element {
+            @include f-input_field;
+            @include f-input_field(type_select);
+        }
+
+        option {
+            &:checked {
+                color: color(black-highlight);
+            }
+        }
+
+        &.m-error &-element_wrapper {
+            &::after {
+                color: color(red);
+            }
+        }
+
+        &.m-error &-element {
+            @include f-input_field(error);
+        }
+
+        &.m-disabled &-element {
+            @include f-input_field(disabled);
+        }
+
+        &-label {
+            @include f-input_label;
+            @include f-input_label($mod: static);
+            @include f-input_label(_optional_copy);
+        }
+
+        &.m-required &-label {
+            @include f-input_label($mod: required);
+        }
+
+        &.m-simple &-element_wrapper {
+            display: inline-block;
+
+            &::after {
+                right: 0;
+            }
+        }
+
+        &.m-filled &-element,
+        &-element_wrapper.m-filled &-element {
+            color: color(regular-black);
+        }
+
+        &.m-filled &-element_wrapper::after,
+        &-element_wrapper.m-filled::after {
+            opacity: 1;
+        }
+
+        &-label_description {
+            @include f-input_label(_label_description);
+        }
+
+        &.m-simple &-element {
+            border: none;
+            line-height: normal;
+            padding: 0;
+            width: auto;
+        }
+
+        &-label_link {
+            @include f-input_label(_label_link);
+        }
+    }
+}

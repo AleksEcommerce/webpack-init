@@ -1,0 +1,45 @@
+
+.b-pdp_desc {
+    text-align: center;
+    padding-bottom: 24px;
+    
+    &-container {
+        text-align: left;
+        padding-bottom: 24px;
+        
+        &.m-faq {
+            @include media(p-up) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: 32px;
+            }
+        }
+    }
+    
+    &-box {
+    
+    }
+    
+    &-subtitle {
+        @include font(bold, 16px, 1.25);
+    }
+    
+    &-text {
+        @include font(regular, 16px, 1.25);
+    }
+    
+    &-link {
+        @include text-link-underline(16px, 1.25);
+    }
+    
+    &-btn {
+        @include g-button_2();
+    
+        width: 432px;
+    
+        @include media(p-down) {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+}

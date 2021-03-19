@@ -1,0 +1,531 @@
+.b-scs_popup {
+    position: relative;
+
+    &-added {
+        @include font(regular, 16px, 1.25);
+
+        color: color(white);
+        background-color: color(green);
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        .ajs-message {
+            padding: 8px 26px;
+        }
+    }
+
+    &-title {
+        @include font(bold, 20px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        max-width: 90%;
+
+        @include media(s) {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+    }
+
+    &-subtitle {
+        @include font(bold, 16px, 1.25);
+
+        margin-bottom: 14px;
+        max-width: 80%;
+    }
+
+    &-close {
+        @include icon(close-small, before, 24px);
+
+        color: color(black);
+        position: absolute;
+        top: -5px;
+        right: -5px;
+    }
+
+    &-header {
+        margin: 0;
+    }
+
+    &-footer {
+        background-color: color(gray-3);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        padding: 16px 32px 18px;
+        position: absolute;
+
+        @include media(s) {
+            left: -20px;
+            right: -20px;
+            bottom: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &.m-hide {
+            display: none;
+        }
+
+        &.m-projects {
+            @include media(s) {
+                padding-bottom: 43px;
+            }
+
+            &::after {
+                position: absolute;
+                bottom: 8px;
+                width: 134px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 5px;
+                background-color: color(black);
+                border-radius: 100px;
+
+                @include media(s) {
+                    content: '';
+                }
+            }
+        }
+
+        &_link {
+            @include icon(plus, before, 24px);
+            @include text-link-underline(16px, 1.25, icon);
+        }
+    }
+
+    &-text {
+        @include font(regular, 16px, 1.25);
+
+        margin-bottom: 32px;
+
+        @include media(s) {
+            margin-bottom: 24px;
+        }
+
+        &_mall {
+            font-weight: bold;
+        }
+    }
+
+    &-btns {
+        display: flex;
+        padding-bottom: 20px;
+        justify-content: space-between;
+
+        &.m-pickup {
+            @include media(s) {
+                padding-bottom: 45px;
+                position: relative;
+            }
+
+            &::after {
+                position: absolute;
+                width: 134px;
+                bottom: 8px;
+                height: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: color(black);
+                border-radius: 100px;
+
+                @include media(s) {
+                    content: '';
+                }
+            }
+        }
+    }
+
+    &-btn {
+        @include g-button_1();
+
+        box-sizing: border-box;
+        width: calc(50% - 12px);
+        margin: 0;
+
+        &.m-cancel {
+            @include g-button_2();
+
+            width: calc(50% - 12px);
+            margin: 0;
+        }
+    }
+}
+
+.b-popup_project {
+    padding-bottom: 43px;
+
+    @include media(s) {
+        padding-bottom: 79px;
+    }
+
+    &-current {
+        display: flex;
+        margin-bottom: 32px;
+
+        &_figure {
+            width: 85px;
+            height: 85px;
+            margin-right: 16px;
+        }
+
+        &_img {
+            width: 100%;
+        }
+
+        &_title {
+            @include font(bold, 16px, 1.25);
+
+            margin: 0;
+        }
+    }
+
+    &-subtitle {
+        @include font(bold, 14px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding-bottom: 8px;
+        border-bottom: 1px solid color(gray-1);
+        margin-bottom: 5px;
+    }
+
+    &-list {
+        @include scrollbar();
+
+        max-height: 270px;
+        overflow: auto;
+        max-width: none;
+        margin: 0 -30px;
+        padding: 0 30px;
+
+        @include media(s) {
+            margin: 0 -17px;
+            padding: 0 17px;
+        }
+    }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        padding-bottom: 8px;
+        padding-top: 8px;
+
+        &_thumbnail {
+            background-color: color(green);
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+        }
+
+        &_img {
+            width: 100%;
+        }
+
+        &_name {
+            @include font(bold, 16px, 1.25);
+
+            flex-grow: 1;
+        }
+
+        &_link {
+            @include text-link-underline(16px, 1.25);
+
+            display: inline-block;
+        }
+    }
+}
+
+.b-scs_create {
+    padding-top: 8px;
+
+    @include media(s) {
+        padding: 8px 20px 0;
+    }
+
+    &-title {
+        @include font(bold, 16px, 1.25);
+
+        margin-bottom: 16px;
+    }
+
+    &-form {
+        text-align: left;
+    }
+
+    &-label {
+        float: none;
+        width: 100%;
+        margin-bottom: 24px;
+        padding: 0;
+    }
+
+    &-input {
+        @include f-input_field();
+
+        &[type="text"],
+        &[type="password"],
+        &[type="number"],
+        &[type="tel"] {
+            @include f-input_field();
+
+            height: 48px;
+        }
+
+        &.is-invalid {
+            @include f-input_field(error);
+        }
+    }
+
+    .f-control__error {
+        @include f-input_field(error-text);
+    }
+}
+
+.b-scs_added {
+    background-color: color(green);
+    padding: 8px 24px;
+    color: color(white);
+
+    &-text {
+        @include font(regular, 16px, 1.2);
+
+        margin: 0;
+    }
+
+    &-name {
+        font-weight: bold;
+    }
+}
+
+.b-scs_search {
+    &-form {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+
+    &-title {
+        @include font(regular, 16px, 1.25);
+
+        margin-bottom: 12px;
+        min-width: 100%;
+    }
+
+    .f-group {
+        flex-grow: 1;
+        max-width: calc(100% - 116px);
+        position: relative;
+
+        &.is-invalid-container {
+            padding-bottom: 20px;
+        }
+    }
+
+    .f-group.is-invalid-container ~ .b-scs_search-btn {
+        margin-bottom: 20px;
+    }
+
+    &-label {
+        @include font(regular, 16px, 1.29);
+
+        float: none;
+        width: auto;
+        padding: 0 0 12px;
+        position: relative;
+
+        @include media(s) {
+            margin: 0 16px 0 0;
+            white-space: nowrap;
+        }
+    }
+
+    .f-control__error {
+        @include f-input_field(error-text);
+    }
+
+    &-error {
+        @include font(regular, 14px, 1.29);
+
+        position: absolute;
+        color: color(red);
+        bottom: -18px;
+        left: 0;
+    }
+
+    &-input {
+        @include f-input_field();
+
+        &[type="text"],
+        &[type="password"],
+        &[type="number"],
+        &[type="tel"] {
+            @include f-input_field();
+
+            height: 48px;
+        }
+
+        &.is-invalid {
+            @include f-input_field(error);
+        }
+    }
+
+    /* stylelint-disable */
+    &-btn {
+        @include g-button_1();
+
+        width: 100px;
+        margin-top: 32px;
+    }
+    /* stylelint-enable */
+
+    &-results {
+        padding-top: 24px;
+        max-width: none;
+        width: 100%;
+
+        @include media(m-down) {
+            width: 100%;
+            margin-bottom: -20px;
+        }
+    }
+
+    &-change {
+        text-align: center;
+
+        &_link {
+            @include icon(delivery, before, 24px);
+            @include text-link-underline(14px, 1.29, icon);
+        }
+    }
+}
+
+.b-scs_mall {
+    margin: 0 -32px -32px;
+    background-color: color(gray-3);
+    padding-top: 24px;
+    max-width: none;
+    position: relative;
+
+    @include media(s) {
+        margin: 0 -20px;
+    }
+
+    &-title {
+        @include font(bold, 14px, 1.43);
+
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+        padding: 0 32px;
+
+        @include media(s) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    &-list {
+        @include scrollbar();
+
+        overflow: auto;
+        max-height: 300px;
+        padding: 0 32px;
+
+        @include media(s) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .b-scs_mall-item {
+            position: static;
+        }
+    }
+
+    &-item {
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border-bottom: 1px solid color(gray-1);
+        position: relative;
+
+        @include media(m-up) {
+            display: flex;
+        }
+
+        &.m-last {
+            border-bottom: none;
+        }
+    }
+
+    &-block_1 {
+        flex-grow: 1;
+        padding-right: 10px;
+
+        @include media(s) {
+            margin-bottom: 12px;
+        }
+    }
+
+    &-block_2 {
+
+        @include media(m-up) {
+            text-align: right;
+        }
+    }
+
+    &-name {
+        @include icon(location, before, 16px);
+        @include font(bold, 16px, 1.25);
+
+        display: block;
+        margin-bottom: 6px;
+
+        &::before {
+            color: color(red);
+            margin-right: 4px;
+            transform: translateY(2px);
+        }
+    }
+
+    &-adress {
+        @include font(regular, 14px, 1.29);
+    }
+
+    &-stock {
+        @include font(regular, 12px, 1.33);
+
+        color: color(red);
+        margin-bottom: 6px;
+        display: block;
+
+        @include media(s) {
+            position: absolute;
+            right: 0;
+            top: 25px;
+        }
+
+        &_status {
+            color: color(black);
+        }
+    }
+
+    &-btn,
+    &-btn:link,
+    &-btn:visited {
+        @include g-button_2();
+
+        width: 193px;
+        box-sizing: border-box;
+
+        @include media(s) {
+            width: 100%;
+        }
+    }
+}

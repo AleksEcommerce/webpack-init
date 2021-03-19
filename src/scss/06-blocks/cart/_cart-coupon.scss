@@ -1,0 +1,59 @@
+.b-scs_coupon {
+    padding-bottom: 20px;
+
+    &-fieldset {
+        overflow: hidden;
+    }
+
+    .f-group {
+        width: calc(100% - 100px);
+        float: left;
+    }
+
+    &-btn {
+        @include g-button_2();
+
+        width: 83px;
+        margin-left: 15px;
+        height: 48px;
+        color: color(black);
+    }
+
+    &-success_text {
+        @include font(regular, 16px, 1.29);
+
+        display: block;
+        margin-bottom: 12px;
+        color: color(green);
+    }
+
+    &-success_link {
+        @include text-link-underline(14px, 1.29);
+    }
+
+    .f-control__caption {
+        @include font(regular, 14px, 1.29);
+
+        color: color(gray-5);
+        width: 100%;
+        word-spacing: -1px;
+    }
+
+    .f-control__error {
+        @include f-input_field(error-text);
+
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .f-control__text,
+    input.f-control__text {
+        @include f-input_field();
+
+        height: 48px;
+
+        &.is-invalid {
+            @include f-input_field(error);
+        }
+    }
+}

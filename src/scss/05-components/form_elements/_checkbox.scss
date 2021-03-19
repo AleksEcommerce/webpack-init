@@ -1,0 +1,60 @@
+@mixin f-checkbox {
+    $disabled-color: color(gray-4);
+
+    .f-input_checkbox {
+        display: inline-block;
+        vertical-align: middle;
+
+        &-label {
+            @include font(regular, 16px, 20px);
+
+            color: color(black);
+            cursor: pointer;
+            display: flex;
+
+            @include media(s) {
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            &::before {
+                content: "";
+                display: inline-block;
+                border: 1px solid color(black);
+                height: 18px;
+                width: 18px;
+                margin-right: 12px;
+                text-align: center;
+            }
+        }
+
+        &-field {
+            clip: rect(1px, 1px, 1px, 1px);
+            position: absolute;
+        }
+
+        &-field:checked + &-label {
+            @include icon(tick-big, before, 24px);
+
+            &::before {
+                color: color(white);
+                background-color: color(black);
+            }
+        }
+
+        &-field:disabled + &-label {
+            border-color: $disabled-color;
+            color: $disabled-color;
+        }
+
+        &-field:disabled + &-label::before {
+            border-color: $disabled-color;
+        }
+
+        &-field:disabled:checked + &-label::before {
+            color: color(white);
+            border-color: $disabled-color;
+            background-color: $disabled-color;
+        }
+    }
+}

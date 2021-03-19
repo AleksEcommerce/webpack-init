@@ -1,0 +1,105 @@
+.b-qty_selector {
+    &.m-pdp {
+        .b-qty_selector-controls_wrap {
+            width: 100%;
+            padding: 10px 12px;
+        }
+    }
+    
+    &.m-product {
+        .b-qty_selector-controls_wrap {
+            width: 100%;
+            padding: 10px 12px;
+        }
+    }
+    
+    &-controls_wrap {
+        align-content: center;
+        align-items: center;
+        border: 1px solid color(gray-1);
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 120px;
+        margin: 0 auto;
+        padding: 14px 12px;
+
+        @include media(s) {
+            width: 100%;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+    }
+
+    &-control {
+        @include font(regular, 32px, 24px);
+
+        color: color(red);
+        cursor: pointer;
+        width: 24px;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+
+        &[disabled] {
+            color: color(gray-5);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &-label {
+        display: none;
+        margin-right: 10px;
+    }
+
+    &.m-disabled {
+        border-color: color(gray-2);
+        color: color(gray-2);
+    }
+
+    &.m-disabled &-control,
+    &-control.m-disabled {
+        cursor: default;
+
+        &::before {
+            color: color(gray-2);
+        }
+    }
+
+    &-value {
+        @include font(regular, 16px, 1.25);
+
+        -moz-appearance: textfield;
+        background: 0 0;
+        border: 0;
+        outline: 0;
+        padding: 0;
+        height: 100%;
+        text-align: center;
+        width: 40px;
+        flex-grow: 1;
+
+        &[disabled] {
+            color: color(gray-5);
+        }
+    }
+
+    &-error {
+        @include font(bold, 14px);
+ 
+        color: color(red);
+        margin-top: rh(1);
+        width: 100%;
+    }
+    
+    &-subtitle {
+        @include font(regular, 14px);
+    
+        text-align: center;
+        color: color(gray-5);
+        padding: 12px 0;
+    }
+}

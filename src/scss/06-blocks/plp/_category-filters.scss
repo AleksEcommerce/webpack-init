@@ -1,0 +1,96 @@
+.b-category_filters {
+    @include media(s) {
+        order: 1;
+        margin: 0 20px 12px;
+    }
+
+    &-title {
+        @include font(bold, 20px, 1.2);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+    }
+
+    &-list {
+        display: flex;
+        margin-bottom: 24px;
+
+        @include media(m-up) {
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-rows: 1fr;
+            grid-gap: 12px;
+        }
+    }
+
+    &-item {
+        @include font(regular, 14px, 1.29);
+
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: color(white);
+        border-bottom: 4px solid color(white);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        min-height: 66px;
+        padding: 8px 20px;
+
+        @include media(m-up) {
+            justify-content: center;
+        }
+
+        @include media(s) {
+            justify-content: center;
+            min-width: 128px;
+            margin-right: 12px;
+            border-bottom-width: 2px;
+            min-height: 68px;
+        }
+
+        &.m-thumbnail {
+            padding: 0 0 8px;
+
+            @include media(s) {
+                justify-content: flex-start;
+            }
+
+            .b-category_filters-item_name {
+                display: block;
+                padding: 0 20px;
+
+                @include media(s) {
+                    display: flex;
+                    justify-content: center;
+                    flex-grow: 1;
+                    align-items: center;
+                }
+            }
+        }
+
+        &:hover,
+        &.m-current {
+            border-color: color(red);
+            font-weight: bold;
+        }
+    }
+
+    &-item_name {
+
+    }
+
+    &-item_thumbnail {
+        @include image_reflow_mix($width: 178, $height: 115, $type: container);
+
+        margin: 0 0 9px;
+    }
+
+    &-item_img {
+        @include image_reflow_mix($type: image);
+
+        left: 0;
+    }
+}

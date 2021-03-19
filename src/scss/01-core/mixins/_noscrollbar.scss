@@ -1,0 +1,13 @@
+///    Animation
+///    @example
+///        @include noscrollbar;
+
+@mixin noscrollbar {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @supports (scrollbar-width: none) {
+        scrollbar-width: none;
+    }
+}

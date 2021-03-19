@@ -1,0 +1,37 @@
+.b-footer_social {
+    &-list {
+        display: flex;
+        justify-content: space-between;
+
+        @include media(s) {
+            padding: 32px 0 24px;
+            border-bottom: 1px solid color(gray-1);
+            margin-bottom: 24px;
+        }
+    }
+
+    &-link {
+        font-size: 24px;
+        line-height: 1;
+        text-decoration: none;
+        color: color(black);
+
+        @include media(l-up) {
+            margin: 0 16px;
+        }
+
+        @include media(m-up) {
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        @include media(m) {
+            margin: 0 9px;
+        }
+    }
+
+    &-icon {
+
+    }
+}

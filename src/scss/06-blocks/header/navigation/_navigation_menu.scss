@@ -1,0 +1,499 @@
+
+.b-categories_navigation {
+
+    @include media(l-up) {
+        background-color: color(red);
+    }
+
+    &-list_1 {
+        margin: 0;
+        padding: 0;
+
+        @include media(l-up) {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        @include media(m-down) {
+            position: relative;
+        }
+
+        // Styles for print
+        @media print {
+            text-align: center;
+        }
+
+        &::before {
+            @include media(m) {
+                top: 70px;
+            }
+
+            @include media(m-down) {
+                background-color: color(red);
+                content: '';
+                height: 2px;
+                left: $padding-mobile-nav;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+
+        .b-categories_navigation-item_1:last-child {
+            @include media(s) {
+                border-bottom: none;
+            }
+        }
+    }
+
+    &-item_1 {
+        @include font(bold, 14px, 1.43);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        @include media(l-up) {
+            @include font(bold, 16px, 1.25);
+        }
+
+        @include media(m-down) {
+            border-bottom: 1px solid color(gray-1);
+            margin: 0 $padding-mobile-nav;
+            cursor: pointer;
+        }
+
+        // Styles for print
+        @media print {
+            display: inline-block;
+        }
+
+        &:hover {
+            .b-categories_navigation-link_1::before {
+                @include media(l-up) {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+
+            .b-categories_navigation-group_1 {
+                @include media(l-up) {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            .b-categories_navigation-link_1 {
+                @include media(l-up) {
+                    color: color(red); //TODO: FE: should be refactored after old styles deleting
+                    background-color: color(white); //TODO: FE: should be refactored after old styles deleting
+                }
+            }
+        }
+    }
+
+    &-link_1 {
+        @include icon(arrow-right-small, after, 24px);
+
+        color: color(black); //TODO: FE: should be refactored after old styles deleting
+        display: block;
+        padding: 14px 25px 13px 0; //TODO: FE: should be refactored after old styles deleting
+
+        @include media(l-up) {
+            background-color: transparent;
+            color: color(white); //TODO: FE: should be refactored after old styles deleting
+            padding: 14px 16px; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        @include media(m-down) {
+            padding-right: 20px;
+            position: relative;
+        }
+
+        &:hover {
+            text-decoration: none; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &::after {
+            color: color(red);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @include media(l-up) {
+                display: none;
+            }
+
+            // Styles for print
+            @media print {
+                display: none;
+            }
+        }
+
+        &::before {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            top: 333px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            overscroll-behavior-y: contain;
+            pointer-events: none;
+            transition: 0.3s ease all;
+            transition-delay: 0.5s;
+
+            @include media(l-up) {
+                content: '';
+            }
+        }
+    }
+
+    &-group_1 {
+        @include mobile_group_1();
+
+        @include media(l-up) {
+            position: absolute;
+            background-color: color(white);
+            border-bottom: 2px solid color(red);
+            left: 50%;
+            margin-left: -50vw;
+            padding: 28px 0 8px;
+            top: 100%;
+            width: 100vw;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 2;
+            transition: 0.3s ease all;
+            transition-delay: 0.5s;
+        }
+
+        // Styles for print
+        @media print {
+            display: none;
+        }
+    }
+
+    &-inner_1 {
+        @include mobile_inner_1();
+    }
+
+    &-container {
+        @include media(l-up) {
+            margin: 0 auto;
+            max-width: $max-content-width;
+        }
+
+        @include media(l-up) {
+            max-width: $max-content-width-xl;
+        }
+    }
+
+    &-section {
+        &.m-slot-panel.m-slot-two,
+        &.m-category-panel.m-slot-two {
+            .b-megamenu_banners {
+                @include media(l-up) {
+                    margin: 0 -16px;
+                }
+
+                &-item {
+                    @include media(l-up) {
+                        flex: 0 1 50%;
+                        max-width: 50%;
+                        padding: 0 16px;
+                    }
+                }
+            }
+        }
+
+        &.m-category-panel {
+            .b-categories_navigation-list_2 {
+                @include media(l-up) {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+
+            .b-categories_navigation-item_2 {
+                @include media(l-up) {
+                    flex: 0 1 25%;
+                    max-width: 25%;
+                }
+            }
+        }
+
+        &.m-category-panel.m-slot-one,
+        &.m-category-panel.m-slot-two {
+            @include media(l-up) {
+                display: flex;
+            }
+
+            .b-categories_navigation-list_2 {
+                @include media(l-up) {
+                    justify-content: flex-start;
+                }
+            }
+
+            .b-categories_navigation-content_2 {
+                @include media(l-up) {
+                    flex: 0 1 50%;
+                    max-width: 50%;
+                }
+            }
+
+            .b-categories_navigation-slots {
+                @include media(l-up) {
+                    flex: 0 1 50%;
+                    max-width: 50%;
+                }
+            }
+
+            .b-categories_navigation-list_2 {
+                @include media(l-up) {
+                    flex-wrap: wrap;
+                }
+
+                &.m-two_columns {
+                    .b-categories_navigation-item_2 {
+                        @include media(l-up) {
+                            flex: 1 1 auto;
+                            max-width: 50%;
+                            min-width: 50%;
+                        }
+                    }
+                }
+
+                &.m-tree_columns {
+                    .b-categories_navigation-item_2 {
+                        @include media(l-up) {
+                            flex: 1 1 auto;
+                            max-width: 33.33%;
+                            min-width: 33.33%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-slots {
+        @include media(l-up) {
+            padding: 0 16px;
+        }
+    }
+
+    &-subhead {
+        @include media(l-up) {
+            display: none;
+        }
+    }
+
+    &-back_btn {
+        @include mobile_back-btn();
+    }
+
+    &-title {
+        @include font(bold, 14px, 1.43);
+
+        border-bottom: 2px solid color(red);
+        color: color(black);
+        display: flex;
+        justify-content: space-between;
+        margin-left: 20px;
+        padding-bottom: 13px;
+        padding-right: $padding-mobile-nav;
+        text-transform: uppercase;
+    }
+
+    &-title_name {
+        letter-spacing: 2px;
+    }
+
+    &-title_more {
+        font-weight: normal;
+        text-transform: none;
+    }
+
+    &-list_2 {
+        @include media(l-up) {
+            display: flex;
+        }
+    }
+
+    &-item_2 {
+        @include font(regular, 14px, 1.29);
+
+        letter-spacing: normal;
+
+        @include media(l-up) {
+            min-width: 160px;
+            padding: 0 16px;
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        @include media(m-down) {
+            border-bottom: 1px solid color(gray-1);
+            margin: 0 $padding-mobile-nav;
+        }
+
+        &::before {
+            background-color: color(gray-1);
+            height: 1px;
+            display: block;
+            position: absolute;
+            top: 36px;
+            left: 16px;
+            right: 16px;
+
+            @include media(l-up) {
+                content: '';
+            }
+        }
+
+        &.m-menu-without {
+            .b-categories_navigation-title_2 {
+                &::after {
+                    @include media(m-down) {
+                        transform: translateY(-50%) rotate(-90deg);
+                    }
+                }
+            }
+        }
+
+        &.m-open {
+            .b-categories_navigation-title_2::after {
+                @include media(m-down) {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+
+            .b-categories_navigation-group_3 {
+                display: block;
+            }
+        }
+    }
+
+    &-title_2 {
+        @include font(bold, 14px, 1.25);
+        @include icon(arrow-down-small, after, 24px);
+
+        color: color(black);
+        display: block;
+        -webkit-tap-highlight-color: transparent;
+
+        @include media(l-up) {
+            display: flex;
+            letter-spacing: 2px;
+            max-height: 22px;
+            margin-bottom: 32px; //TODO: FE: should be refactored after old styles deleting
+            padding-bottom: 5px; //TODO: FE: should be refactored after old styles deleting
+            text-transform: uppercase;
+        }
+
+        @include media(m-down) {
+            font-weight: normal;
+            padding: 14px 0 13px; //TODO: FE: should be refactored after old styles deleting
+            position: relative;
+            text-transform: none;
+        }
+
+        &::after {
+            color: color(red);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @include media(l-up) {
+                display: none;
+            }
+        }
+
+        &.m-single {
+            @include media(l-up) {
+                @include icon(arrow-right-small, after, 24px);
+
+                display: inline-flex;
+                padding-bottom: 4px; //TODO: FE: should be refactored after old styles deleting
+                position: relative;
+                border-bottom: 1px solid transparent;
+                overflow: visible;
+            }
+
+            &:hover {
+                border-bottom-color: color(red);
+                text-decoration: none;
+                -webkit-tap-highlight-color: transparent;
+
+                @include media(m-down) {
+                    color: color(black);
+                }
+
+                &::after {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &::after {
+                @include media(l-up) {
+                    display: block;
+                    opacity: 0;
+                    right: -25px;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+
+    &-group_3 {
+        @include media(m-down) {
+            display: none;
+            margin-bottom: 24px;
+        }
+    }
+
+    &-list-3 {
+        margin-left: 24px;
+    }
+
+    &-item_3 {
+        @include font(regular, 14px, 1.67);
+
+        &.m-view-all {
+            @include media(l-up) {
+                display: none;
+            }
+        }
+
+        @include media(l-up) {
+            padding-bottom: 16px;
+        }
+
+        @include media(m-down) {
+            line-height: 1.29;
+            margin-left: 24px;
+        }
+    }
+
+    &-link_3 {
+        text-transform: none;
+
+        @include media(m-down) {
+            display: block;
+            padding: 12px 0; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &:hover {
+            @include media(l-up) {
+                color: color(red);
+                text-decoration: underline;
+            }
+        }
+    }
+}

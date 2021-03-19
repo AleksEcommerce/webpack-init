@@ -1,0 +1,166 @@
+.b-megamenu_banners {
+    @include media(l-up) {
+        display: flex;
+    }
+
+    @include media(m-down) {
+        padding: 30px 20px 6px;
+    }
+
+    &-item {
+        @include media(l-up) {
+            flex: 1 1 50%;
+            margin-bottom: 26px;
+        }
+
+        @include media(m-down) {
+            padding-bottom: 24px;
+        }
+
+        .product-listing.product-listing-1x4 {
+            padding: 0; //TODO: FE: should be refactored after old styles deleting
+            background-color: transparent; //TODO: FE: should be refactored after old styles deleting
+
+            ul.search-result-items {
+                .grid-tile {
+                    float: none; //TODO: FE: should be refactored after old styles deleting
+                    border-bottom: none; //TODO: FE: should be refactored after old styles deleting
+                    width: auto; //TODO: FE: should be refactored after old styles deleting
+                    height: auto; //TODO: FE: should be refactored after old styles deleting
+                    padding: 0; //TODO: FE: should be refactored after old styles deleting
+                    margin: 0; //TODO: FE: should be refactored after old styles deleting
+
+                    .product-tile {
+                        height: auto !important; //TODO: FE: should be refactored after old styles deleting
+                        padding-bottom: 0 !important; //TODO: FE: should be refactored after old styles deleting
+                    }
+                }
+
+                .btn-favorite,
+                .btn-quickview,
+                .product-size.product-attribute,
+                .product-detail-link {
+                    display: none !important; //TODO: FE: should be refactored after old styles deleting
+                }
+
+                .product-image {
+                    width: 100%;
+                    height: 300px;
+                    padding: 0;
+
+                    @include media(m-down) {
+                        height: 250px;
+                    }
+
+                    .thumb-link {
+                        height: 100%;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        object-fit: cover;
+                    }
+                }
+
+                .product-name { //TODO: FE: should be refactored after old styles deleting
+                    height: auto;
+
+                    h2 {
+                        @include font(bold, 16px, 1.25);
+                    }
+
+                    .name-link { //TODO: FE: should be refactored after old styles deleting
+                        @include icon(arrow-right-small, after, 24px);
+
+                        color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+                        border-bottom: 1px solid color(gray-1) !important; //TODO: FE: should be refactored after old styles deleting
+                        text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+                        display: block;
+                        padding: 12px 30px 12px 0 !important; //TODO: FE: should be refactored after old styles deleting
+                        position: relative;
+                        max-width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+
+                        &:hover { //TODO: FE: should be refactored after old styles deleting
+                            color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+                            border-color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+
+                            &::after {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+
+                        &::after { //TODO: FE: should be refactored after old styles deleting
+                            color: color(red);
+                            position: absolute;
+                            opacity: 0;
+                            visibility: hidden;
+                            transition: all 0.3s ease;
+                            right: 0;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.b-category_slot {
+    &-thumbnail {
+        width: 100%;
+        height: 300px;
+
+        @include media(m-down) {
+            height: 250px;
+        }
+    }
+
+    &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &-subtitle {
+        @include font(bold, 16px, 1.25);
+    }
+
+    &-subtitle_link {
+        @include icon(arrow-right-small, after, 24px);
+
+        color: color(black); //TODO: FE: should be refactored after old styles deleting
+        border-bottom: 1px solid color(gray-1); //TODO: FE: should be refactored after old styles deleting
+        text-decoration: none; //TODO: FE: should be refactored after old styles deleting
+        display: block;
+        padding: 12px 30px 12px 0; //TODO: FE: should be refactored after old styles deleting
+        position: relative;
+
+        &:hover {
+            color: color(red); //TODO: FE: should be refactored after old styles deleting
+            border-color: color(red); //TODO: FE: should be refactored after old styles deleting
+
+            &::after {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &::after {
+            color: color(red);
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}

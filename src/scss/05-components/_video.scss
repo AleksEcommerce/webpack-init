@@ -1,0 +1,80 @@
+@mixin g-video($el: root, $mod: default) {
+    @if $el == root {
+        @if $mod == default {
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+
+            &::before {
+                content: '';
+                display: block;
+                padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            }
+
+            &::after {
+                background-color: color(play_btn_bg);
+                border-radius: 10px;
+                color: color(light);
+                content: '▶';
+                height: 37px;
+                left: 50%;
+                line-height: 36px;
+                pointer-events: none;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 53px;
+            }
+        }
+
+        @if $mod == ratio43 {
+            &::before {
+                padding-top: 75%; /* 4:3 Aspect Ratio */
+            }
+        }
+
+        @if $mod == ratio219 {
+            &::before {
+                padding-top: 47.25%; /* 21:9 Aspect Ratio */
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        @if $mod == playing {
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    @if $el == _placeholder {
+        @if $mod == default {
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            transition: opacity 0.3s ease;
+            width: 100%;
+        }
+
+        @if $mod == playing {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    @if $el == _iframe {
+        @if $mod == default {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+}

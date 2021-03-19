@@ -1,0 +1,149 @@
+$color-red: #ed1c24;
+
+.need-help-modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    background: #00000075;
+    overflow: hidden;
+    height: 100%;
+    z-index: 999999;
+
+    .need-help-modal_content {
+        background: white;
+        width: 500px;
+        position: relative;
+        margin: 1% auto;
+        overflow: scroll;
+        height: calc(100vh - 4%);
+
+        .no-margin {
+            margin: 0;
+        }
+
+        .content-padding {
+            padding: 25px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-family: "Lato";
+            font-weight: bold;
+            position: relative;
+
+            i {
+                position: absolute;
+                right: 0;
+                top: 3px;
+            }
+        }
+
+        .title-margin {
+            margin: 30px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.6pt;
+        }
+
+        .header-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.6pt;
+        }
+
+        .address {
+            display: block;
+            flex-direction: row;
+            justify-content: center;
+            font-size: 16px;
+            margin-top: 32px;
+
+            .map {
+                margin: 12pt 0 0;
+                width: auto;
+            }
+
+            .mail {
+                font-size: 18px;
+                margin: 0 0 0.5em;
+            }
+
+            .phone {
+                margin-top: 5pt;
+                font-size: 16px;
+
+                span {
+                    border-bottom: 2px #ed1c24 solid;
+                    padding-bottom: 2px;
+                }
+            }
+        }
+
+        .pick-up-hours,
+        .store-hours {
+            .hours {
+                font-size: 16px;
+
+                p {
+                    margin: 0 0 0.5em;
+                }
+            }
+        }
+
+        .section-accordion {
+            font-size: 16px;
+
+            .accordion-title {
+                font-weight: bold;
+                display: flex;
+                position: relative;
+
+                .accordion-title-content {
+                    width: 85%;
+                }
+
+                .accordion-title-icon {
+                    width: 15%;
+                    text-align: right;
+                    margin: auto;
+
+                    i {
+                        color: $color-red;
+                    }
+                }
+            }
+
+            .accordion-text {
+                margin-top: 8pt;
+                display: none;
+            }
+        }
+    }
+}
+
+@include media(s) {
+    .need-help-modal {
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 1000;
+        background-color: #1010109f;
+        color: #1a1a1a;
+        overflow: auto;
+        font-family: "Lato" !important;
+
+        .need-help-modal_content {
+            height: auto;
+            margin: 10% auto;
+            background: #fff;
+            width: 350px;
+
+            .address {
+                .map {
+                    margin: 12pt 0 16pt;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

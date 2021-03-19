@@ -1,0 +1,7 @@
+@mixin plp-aside-title() {
+    @include font(bold, 14px, 1.43);
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}

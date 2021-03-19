@@ -1,0 +1,35 @@
+.b-product_price {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    align-items: flex-end;
+
+    &-cost {
+        @include font(bold, 20px, 1);
+
+        flex-grow: 1;
+
+        @include media(m-up) {
+            margin-bottom: $product-padding-inner;
+        }
+    }
+
+    &-cost_numbers {
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+    &-various {
+        @include font(regular, 12px, 1.2);
+
+        color: color(gray-5);
+
+        @include media(m-up) {
+            margin-bottom: $product-padding-inner;
+        }
+    }
+
+    &-various_detail {
+        color: color(black);
+    }
+}

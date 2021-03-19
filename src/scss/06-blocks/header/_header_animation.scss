@@ -1,0 +1,39 @@
+@keyframes menuIn {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        left: 290px;
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+        left: 0;
+    }
+}
+
+/****** Animation menu out ******/
+@keyframes menuOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+        right: calc(100% - 290px);
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+        right: calc(100% - 580px);
+    }
+}
+
+/****** Animation Fade In ******/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

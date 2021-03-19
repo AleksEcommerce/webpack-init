@@ -1,0 +1,90 @@
+.b-footer_chat {
+    background-color: color(white);
+    padding: 0 20px;
+
+    @include media(m-up) {
+        display: none;
+    }
+
+    &-inner {
+        text-align: center;
+        padding: 32px 0;
+
+        &#snapins_invite {
+            background-color: #fff;
+            position: static !important;
+            height: auto;
+            text-align: center;
+            margin: 0 auto 10px;
+            visibility: visible;
+        }
+    }
+
+    &-title {
+        @include font(bold, 16px, 1.29);
+
+        color: color(black);
+        display: block;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+    }
+
+    &-btn,
+    & &-inner &-btn {
+        @include g-button_2();
+
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 0;
+        max-height: none;
+        margin: 0;
+    }
+
+    #rejectInvite.embeddedServiceActionButton {
+        display: none !important;
+    }
+}
+
+.embeddedServiceCloseIcon,
+.embeddedServiceInvitationBody,
+.embeddedServiceActionButton {
+    display: none;
+}
+
+.embeddedServiceInvitation {
+    .embeddedServiceInvitationHeader {
+        padding: 5px 10px 15px;
+        position: relative;
+        text-align: center;
+        font-weight: bold;
+
+        button {
+            display: none;
+        }
+    }
+
+    .embeddedServiceInvitationBody {
+        display: none;
+    }
+
+    .embeddedServiceInvitationFooter {
+        button {
+            -webkit-appearance: none;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+            border: none;
+            border-radius: 0;
+            width: calc(100% - 20px) !important;
+            margin: 0 10px 15px;
+            font-size: 12px;
+            cursor: pointer;
+            background: #ed1c24;
+
+            &#rejectInvite {
+                display: none;
+            }
+        }
+    }
+}

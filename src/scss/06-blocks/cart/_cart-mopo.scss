@@ -1,0 +1,52 @@
+.b-store_mopo {
+    @include font(regular, 12px, 1.33);
+
+    overflow: hidden;
+    text-align: center;
+    padding-top: 32px;
+
+    &-title {
+        @include font(bold, 12px, 1.67);
+
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &-top {
+        position: relative;
+        display: inline-block;
+        max-width: 80%;
+
+        &::after,
+        &::before {
+            position: absolute;
+            top: 9px;
+            content: '';
+            height: 1px;
+            background-color: color(gray-1);
+        }
+
+        &::after {
+            left: calc(100% + 10px);
+            right: -1000%;
+        }
+
+        &::before {
+            right: calc(100% + 10px);
+            left: -1000%;
+        }
+    }
+
+    &-bottom {
+        max-width: 80%;
+        margin: 0 auto;
+
+        @include media(m-up) {
+            margin-top: -5px;
+        }
+    }
+
+    & + .b-store_item {
+        border: none;
+    }
+}

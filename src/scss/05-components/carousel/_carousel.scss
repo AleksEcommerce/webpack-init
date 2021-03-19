@@ -1,0 +1,91 @@
+@mixin g-carousel-slide_width($slides-per-page: 1) {
+    --carousel-slide-width: calc(#{100% / $slides-per-page} - (var(--carousel-slide-gutter) - var(--carousel-slide-gutter) / #{$slides-per-page}));
+}
+
+@mixin g-carousel($el: root, $mod: default) {
+    @if $el == root { // don't change
+        @if $mod == default {
+            animation: slide-up ease 1s;
+            animation-fill-mode: both;
+            position: relative;
+
+            @include media(l-up) {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    }
+
+    /* stylelint-disable
+       property-no-vendor-prefix,
+       property-no-unknown
+    */
+
+    @if $el == track {
+        @if $mod == default {
+            display: flex;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+            -ms-overflow-style: none; /* IE */
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-behavior: smooth;
+            -ms-scroll-chaining: none;
+            scroll-snap-type: x proximity;
+            scrollbar-width: none; /* FF */
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        @if $mod == mandatory {
+            scroll-snap-type: x mandatory;
+
+            /* older spec implementation */
+            scroll-snap-destination: 0% 100%; // stylelint-disable-line
+            scroll-snap-points-x: repeat(100%);
+        }
+    }
+
+    @if $el == control {
+        @if $mod == default {
+            appearance: none;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+        }
+    }
+
+    @if $el == pagination_control {
+        @if $mod == default {
+            appearance: none;
+            cursor: pointer;
+        }
+    }
+
+    @if $el == slide {
+        @if $mod == default {}
+
+        @if $mod == no-snap {
+            scroll-snap-align: none;
+        }
+
+        @if $mod == snap-to-start {
+            scroll-snap-align: start;
+        }
+
+        @if $mod == snap-to-center {
+            scroll-snap-align: center;
+        }
+
+        @if $mod == product-tile {
+            .b-product,
+            .b-product_tile {
+                height: 100%;
+            }
+        }
+    }
+}

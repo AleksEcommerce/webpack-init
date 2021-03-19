@@ -1,0 +1,27 @@
+@mixin g-gray_box($mod: default, $el: root) {
+    @if $mod == default {
+        @if $el == root {
+            background-color: color(gray-5);
+            box-shadow: 0 2px 2px 0 rgba(color(regular-black), 0.14);
+            padding: 30px 35px;
+
+            @include media(s) {
+                padding: 30px 15px;
+            }
+        }
+    }
+
+    @if $mod == inline {
+        @include font(regular, 14px, 1.71);
+
+        padding: 20px 30px;
+    }
+
+    @if $mod == highlighted {
+        border-left: 3px solid color(palacio-yellow);
+    }
+
+    @if $mod == error {
+        border-left: 3px solid color(error);
+    }
+}

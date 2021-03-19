@@ -1,0 +1,38 @@
+.b-plp_information {
+    &-title {
+        @include plp-aside-title();
+    }
+
+    &-item {
+        @include font(regular, 16px, 1.25);
+
+        padding: 18px 18px 18px 52px;
+        position: relative;
+        background-color: color(white);
+        margin-bottom: 12px;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: color(red);
+        }
+
+        &.m-faqs {
+            @include icon(help, before, 24px);
+        }
+
+        &.m-blogs {
+            @include icon(catalog, before, 24px);
+        }
+
+        &.m-videos {
+            @include icon(videos, before, 24px);
+        }
+
+        &.m-visualizer {
+            @include icon(visualizer, before, 24px);
+        }
+    }
+}

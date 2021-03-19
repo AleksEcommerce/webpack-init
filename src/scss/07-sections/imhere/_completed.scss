@@ -1,0 +1,197 @@
+@include media(s) {
+
+    $colors: (
+        red: #ed1c24,
+    );
+
+    .s-imhere_completed {
+        background-color: #f3f3f3;
+        display: flex;
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+
+        #logo {
+            display: flex;
+            height: 40px;
+            align-self: flex-start;
+            margin-bottom: 5%;
+            margin-left: 8%;
+        }
+
+        * {
+            font-family: "Lato" !important;
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: 2.8px;
+            margin: 0 1rem !important;
+        }
+
+        h2 {
+            font-size: 22px;
+            letter-spacing: 2.2px;
+            margin-bottom: 0 !important;
+        }
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+
+            span {
+                border-bottom: 2px #ed1c24 solid;
+                padding-bottom: 2px;
+            }
+        }
+
+        input {
+            font-family: "Lato" !important;
+            font-size: 18px !important;
+            border: 2px solid #e2e2e2 !important;
+            margin-top: 4%;
+            margin-left: 0 !important;
+            margin-right: 0% !important;
+            width: 92% !important;
+        }
+
+        button {
+            font-size: 18px !important;
+        }
+    }
+
+    .b-imhere_completed-header-picked-up {
+        font-family: "Lato";
+        display: flex;
+        width: 100%;
+        padding: 4% 0;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .b-imhere_completed-body {
+        font-size: 16pt;
+        font-family: "Lato";
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+
+        .status-selected {
+            font-size: 18pt;
+        }
+
+        .b-imhere_completed-order_info {
+            padding-bottom: 10%;
+
+            .b-imhere_completed-order_success {
+                text-align: center;
+                padding: 0;
+
+                .b-imhere_completed-order_status_icon-success {
+                    font-size: 32px;
+                    color: #008000;
+                }
+
+                .t-completed-success {
+                    padding-left: 4%;
+                    padding-right: 4%;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+
+                h1 {
+                    margin: 15px 0;
+                    font-weight: bold;
+                    letter-spacing: 2.8px;
+                    padding: 0 3pt;
+                    padding: 0 1rem;
+                }
+            }
+
+            .orders-picked-up {
+                padding-bottom: 15%;
+            }
+
+            .thanks-for-feedback {
+                background: white;
+                padding-top: 10%;
+                padding-bottom: 15%;
+            }
+        }
+    }
+
+    .b-imhere_completed-divisor {
+        width: 100%;
+        height: 20px;
+        background: #f3f3f3;
+    }
+
+    .b-imhere_survey_body {
+        font-size: 16pt;
+        font-family: "Lato";
+        display: flex;
+        flex-direction: column;
+        padding: 10% 10px;
+        background-color: white;
+
+        .b-imhere_sentiment_container {
+            padding-top: 0;
+            padding-bottom: 0;
+            display: flex;
+            flex-direction: column;
+
+            .b-imhere_completed-order_sentiment_icon {
+                font-size: 26px;
+                padding-right: 15px;
+            }
+        }
+
+        .b-imhere_survey_improvements_wrapper {
+            display: none;
+            margin-top: 5%;
+
+            .b-imhere_improvements_btn_container {
+                flex-direction: column;
+                display: flex;
+                margin-top: 2%;
+            }
+        }
+    }
+
+    .b-imhere-survey_btn_inactive {
+        @include g-imhere-survey_btn(#bababa, #000, #000);
+    }
+
+    .b-imhere-survey_btn_active {
+        @include g-imhere-survey_btn(#ed1c24,#ed1c24, #ed1c24);
+    }
+
+    .b-imhere-improvement_btn_inactive {
+        @include g-imhere-survey_btn(#bababa, #bababa, #000);
+
+        text-transform: none;
+    }
+
+    .b-imhere-improvement_btn_active {
+        @include g-imhere-survey_btn(#ed1c24,#ed1c24, #ed1c24);
+
+        text-transform: none;
+    }
+
+    .b-imhere_survey_feedback {
+        display: none;
+        margin-top: 5%;
+
+        .b-imhere_feedback_comments {
+            padding: 2%;
+
+            .b-imhere_feedback_comments_input {
+                width: 100%;
+                margin-left: 0%;
+                height: 150px;
+            }
+        }
+    }
+}

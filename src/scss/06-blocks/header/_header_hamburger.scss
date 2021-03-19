@@ -1,0 +1,22 @@
+.b-hamburger {
+    // Styles for print
+    @media print {
+        display: none;
+    }
+
+    &-button {
+        @include icon(hamburger, before, 24px);
+
+        color: color(red);
+        line-height: 24px;
+
+        @include media(l-up) {
+            display: none;
+        }
+
+        @include media(s) {
+            color: var(--secondary-color);
+            padding-top: 5px;
+        }
+    }
+}

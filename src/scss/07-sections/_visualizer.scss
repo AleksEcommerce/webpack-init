@@ -1,0 +1,71 @@
+.visualizer {
+    font-family: 'Lato', sans-serif;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: inherit;
+        font-weight: 700;
+    }
+
+    .row--line {
+        border-bottom: 1px solid #dfdfdf;
+    }
+
+    .ScrollDownIndicator {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        hr {
+            width: calc(50% - 35px);
+        }
+
+        .ChevronDownContainer i {
+            width: 50px;
+            height: 50px;
+            line-height: 53px;
+            padding: 0;
+        }
+    }
+
+    .legal-text {
+        margin-bottom: 30px;
+    }
+}
+
+.btn-visualizer {
+    display: inline-block;
+    height: 46px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #000;
+    border: 1px solid #000;
+    line-height: 48px;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.3s, background-color 0.3s, border 0.3s;
+
+    &:hover {
+        background-color: #ed1c24;
+        border-color: #ed1c24;
+        color: #fff;
+    }
+}
+
+.link-visualizer {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #ed1c24;
+    transition: color 0.3s;
+
+    &:hover {
+        color: #ed1c24;
+    }
+}

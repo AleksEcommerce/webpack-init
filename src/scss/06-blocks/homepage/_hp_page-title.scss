@@ -1,0 +1,36 @@
+.b-page_table {
+    @include g-page_title(root);
+
+    &.m-left {
+        .b-page_table-title {
+            &::after {
+                @include media(s) {
+                    left: 0;
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+
+    &.m-pink {
+        .b-page_table-title {
+            color: color(red);
+        }
+    }
+
+    &-title {
+        @include g-page_title(title);
+    }
+
+    &-subtitle {
+        @include g-page_title(subtitle);
+
+        > a {
+            border-bottom: 1px solid color(red);
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

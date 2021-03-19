@@ -1,0 +1,58 @@
+/*md
+# Button 1
+
+You can add icons with the help of icons classes helpers.
+
+## States
+
+### Normal state
+
+```html_example
+<button class="g-button_1">Button</button>
+<button class="g-button_1 i-favorites-before i-favorites-after">With icons</button>
+```
+
+### Disabled state
+
+There are two variants of disabled buttons:
+
+- disabled with CSS class (only disabled look, can be focused)
+- disabled with HTML attribute
+
+```html_example
+<button class="g-button_1 m-disabled">Disabled (CSS)</button>
+<button class="g-button_1" disabled>Disabled (HTML)</button>
+```
+
+## Modifications
+
+### Flex width
+
+Is the same as the default one but with auto width
+
+```html_example
+<button class="g-button_1 m-flex">flex</button>
+<button class="g-button_1 m-flex">flex width long copy</button>
+```
+
+### Full width
+
+Is the same as the default one but with 100% width
+
+```html_example
+<button class="g-button_1 m-full">full</button>
+<button class="g-button_1 m-full">full width long copy</button>
+```
+*/
+
+.g-button_1 {
+    @include g-button_1;
+
+    &.m-flex {
+        @include g-button_1(flex);
+    }
+
+    &.m-full {
+        @include g-button_1(full);
+    }
+}

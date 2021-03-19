@@ -1,0 +1,103 @@
+.b-footer_banner {
+    background-color: var(--color-red-primary);
+
+    &-container {
+        text-align: center;
+        padding: 16px 0;
+    }
+
+    &-text {
+        @include font(bold, 20px, 24px);
+
+        color: color(white);
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        @include media(m-down) {
+            font-size: 18px;
+        }
+
+        @include media(s) {
+            display: block;
+        }
+    }
+}
+
+.l-footer {
+    &-top {
+        // Styles for print
+        @media print {
+            display: none;
+        }
+    }
+
+    .be-ix-link-block {
+        background-color: color(white);
+
+        .be-related-link-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 24px 0;
+            max-width: 100%;
+            margin: 0;
+
+            @include media(s) {
+                padding: 20px 0 22px;
+                text-align: center;
+            }
+
+            .be-label {
+                @include font(bold, 14px, 20px);
+
+                align-self: center;
+                color: color(black);
+                flex-basis: auto;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+
+                @include media(m-up) {
+                    margin-right: 20px;
+                }
+
+                @include media(m-down) {
+                    flex-basis: auto;
+                }
+
+                @include media(s) {
+                    margin-bottom: 8px;
+                }
+            }
+
+            .be-list {
+                @include media(s) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                }
+
+                .be-list-item {
+                    @include font(bold, 14px, 20px);
+
+                    @include media(s) {
+                        padding: 8px 0;
+                    }
+                }
+
+                .be-related-link {
+                    @include font(bold, 14px, 20px);
+
+                    color: color(black);
+                    display: block;
+                    border-bottom: 1px solid color(red);
+
+                    &:hover {
+                        color: color(red);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}

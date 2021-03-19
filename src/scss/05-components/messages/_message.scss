@@ -1,0 +1,11 @@
+@mixin g-message {
+    @include font(regular, 12px);
+
+    color: color(light);
+    padding: rh(4 15);
+    text-align: center;
+
+    @include media(s) {
+        padding: rh(3 9);
+    }
+}

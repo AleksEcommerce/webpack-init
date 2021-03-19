@@ -1,0 +1,16 @@
+.b-sss_result {
+    text-align: center;
+    padding: 32px 0 16px;
+
+    &-title {
+        @include font(bold, 24px, 1.33);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &-txt {
+        margin: 0;
+        padding: 16px 0 0;
+    }
+}

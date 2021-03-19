@@ -1,0 +1,45 @@
+@mixin g-page_title($el: root) {
+    &.m-left {
+        @include media(s) {
+            text-align: left;
+        }
+    }
+
+    @if $el == root {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    @if $el == title {
+        @include font(bold, 24px, 1.33);
+
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+        position: relative;
+
+        @include media(s) {
+            font-size: 20px;
+        }
+
+        &::after {
+            content: '';
+            height: 4px;
+            background-color: color(red);
+            width: 100px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+        }
+    }
+
+    @if $el == subtitle {
+        @include font(regular, 18px, 1.25);
+
+        @include media(s) {
+            font-size: 16px;
+        }
+    }
+}

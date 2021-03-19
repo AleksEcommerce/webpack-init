@@ -1,0 +1,9 @@
+@mixin t-text($size: 14px, $color: color(text)) {
+    @include font(regular, $size, 24px);
+
+    color: $color;
+}
+
+@mixin t-error($size: 14px, $color: color(error)) {
+    color: $color;
+}

@@ -1,0 +1,33 @@
+.b-cart_sticky {
+    background-color: color(gray-7);
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 12px 12px;
+
+    &-mall {
+        @include icon(location, before, 16px);
+        @include font(bold, 14px, 1.29);
+
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 4px;
+
+        &::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: color(red);
+            margin-right: 4px;
+            line-height: 16px;
+        }
+    }
+
+    &-change {
+        @include text-link-underline(14px, 1.29);
+
+        &:link {
+            overflow: visible;
+        }
+    }
+}

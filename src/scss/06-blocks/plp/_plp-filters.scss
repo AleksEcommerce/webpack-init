@@ -1,0 +1,115 @@
+.b-plp_filters {
+    position: fixed;
+    background-color: rgba(0,0,0, 0.5);
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overscroll-behavior-y: contain;
+    display: none;
+    
+    &-inner {
+        position: relative;
+        height: 100%;
+        margin-left: auto;
+        width: calc(100% - 30px);
+        background-color: color(white);
+    }
+    
+    &-close {
+        @include icon(close-big, before, 24px);
+        
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    
+    &-title {
+        @include font(bold, 18px, 1.33);
+    
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 24px 0;
+    }
+    
+    &-title_link {
+        @include icon(arrow-left-small, before, 24px);
+        
+        color: color(black);
+        position: relative;
+        padding-left: 32px;
+        
+        &::before {
+            color: color(red);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+    }
+    
+    &-level {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+        background-color: color(white);
+        
+        &.m-second {
+            left: 100%;
+        }
+        
+        &.m-active {
+            left: 0;
+        }
+        
+        &.m-inactive {
+        
+        }
+    }
+    
+    &-main {
+        flex-grow: 1;
+        position: relative;
+    }
+    
+    &-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow-y: auto;
+        height: 100%;
+    }
+    
+    &-footer {
+        background-color: color(gray-3);
+        padding: 20px;
+        margin: 0 -20px;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    &-footer_btn {
+        @include g-button_1();
+    
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 12px;
+    }
+    
+    &-footer_clear {
+        @include text-link-underline(16px, 1.25);
+    }
+}

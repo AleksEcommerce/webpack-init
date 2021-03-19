@@ -1,0 +1,61 @@
+/*md
+# Button link
+
+Button styles like a simple link
+
+HTML structure example:
+```
+<button class="b-text_link">Customer Service</button>
+```
+
+SCSS structure example:
+```
+.g-text_link {
+    @include g-text_link;
+}
+```
+*/
+
+@mixin g-text_link($mod: default, $padding: null) {
+    @include font(medium, 18px);
+
+    @if $mod == default {
+        color: color(palacio-black);
+
+        @include media(m-up) {
+            &:hover {
+                color: color(black-highlight);
+            }
+        }
+    }
+
+    @if $mod == white {
+        color: color(light);
+
+        @include media(m-up) {
+            &:hover {
+                color: color(gray-5);
+            }
+        }
+    }
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    @include media(s) {
+        @include font(medium, 14px);
+
+        letter-spacing: 1px;
+    }
+
+    @include icon(arrow-right, after) {
+        color: color(palacio-yellow);
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}

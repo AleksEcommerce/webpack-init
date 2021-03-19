@@ -1,0 +1,56 @@
+
+.b-products_icons {
+    &-container {
+        display: grid;
+        grid-gap: 32px;
+        margin-bottom: 32px;
+        grid-template-columns: repeat(6, 1fr);
+    
+        @include media(p-down) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+    }
+    
+    &-item {
+        background-color: color(black);
+        padding: 4px;
+    }
+    
+    &-figure {
+        @include image_reflow_mix($width: 192, $height: 104, $type: container);
+    
+        background-color: color(white);
+        margin: 0;
+    
+        @include media(p-down) {
+            @include image_reflow_mix($width: 122, $height: 104, $type: container);
+        }
+    }
+    
+    &-figure_icon {
+        @include image_reflow_mix($type: image);
+    
+        color: color(black);
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        
+        &::before {
+            font-size: 100px;
+        }
+    }
+    
+    &-title {
+        @include font(bold, 12px, 1.33);
+    
+        color: color(white);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+}

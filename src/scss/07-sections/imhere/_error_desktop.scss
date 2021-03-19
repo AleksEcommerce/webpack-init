@@ -1,0 +1,137 @@
+@include media(m-up) {
+    .s-imhere_error {
+        background-color: #fff;
+        display: flex;
+        width: 50%;
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+        color: red;
+
+        .error-alert {
+            display: flex;
+            padding: 12pt 8%;
+
+            .error-alert-icon {
+                padding: 0;
+                font-size: 18pt;
+            }
+
+            .error-alert-text {
+                text-align: left;
+                padding: 0 0 0 10pt;
+                font-size: 16pt;
+            }
+        }
+
+        #logo {
+            display: flex;
+            height: 40px;
+            align-self: flex-start;
+            margin-bottom: 10%;
+            margin-left: 8%;
+        }
+
+        * {
+            font-family: "Lato" !important;
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: 2.8px;
+            margin: 0 1rem !important;
+        }
+
+        h2 {
+            font-size: 22px;
+            letter-spacing: 2.2px;
+            margin-bottom: 0 !important;
+        }
+
+        p {
+            margin-bottom: 0 !important;
+        }
+
+        input {
+            font-family: "Lato" !important;
+            font-size: 18px !important;
+            border: 2px solid #e2e2e2 !important;
+            margin-top: 4%;
+            margin-left: 0 !important;
+            margin-right: 0% !important;
+            width: 92% !important;
+        }
+
+        button {
+            font-size: 18px !important;
+        }
+
+        .b-imhere_error-header-response {
+            font-family: "Lato";
+            display: flex;
+            width: 100%;
+            background-color: #fff;
+            padding: 8%; // idk why this is happening
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .b-imhere_error-body {
+            font-size: 16pt;
+            font-family: "Lato";
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 31pt 0;
+            padding: 0;
+
+            .status-selected {
+                font-size: 18pt;
+            }
+
+            .b-imhere_error-content {
+                text-align: center;
+                padding: 0 8%;
+
+                .b-imhere_error-content_text {
+                    font-size: 32px;
+                    color: red;
+                }
+
+                .t-error-success {
+                    margin-top: 5pt;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .b-imhere_error-body {
+        font-size: 16pt;
+        font-family: "Lato";
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        // margin-left: 12%;
+        margin: 31pt 0;
+        padding: 0;
+
+        .status-selected {
+            font-size: 18pt;
+        }
+
+        .b-imhere_error-order_success {
+            text-align: center;
+            padding: 0 8%;
+
+            .b-imhere_error-order_status_icon-success {
+                font-size: 32px;
+                color: red;
+            }
+        }
+    }
+
+    .text-capitalize {
+        text-transform: capitalize;
+    }
+}

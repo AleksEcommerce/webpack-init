@@ -1,0 +1,48 @@
+@mixin t-common_list_styles {
+    list-style: none;
+
+    li {
+        @include font(regular, 14px);
+
+        padding: rh(0 0 3 3);
+        position: relative;
+        text-align: left;
+
+        &::before {
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+}
+
+@mixin t-unordered_list {
+    @include t-common_list_styles;
+
+    li {
+        color: color(text);
+        position: relative;
+
+        &::before {
+            content: '•';
+        }
+    }
+}
+
+@mixin t-ordered_list {
+    @include t-common_list_styles;
+
+    counter-reset: section;
+
+    li {
+        padding: 0 0 15px 30px;
+
+        &::before {
+            /* stylelint-disable order/properties-alphabetical-order */
+
+            counter-increment: section;
+            content: counter(section) '.';
+            /* stylelint-enable order/properties-alphabetical-order */
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.b-cart_carousel {
+    &-title {
+        @include font(bold, 24px, 1.33);
+
+        text-transform: uppercase;
+        margin-bottom: 32px;
+        letter-spacing: 2px;
+    }
+}

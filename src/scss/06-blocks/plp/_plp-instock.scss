@@ -1,0 +1,26 @@
+.b-plp_instock {
+    margin-bottom: 24px;
+
+    &-title {
+        @include plp-aside-title();
+    }
+
+    &-label {
+        display: block;
+        position: relative;
+        padding-left: 32px;
+        margin-bottom: 17px;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &-btn {
+        @include text-link-underline(14px, 1.25);
+
+        margin-left: 32px;
+    }
+}

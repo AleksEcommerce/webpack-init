@@ -1,0 +1,72 @@
+.b-conspect {
+    &-list {
+        list-style-type: none;
+        border: 1px solid color(black);
+        background-color: rgba(123, 239, 178, 1);
+        border-radius: 6px;
+        margin: 0;
+        padding: 5px 0;
+    }
+
+    .b-conspect-list_item:last-child {
+        border: none;
+    }
+
+    &-list_item {
+        cursor: pointer;
+        border-bottom: 1px solid #000;
+        
+    }
+
+    &-list_subtitle {
+        @include font(bold, 20px, 20px);
+
+        color: color(black);
+        display: block;
+        padding: 10px 15px;
+
+        &:hover,
+        &.m-active {
+            background-color: color(green);
+            color: color(white);
+        }
+    }
+
+    &-container {
+        background-color: rgba(240, 240, 214, 1);
+        border-radius: 6px;
+    }
+
+    &-box {
+        border: 1px solid #000;
+        border-radius: 6px;
+        padding: 10px;
+        display: none;
+
+        &.m-active {
+            display: block;
+        }
+    }
+
+    &-code {
+
+    }
+
+    &-code_title {
+        @include font(bold, 20px, 20px);
+    }
+
+    &-sublist {
+
+    }
+
+    &-sublist_item {
+        padding: 3px 0;
+    }
+
+    &-link {
+        @include g-button-1();
+
+        color: black; 
+    }
+}

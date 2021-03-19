@@ -1,0 +1,67 @@
+/*md
+# Notification
+
+Notification is a component which consists of a text with a close CTA
+
+It can be of different types:
+
+    - info notification
+    - error notification
+
+HTML:
+
+```html
+<div
+    class="b-notification"
+    role="alert"
+>
+    <div class="b-notification-text">{{message}}</div>
+```
+
+SCSS usage
+
+```scss
+.b-notification {
+    @include g-notification; // to display regular notification
+
+    &.m-error  {
+        @include g-notification(root, error);
+    }
+
+    &-text {
+        @include g-notification(_text);
+    }
+
+}
+```
+*/
+
+@mixin g-notification($el: root, $mod: default) {
+    @if $el == root {
+        @if $mod == default {
+            @include font(bold, 14px);
+
+            align-items: center;
+            border: 1px solid color(gray-2);
+            display: flex;
+            position: relative;
+            text-align: center;
+        }
+
+        @if $mod == error {
+            background: rgba(color(error), 0.1);
+            border: 0;
+            color: color(error);
+        }
+    }
+
+    @if $el == _text {
+        flex-grow: 1;
+        padding: rh(5 4);
+        text-align: center;
+
+        &:empty {
+            display: none;
+        }
+    }
+}

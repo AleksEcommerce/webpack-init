@@ -1,0 +1,19 @@
+.b-footer_additional {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    @include media(m-up) {
+        display: none;
+    }
+
+    &-link {
+        @include font(regular, 14px, 1.29);
+
+        border-bottom: 1px solid color(red);
+        margin: 8px 12px;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+}

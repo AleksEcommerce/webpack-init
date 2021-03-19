@@ -1,0 +1,124 @@
+@mixin g-carousel_style_2($el: root, $mod: default) {
+
+    $carousel-item-padding: 16px;
+    $carousel-item-padding-s: 20px;
+    $carousel-container-padding: calc(#{$carousel-item-padding} * 2 * -1);
+
+    @if $el == root {
+        @include g-carousel;
+
+        --carousel-2-side-padding: #{$carousel-item-padding};
+
+        @include media(m-down) {
+            --carousel-2-side-padding: 5px;
+        }
+    }
+
+    @if $el == container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    @if $el == container-inner {
+        margin-right: $carousel-container-padding !important;
+    }
+
+    @if $el == track {
+        @if $mod == default {
+            @include g-carousel(track);
+        }
+    }
+
+    @if $el == control {
+        @if $mod == default {
+            @include g-carousel(control);
+
+            background-color: color(red);
+            color: color(white);
+            height: 40px;
+            margin-top: -20px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 40px;
+            z-index: 2;
+            transition: all 0.3s ease;
+
+            @include media(s) {
+                display: none;
+            }
+
+            &::before {
+                line-height: 40px;
+            }
+
+            &[disabled] {
+                opacity: 0.5;
+            }
+
+            &.m-previous {
+                @include icon(arrow-left-small, 24px);
+
+                left: 0;
+            }
+
+            &.m-next {
+                @include icon(arrow-right-small, 24px);
+
+                right: 0;
+            }
+
+            &:hover::before {
+                font-size: 32px;
+            }
+        }
+
+        @if $mod == no_scroll {
+            display: none;
+        }
+    }
+
+    @if $el == pagination_container {
+        @if $mod == default {
+            margin: 5px;
+            text-align: center;
+        }
+
+        @if $mod == no_scroll {
+            display: none;
+        }
+    }
+
+    @if $el == pagination_control {
+        @if $mod == default {
+            @include g-carousel(pagination_control);
+
+            background-color: color(gray-3);
+            border-radius: 50%;
+            height: 10px;
+            margin: 3px;
+            transition: background-color ease 0.4s;
+            width: 10px;
+        }
+
+        @if $mod == active {
+            background-color: color(regular-black);
+        }
+    }
+
+    @if $el == slide {
+
+        @if $mod == default {
+            @include g-carousel(slide);
+            @include g-carousel(slide, snap-to-start);
+
+            position: relative;
+            box-sizing: border-box;
+            padding-right: calc(#{$carousel-item-padding} * 2);
+
+            @include media(s) {
+                padding-right: $carousel-item-padding-s;
+            }
+        }
+    }
+}

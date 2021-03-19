@@ -1,0 +1,69 @@
+.b-new_banner {
+    &-thumbnail_img {
+        width: 100%;
+    }
+
+    &-inner {
+        position: relative;
+    }
+
+    &-content {
+        position: absolute;
+        padding: 0 20px 28px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+
+        @include media(p-down) {
+            left: 45%;
+            bottom: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-bottom: 0;
+        }
+    }
+
+    &-text {
+        @include font(regular, 20px, 1.25);
+
+        color: color(white);
+        margin-bottom: 29px;
+
+        @include media(p-down) {
+            font-size: 14px;
+        }
+    }
+
+    &-btn {
+        @include g-button_2();
+
+        background-color: color(white);
+        width: 194px;
+        box-sizing: border-box;
+
+        @include media(p-down) {
+            width: 130px;
+        }
+
+        &:link,
+        &:visited {
+            @include g-button_2();
+
+            background-color: color(white);
+            width: 194px;
+        }
+    }
+
+    &-thumbnail {
+        @include image_reflow(container, 135%);
+
+        @include media(t-down) {
+            @include image_reflow(container, 57%);
+        }
+    }
+
+    &-thumbnail_img {
+        @include image_reflow(image);
+    }
+}

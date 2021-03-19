@@ -1,0 +1,267 @@
+@include media(s) {
+    $colors: (
+        red: #ed1c24,
+    );
+
+    .s-imhere_waiting {
+        background-color: #f3f3f3;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        .waiting-alert {
+            display: flex;
+            padding: 12pt 8%;
+
+            .waiting-alert-icon {
+                padding: 0;
+                font-size: 18pt;
+            }
+
+            .waiting-alert-text {
+                text-align: left;
+                padding: 0 0 0 10pt;
+                font-size: 16pt;
+            }
+        }
+
+        #logo {
+            display: flex;
+            height: 40px;
+            align-self: flex-start;
+            margin-bottom: 10%;
+            margin-left: 8%;
+        }
+
+        * {
+            font-family: "Lato" !important;
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: 2.8px;
+            margin: 0 1rem !important;
+        }
+
+        h2 {
+            font-size: 22px;
+            letter-spacing: 2.2px;
+            margin-bottom: 0 !important;
+        }
+
+        p {
+            margin-bottom: 0 !important;
+        }
+
+        input {
+            font-family: "Lato" !important;
+            font-size: 18px !important;
+            border: 2px solid #e2e2e2 !important;
+            margin-top: 4%;
+            margin-left: 0 !important;
+            margin-right: 0% !important;
+            width: 92% !important;
+        }
+
+        button {
+            font-size: 18px !important;
+        }
+    }
+
+    .red {
+        color: #ed1c24 !important;
+    }
+
+    .green {
+        color: green !important;
+    }
+
+    .b-imhere-form_radio {
+        display: none;
+    }
+
+    .b-imhere_waiting-header {
+        font-size: 28pt;
+        word-spacing: 2.8pt;
+        font-family: "Lato";
+        display: flex;
+        width: 100%;
+        background-color: #f3f3f3;
+        padding: 8%; // idk why this is happening
+        flex-direction: column;
+        text-align: center;
+
+        .your-turn-header {
+            margin: 0 30pt;
+        }
+    }
+
+    .b-imhere_waiting-header-picked-up {
+        font-family: "Lato";
+        display: flex;
+        width: 100%;
+        background-color: #fff;
+        padding: 8%; // idk why this is happening
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .b-imhere_waiting-body {
+        font-size: 16pt;
+        font-family: "Lato";
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        // margin-left: 12%;
+        margin: 31pt 0;
+        padding: 0;
+
+        .status-selected {
+            font-size: 18pt;
+        }
+
+        .b-imhere_waiting-order_success {
+            text-align: center;
+            padding: 0 8%;
+
+            .b-imhere_waiting-order_status_icon-success {
+                font-size: 32px;
+                color: #008000;
+            }
+
+            .t-waiting-success {
+                margin-top: 15px;
+            }
+
+            h1 {
+                margin: 15px 0;
+                font-weight: bold;
+                letter-spacing: 2.8px;
+                padding: 0 3pt;
+                padding: 0 1rem;
+            }
+        }
+
+        .b-imhere_waiting-order_status {
+            text-align: center;
+
+            .b-imhere_waiting-order_container {
+                display: flex;
+                margin-top: 11pt;
+
+                .b-imhere_waiting-order_status_position {
+                    width: calc(100% / 3);
+                    height: 72px;
+                    position: relative;
+
+                    .b-imhere_waiting-order_status_centralized {
+                        margin: 5pt 0;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-right: -50%;
+                        transform: translate(-50%, -50%);
+                        color: #c9c8c8;
+
+                        .b-imhere_waiting-order_status_icon {
+                            font-size: 28px;
+                        }
+
+                        .b-imhere_waiting-order_status_text {
+                            font-weight: bold;
+                            letter-spacing: 0.9pt;
+                        }
+                    }
+                }
+            }
+
+            .b-imhere_waiting-order_customer_inline {
+                margin-top: 34pt;
+
+                h3 {
+                    color: #ed1c24;
+                    font-size: 35pt;
+                    font-weight: bold;
+                    margin: 0;
+                }
+            }
+        }
+
+        .b-imhere_waiting-prepping {
+            padding: 0 25px;
+            font-weight: bold;
+
+            h3 {
+                font-size: 22pt;
+                word-spacing: 2.2pt;
+            }
+
+            ol {
+                padding: 0;
+
+                li {
+                    margin-bottom: 25px;
+                    list-style-type: none;
+                    font-size: 18pt;
+
+                    .pickup-person {
+                        font-size: 16pt;
+                    }
+                }
+            }
+
+            .font-regular {
+                font-size: 16pt;
+                font-weight: normal !important;
+            }
+        }
+
+        .b-imhere_waiting-help {
+            text-align: center;
+            padding: 0 25px;
+            font-weight: normal;
+
+            a {
+                text-decoration: none;
+
+                span {
+                    display: inline-block;
+                    border-bottom: 2px #ed1c24 solid;
+                    padding-bottom: 2px;
+                }
+            }
+        }
+    }
+
+    .b-imhere_waiting-divisor {
+        width: 100%;
+        height: 20px;
+        background: #f3f3f3;
+    }
+
+    .b-imhere_waiting-form_input {
+        display: none; // toggled with javascript
+    }
+
+    .t-imhere-bold_md {
+        font-weight: 550 !important;
+    }
+
+    .t-imhere-bold {
+        font-weight: bold !important;
+    }
+
+    .text-capitalize {
+        text-transform: capitalize;
+    }
+
+    .t-imhere-store {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 16pt;
+        font-weight: bold;
+        margin-top: 2%;
+    }
+}

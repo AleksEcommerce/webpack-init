@@ -1,0 +1,397 @@
+@include media(s) {
+
+    $colors: (
+        red: #ed1c24,
+    );
+
+    .s-imhere_landing {
+        background-color: #f3f3f3;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        #logo {
+            display: flex;
+            height: 40px;
+            align-self: flex-start;
+            margin-bottom: 10%;
+            margin-left: 8%;
+        }
+
+        * {
+            font-family: "Lato" !important;
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: 2.8px;
+            margin-bottom: 0 !important;
+        }
+
+        h2 {
+            font-size: 27px;
+            letter-spacing: 2.2px;
+            margin-bottom: 0 !important;
+            margin-left: 6%;
+        }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 0 !important;
+        }
+
+        input {
+            font-family: "Lato" !important;
+            font-size: 22px !important;
+            border: 2px solid #e2e2e2 !important;
+            margin-top: 4%;
+            margin-left: 0 !important;
+            margin-right: 0% !important;
+            width: 92% !important;
+        }
+
+        button {
+            font-size: 22px !important;
+        }
+    }
+
+    .red {
+        color: #ed1c24;
+    }
+
+    .gray {
+        color: #3d3d3d;
+    }
+
+    .fd-icon.fd-icon-map-marker {
+        margin-top: 2px !important; // fd-icon still whack
+    }
+
+    .fd-icon.fd-icon-pickup {
+        font-size: 40px !important;
+        font-weight: bold !important;
+    }
+
+    .fd-icon.fd-icon-truck-open {
+        font-size: 40px !important;
+        font-weight: bold !important;
+    }
+
+    .fd-icon.fd-icon-van {
+        font-size: 40px !important;
+        font-weight: bold !important;
+    }
+
+    .fd-icon.fd-icon-suv {
+        font-size: 40px !important;
+        font-weight: bold !important;
+    }
+
+    .fd-icon.fd-icon-sedan {
+        font-size: 40px !important;
+        font-weight: bold !important;
+    }
+
+    .fd-icon.fd-icon-suv {
+        font-size: 40px !important;
+        font-weight: bold !important;
+    }
+
+    .b-imhere_landing-header {
+        display: flex;
+        width: 100%;
+        background-color: #f3f3f3;
+        padding: 8%; // idk why this is happening
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .b-imhere_landing-vehicle_info {
+        margin-top: 8%;
+    }
+
+    .b-imhere_landing-body {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 8%;
+    }
+
+    .b-imhere_landing-vehicle_details_body {
+        margin-left: 6%;
+        margin-right: 6%;
+    }
+
+    .b-imhere_landing-vehicle_type {
+        margin-top: 8%;
+        // margin-left: 6%;
+    }
+
+    .b-imhere_landing-order_submit_button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 6%;
+        margin-bottom: 6%;
+
+        button {
+            font-size: 4vw !important;
+        }
+    }
+
+    .b-imhere_landing-parking_space {
+        margin-top: 8%;
+        margin-bottom: 8%;
+    }
+
+    .b-imhere_landing-vehicle_color {
+        margin-top: 8%;
+    }
+
+    .b-imhere_landing-section_spacing {
+        background-color: #f3f3f3;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        // i dont like doing this but idk why it's not separating divs
+    }
+
+    ul.t-imhere_landing-vehicle_input_list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 4%;
+        margin-bottom: 4%;
+        padding: 0 !important;
+
+        .b-imhere_landing-vehicle_input_row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 2%;
+            margin-bottom: 3%;
+            width: 100%;
+        }
+    }
+
+    .b-imhere_landing-form_input {
+        display: none; // toggled with javascript
+    }
+
+    .b-imhere_landing-order_info {
+        display: flex;
+        flex-direction: column;
+        margin-top: 6%;
+        margin-bottom: 6%;
+    }
+
+    .b-imhere_landing-orders_section {
+        margin-top: 4%;
+        margin-left: 6%;
+    }
+
+    .b-imhere_landing-vehicle_header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .b-imhere-vehicle_info_hidden {
+        display: none;
+        margin-top: 4%;
+        margin-left: 6%;
+        margin-bottom: 6%;
+    }
+
+    .b-imhere_landing-edit_btn {
+        display: none; // toggled
+        width: 15%;
+        font-weight: bold !important;
+        text-decoration: underline;
+        text-decoration-color: #ed1c24;
+    }
+
+    .b-imhere_landing-order_info_body {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 4%;
+    }
+
+    .b-imhere_landing-orders_checkbox_section {
+        margin-top: 4%;
+        margin-left: 6%;
+        margin-right: 6%;
+    }
+
+    .b-imhere-order_item {
+        display: flex;
+        flex-direction: row;
+        background-color: #f3f3f3;
+        width: 100%;
+        margin-bottom: 4%;
+    }
+
+    .b-imhere-order_checkbox_section {
+        display: flex;
+        width: 10%;
+        justify-content: center;
+        margin-top: 6%;
+        margin-left: 2%;
+    }
+
+    input[type=checkbox] {
+        width: 25px !important;
+        height: 25px !important;
+        color: #fff !important;
+        margin: 0 !important;
+    }
+
+    .b-imhere-checkbox_btn {
+        color: #fff !important;
+    }
+
+    .b-imhere-checkbox_inactive {
+        display: flex;
+        width: 3%;
+        background-color: #f3f3f3;
+    }
+
+    .b-imhere-checkbox_active {
+        display: flex;
+        width: 3%;
+        background-color: #000;
+    }
+
+    .b-imhere-order_content {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        margin-top: 6%;
+        margin-left: 2%;
+        margin-bottom: 4%;
+    }
+
+    .b-imhere-order_sku_images {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 2%;
+        margin-bottom: 4%;
+    }
+
+    .b-imhere-order_image {
+        width: 20%;
+        height: 53px;
+        margin-right: 4%;
+    }
+
+    .b-imhere-order_status_warning {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 4%;
+        margin-bottom: 6%;
+    }
+
+    .b-imhere-color_active {
+        @include g-imhere-active_btn(row, 54px, #ed1c24);
+    }
+
+    .b-imhere-type_active {
+        @include g-imhere-active_btn(column, 92px, #ed1c24);
+    }
+
+    .b-imhere-vehicle_color_btn {
+        @include g-imhere-vehicle_btn(row, 54px);
+    }
+
+    .b-imhere-vehicle_type_btn {
+        @include g-imhere-vehicle_btn(column, 92px);
+    }
+
+    .i-imhere-btn_color.black {
+        @include i-imhere-btn_color(#000);
+    }
+
+    .i-imhere-btn_color.white {
+        @include i-imhere-btn_color(#fff);
+    }
+
+    .i-imhere-btn_color.gray {
+        @include i-imhere-btn_color(#555555);
+    }
+
+    .i-imhere-btn_color.silver {
+        @include i-imhere-btn_color(#d1d1d1);
+    }
+
+    .i-imhere-btn_color.red {
+        @include i-imhere-btn_color(#ed1c24);
+    }
+
+    .t-imhere-store {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 2%;
+    }
+
+    .t-imhere-bold_md {
+        font-weight: 550 !important;
+    }
+
+    .t-imhere-bold {
+        font-weight: bold !important;
+    }
+
+    .t-imhere-order_total {
+        font-size: 24px !important;
+        font-weight: bold !important;
+    }
+
+    .t-imhere-order_alert {
+        font-size: 16px !important;
+        font-weight: bold !important;
+        align-items: center;
+        color: #ed1c24 !important;
+        display: flex;
+        width: 70%;
+    }
+
+    .t-imhere-order_warning_icon {
+        display: flex !important;
+        justify-content: center;
+        font-size: 20px !important;
+        font-weight: bold !important;
+        width: 10%;
+        color: #ed1c24;
+    }
+
+    .t-imhere-image_details_text {
+        display: flex;
+        align-items: center !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        color: #717171;
+    }
+
+    .t-imhere-error {
+        display: none;
+        margin-top: 2%;
+        text-align: center;
+        font-weight: bold !important;
+        color: #ed1c24;
+    }
+
+    .t-imhere-inactive {
+        color: #a7a6a6;
+    }
+
+    .t-imhere-text_spacing {
+        margin-left: 6%;
+    }
+}

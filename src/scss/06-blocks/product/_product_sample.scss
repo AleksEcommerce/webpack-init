@@ -1,0 +1,4 @@
+.b-product_sample {
+    @include icon(pinterest, before, 20px);
+    @include text-link-underline(14px, 1.33, icon);
+}

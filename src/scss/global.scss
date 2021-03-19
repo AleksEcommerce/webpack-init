@@ -1,0 +1,14 @@
+/* Global styling */
+@import '01-core/all';
+@import '02-configuration/all';
+@import '03-base/all';
+@import '05-components/all';
+
+@include css-variables-colors;
+@include css-variables-layout;
+
+@import '06-blocks/all';
+@import '07-sections/all';
+
+// // Common styles init
+// @include icons-classes;

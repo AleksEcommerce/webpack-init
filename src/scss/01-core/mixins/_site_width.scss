@@ -1,0 +1,49 @@
+$site-padding-s: 10px;
+$site-padding-l: 6px;
+
+@mixin container ($mod: default) {
+    margin: 0 auto;
+
+    @include media(m-up) {
+        max-width: $max-content-width-md;
+    }
+
+    @include media(ls) {
+        max-width: 1024px;
+    }
+
+    @include media(l-up) {
+        max-width: $max-content-width-main;
+    }
+
+    @include media(xl) {
+        max-width: $max-content-width-xl;
+    }
+
+    @if $mod == xxl {
+        @include media(xl) {
+            max-width: $max-content-width-exl;
+        }
+    }
+}
+
+@mixin site-width {
+    margin: 0 auto;
+    max-width: $max-content-width;
+    padding-left: $site-padding-l; //dont use shorthand because of top padding / transparent header thing
+    padding-right: $site-padding-l; //dont use shorthand because of top padding / transparent header thing
+
+    @include media(s) {
+        padding-left: $site-padding-s; //dont use shorthand because of top padding / transparent header thing
+        padding-right: $site-padding-s; //dont use shorthand because of top padding / transparent header thing
+    }
+}
+
+@mixin site-width-no-padding {
+    margin: 0 auto;
+    max-width: calc(var(--content-width) - #{$site-padding-l} * 2);
+
+    @include media(s) {
+        max-width: calc(var(--content-width) - #{$site-padding-l} * 2);
+    }
+}

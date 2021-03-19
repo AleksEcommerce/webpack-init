@@ -1,0 +1,63 @@
+.b-inspiration_menu {
+    &-item {
+        &:hover {
+            .b-inspiration_menu-link {
+                @include media(l-up) {
+                    background-color: var(--header-attribute-bg) !important;
+                    color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+                }
+            }
+        }
+    }
+
+    &-link {
+        color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+
+        @include media(l-up) {
+            color: var(--secondary-color) !important; //TODO: FE: should be refactored after old styles deleting
+            padding: 10px 16px 9px !important; //TODO: FE: should be refactored after old styles deleting
+        }
+
+        &:hover {
+            @include media(l-up) {
+                color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+                text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+            }
+        }
+    }
+}
+
+.b-inspiration_submenu {
+    &-category {
+        &:hover {
+            .b-inspiration_submenu-title_link {
+                &::after {
+                    @include media(l-up) {
+                        display: block !important;
+                    }
+                }
+
+                @include media(l-up) {
+                    color: color(red) !important;
+                    text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+                    border-color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+                }
+            }
+        }
+    }
+
+    &-title_link {
+        border-bottom: 1px solid color(gray-1) !important; //TODO: FE: should be refactored after old styles deleting
+        color: color(black) !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 12px 0 !important; //TODO: FE: should be refactored after old styles deleting
+
+        &:hover {
+            text-decoration: none !important; //TODO: FE: should be refactored after old styles deleting
+            border-color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+
+            @include media(l-up) {
+                color: color(red) !important; //TODO: FE: should be refactored after old styles deleting
+            }
+        }
+    }
+}

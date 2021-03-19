@@ -1,0 +1,103 @@
+.b-pdp_product {
+    display: grid;
+    grid-column-gap: 32px;
+    grid-template:
+        [start b-pdp-thumbnail-s b-pdp-title-s]
+        auto
+        [b-pdp-title-e b-pdp-cost-s]
+        auto
+        [b-pdp-cost-e b-pdp-details-s]
+        auto
+        [b-pdp-details-e b-pdp-calc-s]
+        auto
+        [b-pdp-calc-e b-pdp-delivery-s]
+        auto
+        [b-pdp-delivery-e b-pdp-btns-s]
+        auto
+        [b-pdp-btns-e]
+        auto
+        [end b-pdp-thumbnail-e]
+        /
+        [start b-pdp-thumbnail-s]
+        minmax(0, 1fr) //1
+        []
+        minmax(0, 1fr) //2
+        []
+        minmax(0, 1fr) //3
+        []
+        minmax(0, 1fr) //4
+        []
+        minmax(0, 1fr) //5
+        []
+        minmax(0, 1fr) //6
+        []
+        minmax(0, 1fr) //7
+        [b-pdp-thumbnail-e b-pdp-title-s b-pdp-cost-s b-pdp-details-s b-pdp-calc-s b-pdp-delivery-s b-pdp-btns-s]
+        minmax(0, 1fr) //8
+        []
+        minmax(0, 1fr) //9
+        []
+        minmax(0, 1fr) //10
+        []
+        minmax(0, 1fr) //11
+        []
+        minmax(0, 1fr) //12
+        [end b-pdp-title-e b-pdp-cost-e b-pdp-details-e b-pdp-calc-e b-pdp-delivery-e b-pdp-btns-e];
+    
+        @include media(s) {
+            grid-template:
+                [start b-pdp-title-s]
+                auto
+                [b-pdp-title-e b-pdp-cost-s]
+                auto
+                [b-pdp-cost-e b-pdp-thumbnail-s]
+                auto
+                [b-pdp-thumbnail-e b-pdp-details-s]
+                auto
+                [b-pdp-details-e b-pdp-calc-s]
+                auto
+                [b-pdp-calc-e b-pdp-delivery-s]
+                auto
+                [b-pdp-delivery-e b-pdp-btns-s]
+                auto
+                [end b-pdp-btns-e]
+                /
+                [start b-pdp-title-s b-pdp-cost-s b-pdp-thumbnail-s b-pdp-details-s b-pdp-calc-s b-pdp-delivery-s b-pdp-btns-s]
+                minmax(0, 1fr) //1
+                []
+                minmax(0, 1fr) //2
+                []
+                minmax(0, 1fr) //3
+                []
+                minmax(0, 1fr) //4
+                [end b-pdp-title-e b-pdp-cost-e b-pdp-thumbnail-e b-pdp-details-e b-pdp-calc-e b-pdp-delivery-e b-pdp-btns-e];
+        }
+     
+    &-thumbnail {
+        grid-area: b-pdp-thumbnail-s/b-pdp-thumbnail-s / b-pdp-thumbnail-e/b-pdp-thumbnail-e;
+    }
+    
+    &-title {
+        grid-area: b-pdp-title-s/b-pdp-title-s / b-pdp-title-e/b-pdp-title-e;
+    }
+    
+    &-cost {
+        grid-area: b-pdp-cost-s/b-pdp-cost-s / b-pdp-cost-e/b-pdp-cost-e;
+    }
+    
+    &-details {
+        grid-area: b-pdp-details-s/b-pdp-details-s / b-pdp-details-e/b-pdp-details-e;
+    }
+    
+    &-calc {
+        grid-area: b-pdp-calc-s/b-pdp-calc-s / b-pdp-calc-e/b-pdp-calc-e;
+    }
+    
+    &-delivery {
+        grid-area: b-pdp-delivery-s/b-pdp-delivery-s / b-pdp-delivery-e/b-pdp-delivery-e;
+    }
+    
+    &-btns {
+        grid-area: b-pdp-btns-s/b-pdp-btns-s / b-pdp-btns-e/b-pdp-btns-e;
+    }
+}

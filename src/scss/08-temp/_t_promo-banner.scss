@@ -1,0 +1,14 @@
+.b-top_carousel {
+    &-slide {
+        max-width: none !important; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    &-close {
+        padding: 0 !important; //TODO: FE: should be refactored after old styles deleting
+    }
+
+    &-item {
+        max-width: none !important; //TODO: FE: should be refactored after old styles deleting
+        padding: 0 40px;
+    }
+}

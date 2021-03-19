@@ -1,0 +1,70 @@
+.b-explore_box {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include media(m-up) {
+        margin: 0 -16px;
+    }
+
+    &-item {
+        width: 25%;
+        padding: 0 16px;
+        box-sizing: border-box;
+
+        @include media(s) {
+            width: 50%;
+            padding: 0 10px;
+            margin-bottom: 24px;
+        }
+    }
+
+    &-title {
+        @include font(bold, 16px, 1.25);
+
+        margin: 0;
+    }
+
+    &-title_link {
+        @include icon(arrow-right-small, 24px);
+
+        color: color(black);
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid color(gray-1);
+        transition: all 0.3s ease;
+        position: relative;
+
+        &::before {
+            color: color(red);
+            opacity: 0;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:link,
+        &:visited {
+            padding: 12px 0;
+            text-decoration: none;
+            border-bottom: 1px solid color(gray-1);
+        }
+
+        &:hover {
+            text-decoration: none;
+            border-color: color(red);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-thumbnail {
+        @include image_reflow(container, 100%);
+    }
+
+    &-thumbnail_img {
+        @include image_reflow(image);
+    }
+}

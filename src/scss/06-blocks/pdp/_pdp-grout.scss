@@ -1,0 +1,46 @@
+.b-pdp_grout {
+    background-color: color(white);
+    margin: 0 -20px 4px;
+    padding: 12px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    @include media(m-up) {
+        display: none;
+    }
+    
+    &-title {
+        @include font(regular, 14px, 1.29);
+    
+        color: color(gray-5);
+        margin-bottom: 10px;
+    }
+    
+    &-variation {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 12px;
+    }
+    
+    &-variation_text {
+        @include text-link-underline(14px, 1.29);
+    }
+    
+    &-variation_color {
+        width: 24px;
+        height: 24px;
+        content: '';
+        background-color: #957f79;
+        border: 1px solid color(black);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    &-change {
+        @include icon(arrow-down-small, before, 24px);
+        @include text-link-underline(14px, 1.29, icon);
+    }
+}

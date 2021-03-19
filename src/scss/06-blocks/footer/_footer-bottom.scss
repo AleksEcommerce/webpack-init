@@ -1,0 +1,54 @@
+.b-footer_bottom {
+    max-width: $max-content-width-xl;
+    padding: 0 24px 25px;
+    margin: 0 auto;
+
+    @include media(s) {
+        padding-bottom: 20px;
+    }
+
+    &-inner {
+        @include media(m-up) {
+            border-top: 1px solid color(gray-1);
+            display: flex;
+            justify-content: space-between;
+            padding-top: 29px;
+            margin: 0 16px;
+        }
+    }
+
+    &-text {
+
+    }
+
+    &-social {
+        @include media(m-up) {
+            order: 1;
+        }
+
+        // Styles for print
+        @media print {
+            display: none;
+        }
+    }
+
+    &-chat {
+        @include media(m-up) {
+            display: none;
+        }
+    }
+
+    &-copyright {
+
+    }
+
+    &-menu {
+        @include media(m-up) {
+            display: none;
+        }
+
+        @media print {
+            display: none;
+        }
+    }
+}

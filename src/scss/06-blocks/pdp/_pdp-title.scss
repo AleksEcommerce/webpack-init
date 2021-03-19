@@ -1,0 +1,32 @@
+.b-pdp_title {
+    margin-bottom: 9px;
+    
+    &-brand {
+        display: block;
+        margin-bottom: 12px;
+    }
+    
+    &-brand_img {
+        display: block;
+    }
+    
+    &-name {
+        @include font(bold, 24px, 1.33);
+    
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0 0 16px;
+    }
+    
+    &-shop {
+        @include font(regular, 14px, 1.29);
+    
+        display: block;
+    }
+    
+    &-error {
+        @include error-text(16px, 1.25, $mod: bg);
+    
+        margin: 8px 0;
+    }
+}

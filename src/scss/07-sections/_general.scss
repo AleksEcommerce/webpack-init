@@ -1,0 +1,52 @@
+/* General styles for the whole site */
+
+/*
+    stylelint-disable
+    selector-max-universal,
+    selector-no-qualifying-type,
+    declaration-no-important
+*/
+
+html {
+    //box-sizing: border-box; TODO: FE: should be refactored after old styles deleting
+    font-synthesis: none;
+    height: 100%;
+}
+
+/* GENERAL */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body.l-main {
+    overflow-x: hidden;
+}
+
+body {
+    &.js-no-scroll,
+    &.tingle-enabled {
+        overflow: hidden;
+    }
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+
+    &[href^='tel'] {
+        text-decoration: none;
+
+        @include media(m-down) {
+            pointer-events: all;
+            text-decoration: underline;
+        }
+    }
+}
+
+strong,
+b {
+    @include font(bold);
+}

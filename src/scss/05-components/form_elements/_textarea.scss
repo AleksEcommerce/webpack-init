@@ -1,0 +1,42 @@
+@mixin f-textarea {
+    .f-textarea {
+        &-field {
+            @include f-input_field;
+
+            resize: vertical;
+        }
+
+        &.m-error &-field {
+            @include f-input_field(error);
+        }
+
+        &.m-disabled &-field {
+            @include f-input_field(disabled);
+        }
+
+        &.m-prefilled &-field {
+            @include f-input_field(prefilled);
+        }
+
+        &-label {
+            @include f-input_label;
+            @include f-input_label($mod: static);
+        }
+
+        &.m-required &-label {
+            @include f-input_label($mod: required);
+        }
+
+        &-optional_copy {
+            @include f-input_label(_optional_copy);
+        }
+
+        &-label_description {
+            @include f-input_label(_label_description);
+        }
+
+        &-label_link {
+            @include f-input_label(_label_link);
+        }
+    }
+}

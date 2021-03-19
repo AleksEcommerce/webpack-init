@@ -1,0 +1,98 @@
+@mixin link(
+    $type: _inline,
+    $link_color: palacio-black,
+    $icon: edit_empty
+) {
+    transition: color 0.3s ease;
+
+    @if $type == _inline {
+        @include font(regular, 10px);
+
+        color: color($link_color);
+        cursor: pointer;
+        text-decoration: underline;
+        @content;
+
+        @include media(s) {
+            font-size: 12px;
+        }
+
+        &:hover,
+        &:focus {
+            @include font(medium);
+
+            color: color(text_hover);
+        }
+    }
+
+    @if $type == _arrow_link {
+        @include font(medium, 18px);
+
+        align-items: center;
+        color: color($link_color);
+        cursor: pointer;
+        display: inline-flex;
+        letter-spacing: 1.5px;
+        text-decoration: none;
+        text-transform: uppercase;
+        @content;
+
+        @include icon(arrow-right, after) {
+            color: color(palacio-yellow);
+            font-size: 14px;
+            margin-left: 6px;
+        }
+
+        @include media(s) {
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        &:hover,
+        &:focus {
+            color: color($link_color);
+        }
+    }
+
+    @if $type == _link_with_icon {
+        @include font(medium, 14px);
+        @include icon($icon);
+
+        align-items: center;
+        color: color($link_color);
+        display: flex;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s ease-in;
+        @content;
+
+        &::before {
+            font-size: 12px;
+            margin-right: 6px;
+            transition: color 0.3s ease-in;
+        }
+
+        &:hover {
+            color: color(palacio-black);
+            cursor: pointer;
+
+            &::before {
+                color: color(palacio-yellow);
+            }
+        }
+    }
+
+    @if $type == _uppercase {
+        @include font(medium);
+
+        color: color($link_color);
+        cursor: pointer;
+        text-transform: uppercase;
+        @content;
+
+        &:hover,
+        &:focus {
+            color: color(text_hover);
+        }
+    }
+}

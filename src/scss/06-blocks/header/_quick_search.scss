@@ -1,0 +1,223 @@
+// Header Search
+.b-quick_search {
+    position: relative;
+    max-width: none; //TODO: FE: should be refactored after old styles deleting
+
+    // Styles for print
+    @media print {
+        outline: 1px solid color(gray-1);
+    }
+
+    .js-sticky & {
+        @include media(s) {
+            margin-right: 130px;
+        }
+    }
+
+    &-inner {
+        max-width: none; //TODO: FE: should be refactored after old styles deleting
+
+        .js-sticky & {
+            @include media(s) {
+                width: 24px;
+            }
+        }
+
+        &.m-expanded {
+            .b-quick_search-wrapper {
+                .js-sticky & {
+                    display: block;
+                    padding: 12px;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: color(white);
+                    border-bottom: 1px solid color(gray-1);
+                    z-index: 4;
+                }
+            }
+
+            .b-quick_search-control {
+                @include icon(close-small, after, 40px);
+
+                color: color(black);
+                position: fixed;
+                right: 7px;
+                top: 16px;
+                z-index: 5;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+            }
+
+            .b-quick_search-clear {
+                .js-sticky & {
+                    @include media(s) {
+                        right: 64px;
+                    }
+                }
+            }
+
+            .b-quick_search-input {
+                .js-sticky & {
+                    @include media(s) {
+                        padding: 14px 14px 14px 44px;
+                        width: calc(100% - 40px);
+                    }
+                }
+            }
+
+            .b-quick_search-submit {
+                .js-sticky & {
+                    @include media(s) {
+                        top: 12px;
+                        left: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-wrapper {
+        .js-sticky & {
+            @include media(s) {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 2;
+            }
+        }
+    }
+
+    &-control {
+        @include icon(search, after, 24px);
+
+        display: none;
+        width: 24px;
+        height: 24px;
+        max-width: none;
+
+        .js-sticky & {
+            @include media(s) {
+                color: var(--secondary-color);
+                display: block;
+            }
+        }
+    }
+
+    &-input {
+        @include font(regular, 16px, 1.25);
+
+        background-color: color(gray-3);
+        border: none;
+        box-shadow: inset 1px 1px transparent, inset -1px -1px transparent;
+        box-sizing: border-box;
+        height: 48px;
+        outline: none;
+        padding: 14px 48px 14px 16px;
+        transition: all 0.3s linear;
+        width: 100%;
+
+        &:focus {
+            background-color: color(white);
+            box-shadow: inset 1px 1px color(black), inset -1px -1px color(black);
+        }
+
+        @include media(m-down) {
+            padding: 14px 80px 14px 44px;
+        }
+
+        @include media(s) {
+
+        }
+    }
+
+    &-submit {
+        @include icon(search, after, 24px);
+
+        background-color: transparent;
+        border: none;
+        color: color(red); //TODO: FE: should be refactored after old styles deleting
+        height: 48px;
+        outline: none;
+        padding: 0; //TODO: FE: should be refactored after old styles deleting;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 48px;
+
+        &::after {
+            line-height: 48px;
+        }
+
+        @include media(m-down) {
+            right: auto;
+            left: 0;
+        }
+    }
+
+    &-result {
+        display: none;
+
+        &.m-results-show {
+            display: block;
+        }
+    }
+
+    &-clear {
+        @include font(regular, 16px, 1.25);
+
+        color: color(black) !important;
+        padding: 0 !important;
+        position: absolute;
+        top: 0;
+        width: auto;
+        height: 100%;
+        text-transform: none;
+        display: none;
+
+        &.m-show {
+            display: block;
+        }
+
+        @include media(m-up) {
+            right: 52px;
+        }
+
+        @include media(m-down) {
+            right: 88px;
+            font-size: 16px;
+        }
+
+        span {
+            margin-top: 2px;
+            border-bottom: 1px solid color(red);
+        }
+    }
+
+    &-form {
+        &.m-search-result {
+            .b-quick_search-input {
+                position: relative;
+
+                @include media(m-up) {
+                    padding-right: 95px;
+                }
+
+                @include media(m-down) {
+                    padding-right: 134px;
+                }
+
+                .js-sticky & {
+                    @include media(s) {
+                        padding-right: 54px;
+                    }
+                }
+            }
+        }
+    }
+}

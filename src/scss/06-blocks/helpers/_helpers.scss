@@ -1,0 +1,122 @@
+/* stylelint-disable declaration-no-important */
+
+/*
+#Helper classes
+*/
+
+/*
+##Hide element with display: none
+*/
+
+.h-hidden {
+    display: none !important;
+}
+
+.h-hidden-visual {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.h-site_width {
+    @include site-width;
+}
+
+.h-hide-invisible {
+    @include hide(invisible, important);
+}
+
+.h-hide-text {
+    @include hide(text, important);
+}
+
+.h-hide-visually {
+    @include hide(visually, important);
+}
+
+.h-hide {
+    &-s {
+        @include media(s) {
+            display: none !important;
+        }
+    }
+
+    &-m {
+        @include media(m) {
+            display: none !important;
+        }
+    }
+
+    &-l {
+        @include media(l-up) {
+            display: none !important;
+        }
+    }
+}
+
+.h-show_only {
+    &-s {
+        @include media(m-up) {
+            display: none !important;
+        }
+    }
+
+    &-m {
+        @include media(s) {
+            display: none !important;
+        }
+
+        @include media(l-up) {
+            display: none !important;
+        }
+    }
+
+    &-l {
+        @include media(m-down) {
+            display: none !important;
+        }
+    }
+}
+
+.h-ellipsis {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &-line {
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        white-space: nowrap;
+        word-wrap: normal;
+    }
+}
+
+.h-under-header {
+    margin-top: calc(var(--header-height) * -1);
+}
+
+/*
+##No hover/click events
+*/
+
+.h-no_events {
+    pointer-events: none;
+}
+
+.h-flex {
+    display: flex;
+}
+
+/*
+## Left indents
+*/
+
+@for $i from 1 through 50 {
+    .h-left-#{$i} {
+        margin-left: #{$i}px;
+    }
+}

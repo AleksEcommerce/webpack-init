@@ -1,0 +1,57 @@
+/*md
+# Button 2
+
+You can add icons with the help of icons classes helpers.
+
+## States
+
+### Normal state
+
+```html_example
+<button class="g-button_2">Button</button>
+<button class="g-button_2 i-favorites-before i-favorites-after">With icons</button>
+```
+
+### Disabled state
+
+There are two variants of disabled buttons:
+
+- disabled with CSS class (only disabled look, can be focused)
+- disabled with HTML attribute
+
+```html_example
+<button class="g-button_2 m-disabled">Disabled (CSS)</button>
+<button class="g-button_2" disabled>Disabled (HTML)</button>
+```
+
+## Modifications
+
+### Flex width
+
+Is the same as the default one but with fixed width
+
+```html_example
+<button class="g-button_2 m-flex">flex</button>
+<button class="g-button_2 m-flex">flex width long copy</button>
+```
+
+### Inverted
+
+```html_example
+<div style="background-color: grey; padding: 20px;">
+    <button class="g-button_2 m-inverted">Button</button>
+</div>
+```
+*/
+
+.g-button_2 {
+    @include g-button_2;
+
+    &.m-flex {
+        @include g-button_2(flex);
+    }
+
+    &.m-inverted {
+        @include g-button_2(inverted);
+    }
+}

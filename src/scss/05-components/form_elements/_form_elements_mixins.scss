@@ -1,0 +1,164 @@
+@mixin f-input($mod: default) {
+    @if $mod == default {
+        display: block;
+        position: relative;
+    }
+
+    @if $mod == icon {
+        @include icon(arrow-right-big, 24px);
+
+        &::before {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            color: color(red);
+            display: block;
+            height: 24px;
+            width: 24px;
+        }
+    }
+}
+
+@mixin f-input_field($mod: default, $el: default) {
+    @if $mod == default {
+        @include font(regular, 16px);
+
+        appearance: none;
+        border: 1px solid color(gray-1);
+        color: color(black);
+        outline: none;
+        padding: 13px 16px 14px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        background: color(white);
+        margin-left: 0;
+
+        @include media(s) {
+            @include font(regular, 14px);
+        }
+
+        &:hover,
+        &:focus {
+            border-color: color(black);
+            outline: none;
+        }
+
+        &::placeholder {
+            color: color(gray-1);
+        }
+    }
+
+    @if $mod == error {
+        color: color(error);
+        border-color: color(red);
+    }
+
+    @if $mod == disabled {
+        background-color: color(gray-3);
+        color: color(gray-2); // For iOS
+        opacity: 1; // For iOS
+        pointer-events: none;
+        -webkit-text-fill-color: color(gray-2); // Override iOS
+
+        &:hover,
+        &:focus {
+            &:disabled,
+            &.m-disabled {
+                border-color: color(black);
+            }
+        }
+    }
+
+    @if $mod == type_select {
+        @include font(medium, 14px);
+
+        border-left-width: 0;
+        border-right-width: 0;
+        border-top-width: 0;
+        padding: 15px 40px 10px 0;
+
+        @include media(s) {
+            padding: 15px 40px 10px 0;
+        }
+    }
+
+    @if $mod == error-text {
+        @include font(regular, 14px);
+
+        color: color(red);
+        padding-top: 5px;
+    }
+}
+
+@mixin f-input_label($type: root, $mod: default) {
+    @if $type == root {
+        @if $mod == default {
+            @include font(regular, 16px);
+
+            color: color(black);
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        @if $mod == required {
+            &::before {
+                color: inherit;
+                content: '';
+                display: inline-block;
+                font-size: 14px;
+                margin-left: 2px;
+                vertical-align: top;
+                border-radius: 50%;
+                background-color: color(red);
+                height: 4px;
+                width: 4px;
+                margin-right: 4px;
+                position: relative;
+                top: 8px;
+            }
+        }
+
+        @if $mod == static {
+            display: block;
+            margin: 5px 0 0;
+            position: static;
+        }
+
+        @if $mod == filled {
+            @include font(regular, 8px);
+
+            letter-spacing: 0;
+            margin: 0;
+            text-transform: uppercase;
+            top: 18px;
+        }
+    }
+
+    @if $type == _label_description { // TODO: remove, move to field level
+        @include font(regular, 10px, normal);
+
+        color: color(black);
+        display: block;
+        margin: 10px 0 0;
+
+        a {
+            color: color(black);
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    @if $type == _label_link {
+        color: color(black);
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

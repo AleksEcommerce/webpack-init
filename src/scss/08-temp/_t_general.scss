@@ -1,0 +1,101 @@
+.l-header {
+    @include local-normalize();
+
+    @include media(m-down) {
+        z-index: 1002;
+    }
+}
+
+body header {
+    float: none !important;
+
+    @include media(s) {
+        float: none !important;
+    }
+}
+
+.page-content {
+    @include media(s) {
+        padding: 0 8px !important;
+        box-sizing: border-box;
+    }
+}
+
+#materials-recommendations {
+    .certona-recommendation-div {
+        .product-sales-price {
+            white-space: nowrap;
+        }
+    }
+}
+
+.pt_storefront {
+    .certona-recommendation-div {
+        ul.search-result-items {
+            .grid-tile {
+                padding-left: 12px;
+            }
+        }
+    }
+}
+
+.breadcrumb + .primary-content,
+.breadcrumb ~ .refinements {
+    @include media(m-up) {
+        padding-top: 0;
+    }
+}
+
+.primary-content,
+.refinements {
+    @include media(m-up) {
+        padding-top: 30px;
+    }
+}
+
+.optanon-alert-box-wrapper {
+    // Styles for print
+    @media print {
+        display: none;
+    }
+}
+
+.f-input_radio-label {
+    width: auto;
+}
+
+.b-minicart-product_remove_btn {
+    padding: 0 !important;
+}
+
+.b-scs_popup-btn.m-cancel {
+    color: color(black) !important;
+
+    &:hover {
+        color: color(white) !important;
+    }
+}
+
+ul.search-result-items .grid-tile .product-tile {
+    height: 337px !important;
+}
+
+.copyright-footer .col-xs-12.copyrightText.text-center {
+    @include media(m-down) {
+        box-sizing: border-box;
+        float: none;
+        margin: 0;
+    }
+}
+
+.l-footer {
+    .visible-xs {
+        overflow: hidden;
+    }
+}
+
+@media print {
+    .p-wishlist .projectlist-recommendations {
+        display: block !important;
+    }
+}

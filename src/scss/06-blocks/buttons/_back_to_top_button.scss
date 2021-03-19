@@ -1,0 +1,37 @@
+/*md
+# Back to top button
+
+To see the back to top button - scroll down the page.
+
+```html_example
+<style>
+    .b-back_to_top_button {
+        position: sticky;
+        top: 20px;
+    }
+</style>
+<div style="background: grey; padding: 20px; position: relative; height: 2000px">
+    <button type="button"
+        aria-label="Back to top"
+        class="b-back_to_top_button m-active"
+        data-component="global/BackToTop"
+    ></button>
+</div>
+```
+*/
+
+.btt {
+    @include icon(arrow-up-big, 24px);
+
+    background-color: color(white);
+    background-image: none;
+    border: 1px solid color(black);
+    color: color(black);
+    right: 40px;
+    height: 32px;
+    line-height: 32px;
+    outline: none;
+    text-align: center;
+    text-indent: 0;
+    width: 32px;
+}

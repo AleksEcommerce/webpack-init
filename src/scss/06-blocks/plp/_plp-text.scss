@@ -1,0 +1,9 @@
+.b-plp_text {
+    @include font(regular, 14px, 1.3);
+
+    padding: 40px 0 32px;
+
+    &-desc {
+        margin-bottom: 15px;
+    }
+}

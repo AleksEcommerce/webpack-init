@@ -1,0 +1,56 @@
+@mixin g-accordion_style_3(
+    $el: root,
+    $mod: default
+) {
+    @if $el == root {
+        @include g-accordion;
+
+        border-bottom: 1px solid color(gray-3);
+    }
+
+    @if $el == control {
+        @if $mod == default {
+            @include g-accordion(control);
+            @include font(regular, 18px);
+
+            color: color(regular-black);
+            padding: 30px 0;
+            text-transform: uppercase;
+
+            @include icon(arrow-down, after, 8px) {
+                margin: 0 0 0 10px;
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                transform-origin: 50% 50%;
+            }
+        }
+
+        @if $mod == expanded {
+            @include g-accordion(control, expanded);
+
+            &::after {
+                content: icon-char(arrow-up);
+            }
+        }
+
+        @if $mod == full {
+            &::after {
+                right: 0;
+            }
+        }
+    }
+
+    @if $el == content {
+        @if $mod == default {
+            @include g-accordion(content);
+        }
+
+        @if $mod == expanded {
+            @include g-accordion(content, expanded);
+
+            margin: 0 0 15px;
+        }
+    }
+}

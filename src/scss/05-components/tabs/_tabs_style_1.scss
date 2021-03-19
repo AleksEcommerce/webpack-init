@@ -1,0 +1,138 @@
+/*md
+# Tabs navigation - style 1
+
+HTML structure example:
+
+```
+<div class="g-tabs_style_1"
+    data-component="global/Tabs">
+
+    <div class="g-tabs_style_1-head">
+        <ul class="g-tabs_style_1-list" data-js-tabs>
+            <li class="g-tabs_style_1-control" data-js-tab-item="1">
+                <span class="g-tabs_style_1-control_name">Item 1 Title</span>
+            </li>
+            <li class="g-tabs_style_1-control" data-js-tab-item="2">
+                <span class="g-tabs_style_1-control_name">Item 2 Title</span>
+            </li>
+            <li class="g-tabs_style_1-control" data-js-tab-item="3">
+                <span class="g-tabs_style_1-control_name">Item 3 Title</span>
+            </li>
+            <li class="g-tabs_style_1-control" data-js-tab-item="4">
+                <span class="g-tabs_style_1-control_name">Item 4 Title</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="g-tabs_style_1-content" data-js-tabs-content>
+        <div class="g-tabs_style_1-item" data-js-tab-content="1">Item 1 Content</div>
+        <div class="g-tabs_style_1-item" data-js-tab-content="2">Item 2 Content</div>
+        <div class="g-tabs_style_1-item" data-js-tab-content="3">Item 3 Content</div>
+        <div class="g-tabs_style_1-item" data-js-tab-content="4">Item 4 Content</div>
+    </div>
+</div>
+```
+
+SCSS structure example:
+```
+.g-tabs_style_1 {
+    @include g-tabs_style_1;
+
+    &-head {
+        @include g-tabs_style_1(head);
+    }
+
+    &-list {
+        @include g-tabs_style_1(list);
+        @include site-width;
+    }
+
+    &-control {
+        @include g-tabs_style_1(control);
+    }
+
+    &-control.m-tabs-active {
+        @include g-tabs_style_1(control, active);
+    }
+
+    &-control_name {
+        @include g-tabs_style_1(control_name);
+    }
+
+    &-item {
+        @include g-tabs_style_1(item);
+    }
+
+    &-item.m-tabs-shown {
+        @include g-tabs_style_1(item, active);
+    }
+}
+```
+*/
+
+@mixin g-tabs_style_1(
+    $el: root,
+    $mod: default
+) {
+    $color-root-background-color: color(gray-3);
+    $color-head-background-color: color(gray-2);
+    $color-control-color: color(gray-1);
+    $color-control-active-background-color: color(gray-3);
+    $color-control-active-color: color(black);
+
+    @if $el == root {
+        background-color: $color-root-background-color;
+    }
+
+    @if $el == head {
+        background-color: $color-head-background-color;
+    }
+
+    @if $el == list {
+        @include g-tabs(list);
+    }
+
+    @if $el == control {
+        @if $mod == default {
+            @include g-tabs(control);
+            @include font(medium, 14px, 1.2);
+
+            background-color: transparent;
+            color: $color-control-color;
+            text-transform: uppercase;
+
+            @include media(m) {
+                @include font(medium, 12px);
+            }
+        }
+
+        @if $mod == active {
+            @include g-tabs(control, active);
+            @include font(bold);
+
+            background-color: $color-control-active-background-color;
+            color: $color-control-active-color;
+            transition: background-color 0.3s, color 0.3s linear;
+        }
+    }
+
+    @if $el == control_name {
+        @include g-tabs(control_name);
+
+        align-self: center;
+        padding: 0 30px;
+        text-align: center;
+        width: 100%;
+    }
+
+    @if $el == item {
+        @if $mod == default {
+            @include g-tabs(item);
+            @include font(regular, 14px, 1.2);
+        }
+
+        @if $mod == active {
+            @include g-tabs(item, active);
+        }
+    }
+}

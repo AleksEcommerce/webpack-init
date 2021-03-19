@@ -1,0 +1,162 @@
+/*md
+@no-stat
+# Input Text field
+
+## Standard input field
+
+<form data-component="global/Form">
+
+### States
+
+#### Default
+
+```html_example
+<div class="h-flex">
+	<div class="f-input_text">
+		<label class="f-input_text-label"
+			for="input-1"
+		>First Name</label>
+		<input class="f-input_text-field"
+			data-component="global/Input"
+			data-js-field
+			id="input-1"
+			name="name"
+			maxlength="50"
+			placeholder="Placeholder"
+			type="text"
+		/>
+	</div>
+	<div class="f-input_text m-icon h-left-50">
+		<label class="f-input_text-label"
+			for="input-11"
+		>With icon</label>
+		<input class="f-input_text-field"
+			data-component="global/Input"
+			data-js-field
+			id="input-11"
+			name="name"
+			maxlength="50"
+			placeholder="Placeholder"
+			type="text"
+		/>
+	</div>
+</div>
+```
+#### Mandatory
+
+```html_example
+<div class="h-flex">
+	<div class="f-input_text m-required">
+		<label class="f-input_text-label"
+			for="input-2"
+		>First Name</label>
+		<input class="f-input_text-field"
+			data-component="global/Input"
+			data-js-field
+			id="input-2"
+			maxlength="50"
+			placeholder="Placeholder"
+			name="name"
+			required
+			type="text"
+		/>
+	</div>
+	<div class="f-input_text m-required m-icon h-left-50">
+		<label class="f-input_text-label"
+			for="input-22"
+		>With icon</label>
+		<input class="f-input_text-field"
+			data-component="global/Input"
+			data-js-field
+			id="input-22"
+			name="name"
+			maxlength="50"
+			placeholder="Placeholder"
+			required
+			type="text"
+		/>
+	</div>
+</div>
+```
+
+#### Error
+
+```html_example
+<div class="f-input_text m-error">
+	<label class="f-input_text-label"
+		data-optional-text=" (optional)"
+		for="input-5"
+	/>First Name</label>
+	<input class="f-input_text-field"
+		data-component="global/Input"
+		data-js-field
+		id="input-5"
+		maxlength="50"
+		placeholder=" "
+		name="name"
+		type="text"
+		value="prfsd"
+	/>
+</div>
+```
+
+#### Disabled
+
+```html_example
+<div class="f-input_text m-disabled">
+	<label class="f-input_text-label"
+		data-optional-text=" (optional)"
+		for="input-3"
+	>First Name</label>
+	<input class="f-input_text-field"
+		data-component="global/Input"
+		data-js-field
+		disabled
+		id="input-3"
+		maxlength="50"
+		placeholder=" "
+		name="name"
+		type="text"
+	/>
+</div>
+```
+
+### Modifications
+
+#### Without label modification
+
+```html_example
+<div class="f-input_text">
+	<input class="f-input_text-field"
+		data-component="global/Input"
+		data-js-field
+		maxlength="50"
+		placeholder=" "
+		name="name"
+		required
+		type="text"
+	/>
+</div>
+```
+</form>
+```
+</form>
+
+## Input field with the label and the label description
+
+// TODO: move description to f-field level
+
+```html_example
+<div class="f-input_text m-required">
+	<label for="input-8" class="f-input_text-label">First Name</label>
+	<input id="input-8 " class="f-input_text-field" type="text" name="name" maxlength="50"
+	placeholder=" " required data-component="global/Input" data-js-field>
+</div>
+<span class="f-input_text-label_description">
+	Delivery is possible only in the following country.<br/>
+	If you want to change the country of delivery, please use the <a href="#">country selector</a>.
+</span>
+```
+*/
+
+@include f-input_text;
