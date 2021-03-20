@@ -9,12 +9,13 @@ function pdpScripts() {
   const pdp_sizes = document.querySelector('.b-pdp_details-element_sizes');
   const pdp_size_item = pdp_sizes.querySelectorAll('.b-pdp_details-element_size');
 
-  function setActiveClass(array, parent, nameClass) {
+  function switchActiveClass(array, parent, activeClass) {
+    let active_variation;
     parent.addEventListener('click', (event) => {
+        active_variation = parent.querySelector('.' + `${activeClass}`);
         array.forEach(btn => {
-            let active_variation = parent.querySelector('.' + `${nameClass}`);
-            active_variation.classList.remove(nameClass);
-            event.target.classList.add(nameClass);
+            active_variation.classList.remove(activeClass);
+            event.target.classList.add(activeClass);
         });
     });
 }
@@ -91,8 +92,8 @@ InitInformation();
   my_accordeon('.b-pdp_calc-accordeon');
   classToggle('.b-pdp_details-more');
   classToggle('.b-pdp_calc-checkbox_info');
-  setActiveClass(pdp_size_item, pdp_sizes, 'm-active');
-  setActiveClass(pdp_variation_item, pdp_variations, 'm-current');
+  switchActiveClass(pdp_size_item, pdp_sizes, 'm-active');
+  switchActiveClass(pdp_variation_item, pdp_variations, 'm-current');
 }
 
 // function test(param1, param2) {

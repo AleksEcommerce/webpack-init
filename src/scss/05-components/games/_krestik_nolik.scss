@@ -5,6 +5,11 @@
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+  margin-right: 30px;
+
+  &-wrapper {
+    display: flex;
+  }
 
   &-item {
     width: 33.33%;
@@ -30,6 +35,21 @@
 
     &.m-null::after {
       content: '0'
+    }
+  }
+
+  &-switcher {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-switcher_item {
+    @include g-button-1();
+
+    margin-bottom: 20px;
+
+    &.m-active {
+      background-color: color(red);
     }
   }
 }

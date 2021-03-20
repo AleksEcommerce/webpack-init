@@ -15,6 +15,18 @@ const GameObject = {
   GameFunction() {
     const game_container = document.querySelector('.b-kn');
     const game_item = game_container.querySelectorAll('.b-kn-item');
+    const game_wrapper = document.querySelector('.b-kn-wrapper');
+    const game_switcher = game_wrapper.querySelector('.b-kn-switcher');
+    const game_switcher_item = game_wrapper.querySelectorAll('.b-kn-switcher_item');
+    const SwitcherPlayer = () => {
+      game_switcher.addEventListener('click', (event) => {
+        game_switcher_item.forEach(btn => {
+            if (btn.classList.contains('m-active')) btn.classList.remove('m-active');
+            event.target.classList.add('m-active');
+        });
+      });
+    };
+    SwitcherPlayer();
     function GameFinish() {
       for (let key in game_item) {
         if (
