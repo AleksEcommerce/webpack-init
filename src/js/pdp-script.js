@@ -95,13 +95,13 @@ InitInformation();
   setActiveClass(pdp_variation_item, pdp_variations, 'm-current');
 }
 
-function test(param1, param2) {
-  console.log(this, param1, param2);
-}
+// function test(param1, param2) {
+//   console.log(this, param1, param2);
+// }
 
-test.apply({hello: 'world'}, ['hello', 'john']);
-test.call({hello: 'world2'}, ['hello2', 'john2']);
-const testBind = test.bind({hello: 'world3'});
-testBind();
+// test.apply({hello: 'world'}, ['hello', 'john']);
+// test.call({hello: 'world2'}, ['hello2', 'john2']);
+// const testBind = test.bind({hello: 'world3'});
+// testBind();
 // const data_PDP = require('./pdp-base');
 

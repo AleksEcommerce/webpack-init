@@ -1,0 +1,35 @@
+.b-kn {
+  width: 400px;
+  height: 400px;
+  background-color: #8a8a8a;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  &-item {
+    width: 33.33%;
+    flex: 0 1 33.33%;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 64px;
+      line-height: 64px;
+    }
+
+    &.m-krestik::after {
+      content: '×';
+      font-size: 110px;
+    }
+
+    &.m-null::after {
+      content: '0'
+    }
+  }
+}
