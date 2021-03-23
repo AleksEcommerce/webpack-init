@@ -5,7 +5,6 @@ import {pdpScripts} from './pdp-script.js';
 
 pdpScripts();
 
-
 const GameObject = {
   counter: 0,
   options: {
@@ -46,22 +45,6 @@ const GameObject = {
       ResetClass();
     });
 
-    function AiEnemy() {
-      const game_item_inactive = document.querySelectorAll('.m-inactive');
-      function randomInteger(min, max) {
-        let rand = min + Math.random() * (max - min);
-        return Math.floor(rand);
-      }
-      for (let key in game_item_inactive) {
-        let NumberItem = randomInteger(0, game_item_inactive.length);
-        game_item_inactive[NumberItem].classList.remove('m-inactive');
-        game_item_inactive[NumberItem].classList.add('m-krestik');
-        break;
-      }
-      GameFinish();
-      return true;
-    };
-
     let ResetClass = () => {
       const game_switcher = document.querySelector('.b-kn-switcher');
       const game_switcher_item = game_switcher.querySelectorAll('.b-kn-switcher_item');
@@ -81,18 +64,56 @@ const GameObject = {
       this.counter = 0;
       this.options.playing = false;
       this.options.playAI = false;
-      game_container.removeEventListener('click', GameProcess);
+      if (enemy === 'human') {
+        game_container.removeEventListener('click', GamingHumans);
+      } else if (enemy === 'ai') {
+        game_container.removeEventListener('click', GamingAI);
+      };
       if (this.options.playing == false) {
         console.log('counter after - reset')
       }
       return true;
     };
 
-    let GameFunctionContext = this;
-    game_container.addEventListener('click', GameProcess);
 
-    function GameProcess(e) {
-      if (enemy === 'human' && GameFunctionContext.options.playing == true && e.target.classList.contains('m-inactive')) {
+    let GameFunctionContext = this;
+
+    if (enemy === 'human') {
+      game_container.addEventListener('click', GamingHumans);
+    } else if (enemy === 'ai') {
+      game_container.addEventListener('click', GamingAI);
+    };
+
+    function AiEnemy() {
+      const game_item_inactive = document.querySelectorAll('.m-inactive');
+      function randomInteger(min, max) {
+        let rand = min + Math.random() * (max - min);
+        return Math.floor(rand);
+      }
+      for (let key in game_item_inactive) {
+        let NumberItem = randomInteger(0, game_item_inactive.length);
+        game_item_inactive[NumberItem].classList.remove('m-inactive');
+        game_item_inactive[NumberItem].classList.add('m-krestik');
+        break;
+      }
+      return true;
+    };
+
+    function GamingAI(e) {
+      if (e.target.classList.contains('m-inactive')) {
+        GameFunctionContext.options.playAI = true;
+          if (!e.target.classList.contains('m-krestik') && !e.target.classList.contains('m-null')) {
+            e.target.classList.remove('m-inactive');
+            e.target.classList.add('m-null');
+            setTimeout(AiEnemy, 500);
+            setTimeout(GameFinish, 600);
+          };
+          console.log(GameFunctionContext.counter + ' AI');
+        };
+    };
+
+    function GamingHumans(e) {
+      if (e.target.classList.contains('m-inactive')) {
         GameFunctionContext.counter++;
         if (GameFunctionContext.counter % 2 === 0 && !e.target.classList.contains('m-krestik') && !e.target.classList.contains('m-null')) {
           e.target.classList.remove('m-inactive');
@@ -103,15 +124,7 @@ const GameObject = {
         };
         console.log(GameFunctionContext.counter + ' HUMAN');
         GameFinish();
-      } else if (enemy === 'ai' && GameFunctionContext.options.playing == true && e.target.classList.contains('m-inactive')) {
-        GameFunctionContext.options.playAI = true;
-        if (!e.target.classList.contains('m-krestik') && !e.target.classList.contains('m-null') && GameFunctionContext.options.playAI == true) {
-          e.target.classList.remove('m-inactive');
-          e.target.classList.add('m-null');
-          setTimeout(AiEnemy, 500);
-        };
-        console.log(GameFunctionContext.counter + ' AI');
-      };
+      }
     };
 
     const GameFinish = () => {
