@@ -38,6 +38,14 @@
     }
   }
 
+  &-reset {
+    @include g-button-1();
+
+    margin-left: 20px;
+    height: 48px;
+    box-sizing: border-box;
+  }
+
   &-switcher {
     display: flex;
     flex-direction: column;
@@ -46,6 +54,7 @@
   &-switcher_item {
     @include g-button-1();
 
+    box-sizing: border-box;
     margin-bottom: 20px;
 
     &.m-active {
