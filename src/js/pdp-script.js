@@ -99,9 +99,34 @@ function test(param1, param2) {
   console.log(this, param1, param2);
 }
 
-test.apply({hello: 'world'}, ['hello', 'john']);
-test.call({hello: 'world2'}, ['hello2', 'john2']);
-const testBind = test.bind({hello: 'world3'});
-testBind();
+// test.apply({hello: 'world'}, ['hello', 'john']);
+// test.call({hello: 'world2'}, ['hello2', 'john2']);
+// const testBind = test.bind({hello: 'world3'});
+// testBind();
 // const data_PDP = require('./pdp-base');
 
+const clonePDPbase = JSON.parse(JSON.stringify(pdp_page_data)); // Глубокое копирование обьектов
+clonePDPbase.product.title = 'New';
+
+const InputRub = document.querySelector('.m-rub'),
+      InputUsd = document.querySelector('.m-usd');
+
+      InputRub.addEventListener('input', () => {
+          const request = new XMLHttpRequest();
+          request.open('GET', './pdp-base.json');
+          request.setRequestHeader('Content-type', 'appliaction/json; charset=utf-8');
+          request.send();
+
+          request.addEventListener('load', () => {
+            if (request.status === 200) {
+              console.log(request.response);
+              const data = JSON.parse(request.response);
+              InputUsd.value = (+InputRub.value / data.product.currency.usd).toFixed(2);
+            } else {
+              InputUsd.value = 'Error';
+            }
+          });
+      });
+
+// console.log(pdp_page_data);
+// console.log(clonePDPbase);
