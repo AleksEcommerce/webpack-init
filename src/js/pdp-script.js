@@ -95,14 +95,14 @@ InitInformation();
   setActiveClass(pdp_variation_item, pdp_variations, 'm-current');
 }
 
-function test(param1, param2) {
-  console.log(this, param1, param2);
-}
+// function test(param1, param2) {
+//   console.log(this, param1, param2);
+// }
 
-test.apply({hello: 'world'}, ['hello', 'john']);
-test.call({hello: 'world2'}, ['hello2', 'john2']);
-const testBind = test.bind({hello: 'world3'});
-testBind();
+// test.apply({hello: 'world'}, ['hello', 'john']);
+// test.call({hello: 'world2'}, ['hello2', 'john2']);
+// const testBind = test.bind({hello: 'world3'});
+// testBind();
 // const data_PDP = require('./pdp-base');
 
 
@@ -170,6 +170,88 @@ testBind();
 // });
 
 
-fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => response.json())
-  .then(json => console.log(json));
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//   method: 'POST',
+//   body: JSON.stringify({name: 'Alex'}),
+//   headers: {
+//     'Content-type': 'application/json'
+//   }
+// })
+// .then(response => response.json())
+// .then(json => console.log(json));
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//     return data;
+//   });
+
+// fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
+//   .then(response => response.json())
+//   .then(commits => console.log(commits[9].author.login));
+
+  //Filter
+
+
+
+  const BaseNames = fetch('https://jsonplaceholder.typicode.com/posts')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    return data;
+  });
+  console.log(BaseNames);
+
+
+
+  const BaseNames2 = ['Ann', 'IvAn', 'KseNia', 'Voldemart'];
+  const BaseNumbers1 = [2, 3, 4, 5];
+  //FILTER
+  // const shortNames = BaseNames2.filter(function(name) {
+  //   return name.length < 5;
+  // });
+
+  // console.log(shortNames);
+
+  // // MAP
+  // const shortNames2 = BaseNames2.map(item => item.toLowerCase());
+  // console.log(shortNames2);
+
+  // EVERY/SOME
+
+  //const somethins = [4, 'qwq', 'sfreferf'];
+  //const somethinsNumber = [4, 5, 6];
+  //console.log(somethins.some(item => typeof(item) === 'number'));
+  //console.log(somethinsNumber.every(item => typeof(item) === 'number'));
+
+  // REDUCE
+
+  // let BaseNumbers2 = BaseNumbers1.reduce((value1, value2) => {
+  //   return value1 + value2;
+  // })
+  // console.log(BaseNumbers2);
+
+  // let BaseNames3 = BaseNames2.reduce((value1, value2) => {
+  //   return value1 + ', ' + value2;
+  // });
+  // console.log(BaseNames3);
+
+  // ПЕРЕБОР ОБЬЕКТА С ПРЕВРАЩЕНИЕМ В МАСИВ
+    const objTest = {
+      ivan: 'persone',
+      dolores: 'persone',
+      dog: 'animal',
+      cat: 'animal'
+    }
+
+    const objToArray = Object.entries(objTest)
+                      .filter(item => item[1] === 'persone')
+                      .map(item => item[0]);
+
+    console.log(objToArray);
+
+
