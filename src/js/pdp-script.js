@@ -105,3 +105,71 @@ const testBind = test.bind({hello: 'world3'});
 testBind();
 // const data_PDP = require('./pdp-base');
 
+
+
+// console.log('Запрос данных ...');
+
+
+// const regProm = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("Подготовка данных ...");
+
+//     const pdpProduct = {
+//       name: 'TV',
+//       price: 2000
+//     };
+
+//     resolve(pdpProduct);
+//   }, 1000);
+// });
+
+// regProm.then((pdpProductBase) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       pdpProductBase.status = 'order';
+//       resolve(pdpProductBase);
+//     }, 1000);
+//   });
+// }).then(data => {
+//   data.modify = true;
+//   return data;
+// }).then((dataNext) => {
+//   console.log(dataNext);
+// }).catch(() => {
+//   console.error('Error....')
+// }).finally(() => {
+//   console.log('Finally');
+// });
+
+
+// Вторая Часть урока Промисов
+// const testPromise = time => {
+//   return new Promise(resolve => {
+//     setTimeout(() => resolve(), time);
+//   });
+// };
+
+// testPromise(1000).then(() => {
+//   console.log('1000');
+// });
+// testPromise(2000).then(() => {
+//   console.log('2000');
+// });
+// testPromise(1500).then(() => {
+//   console.log('1500');
+// });
+
+
+// Promise.all([testPromise(1000), testPromise(2000)]).then(() => {
+//   console.log('All'); // Этот промис отрабатывает когда все прогрузилось
+// });
+
+
+// Promise.race([testPromise(1000), testPromise(2000)]).then(() => {
+//   console.log('All'); // Этот промис отрабатывает когда первое загрузилось
+// });
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json));
