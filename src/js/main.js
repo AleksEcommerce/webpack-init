@@ -65,13 +65,20 @@ const getData = async (url) => {
   return await res.json();
 };
 
-  getData('https://jsonplaceholder.typicode.com/todos')
-  .then(data => {
-    console.log(data);
-    data.forEach(({userId, id, title, completed}) => {
-      new DataList(userId, id, title, completed, ".b-server_data-list").render();
-    });
-  });
+
+  // getData('https://jsonplaceholder.typicode.com/todos')
+  // .then(data => {
+  //   console.log(data);
+  //   data.forEach(({userId, id, title, completed}) => {
+  //     new DataList(userId, id, title, completed, ".b-server_data-list").render();
+  //   });
+  // });
+
+// USE AXIOS
+  axios.get('https://jsonplaceholder.typicode.com/todos')
+  .then(data => {console.log(data)});
+
+
 
     //   getResource('http://localhost:3000/menu')
     //     .then(data => createCard(data));
