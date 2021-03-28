@@ -197,19 +197,19 @@ InitInformation();
 
 
 
-  const BaseNames = fetch('https://jsonplaceholder.typicode.com/posts')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    return data;
-  });
-  console.log(BaseNames);
+  // const BaseNames = fetch('https://jsonplaceholder.typicode.com/posts')
+  // .then((response) => {
+  //   return response.json();
+  // })
+  // .then((data) => {
+  //   return data;
+  // });
+  // console.log(BaseNames);
 
 
 
-  const BaseNames2 = ['Ann', 'IvAn', 'KseNia', 'Voldemart'];
-  const BaseNumbers1 = [2, 3, 4, 5];
+  // const BaseNames2 = ['Ann', 'IvAn', 'KseNia', 'Voldemart'];
+  // const BaseNumbers1 = [2, 3, 4, 5];
   //FILTER
   // const shortNames = BaseNames2.filter(function(name) {
   //   return name.length < 5;
@@ -241,17 +241,17 @@ InitInformation();
   // console.log(BaseNames3);
 
   // ПЕРЕБОР ОБЬЕКТА С ПРЕВРАЩЕНИЕМ В МАСИВ
-    const objTest = {
-      ivan: 'persone',
-      dolores: 'persone',
-      dog: 'animal',
-      cat: 'animal'
-    }
+    // const objTest = {
+    //   ivan: 'persone',
+    //   dolores: 'persone',
+    //   dog: 'animal',
+    //   cat: 'animal'
+    // }
 
-    const objToArray = Object.entries(objTest)
-                      .filter(item => item[1] === 'persone')
-                      .map(item => item[0]);
+    // const objToArray = Object.entries(objTest)
+    //                   .filter(item => item[1] === 'persone')
+    //                   .map(item => item[0]);
 
-    console.log(objToArray);
+    // console.log(objToArray);
 
 

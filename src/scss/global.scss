@@ -10,5 +10,44 @@
 @import '06-blocks/all';
 @import '07-sections/all';
 
+.b-server_data {
+  border: 1px solid color(red);
+  padding: 10px 0;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-item {
+    padding: 0 10px;
+    width: 25%;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    overflow: hidden;
+  }
+
+  &-item:nth-child(2n) {
+    background-color: color(gray-3);
+  }
+
+  &-item_id {
+    font-size: 16px;
+  }
+
+  &-item_title {
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &-item_completed {
+    font-size: 12px;
+  }
+}
+
 // // Common styles init
 // @include icons-classes;
