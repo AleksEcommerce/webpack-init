@@ -2,8 +2,38 @@ import '../scss/main.scss';
 import '../index.html';
 
 import {pdpScripts} from './pdp-script.js';
+import {DokSlider} from './slider.js';
+import {HorSlider} from './slider.js';
 
 pdpScripts();
+
+let newSlider = new DokSlider('.b-slider', {
+  navigation: {
+    next: '.b-slider-counter_next',
+    prev: '.b-slider-counter_prev'
+  },
+  counters: {
+    currentslide: '.b-slider-counter_prev-number',
+    allslides: '.b-slider-counter_next-number'
+  }
+});
+
+let newSlider2 = new HorSlider('.b-horslider', {
+    navigation: {
+      prev: '.b-horslider-nav_prev',
+      next: '.b-horslider-nav_next',
+      block: '.b-horslider-nav'
+    },
+    pagination: {
+      block: '.b-horslider-pagination',
+    },
+    counters: {
+      currentslide: '.b-horslider-nav_current-number',
+      allslides: '.b-horslider-nav_total'
+    },
+    items: '.b-horslider-slide',
+    slidesList: '.b-horslider-inner'
+});
 
 
 // fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -76,7 +106,11 @@ const getData = async (url) => {
 
 // USE AXIOS
   axios.get('https://jsonplaceholder.typicode.com/todos')
-  .then(data => {console.log(data)});
+  .then(data => {
+    data.data.forEach(({userId, id, title, completed}) => {
+          new DataList(userId, id, title, completed, ".b-server_data-list").render();
+      });
+  });
 
 
 
