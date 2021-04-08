@@ -56,6 +56,41 @@ const checkbox = document.querySelector('.b-form_checkbox'),
 
 
 
+// const ans = prompt('Vvedite your names');
+// const reg = /\d/g;
+// console.log(ans.match(reg));
+
+
+const str = 'My name is R2B2';
+console.log(str.match(/\D/i));
+
+
+
+
+
+// \d - chisla
+// \w - slova
+// \s - stroki
+
+// \D - ne chisla
+// \W - ne slova
+// \S - ne stroki
+
+// i
+// g
+// m
+
+//console.log(ans.search(reg));
+//console.log(ans.match(reg));
+
+// const pass = prompt('Password')
+// console.log(pass.replace(/\./g, "*"));
+
+// console.log('12-34-56'.replace(/-/g, ":"));
+
+
+
+
 let newSlider = new DokSlider('.b-slider', {
   navigation: {
     next: '.b-slider-counter_next',
