@@ -7,6 +7,55 @@ import {HorSlider} from './slider.js';
 
 pdpScripts();
 
+
+// LocalStorage
+// localStorage.setItem('number', 5);
+// localStorage.removeItem('item');
+// localStorage.clear();
+// console.log(localStorage.getItem('number'));
+const checkbox = document.querySelector('.b-form_checkbox'),
+      form = document.querySelector('.b-form'),
+      change = document.querySelector('.m-change');
+
+
+      checkbox.addEventListener('change', () => {
+        localStorage.setItem('isChecked', true);
+      });
+
+      if (localStorage.getItem('bg') === 'changed') {
+        form.style.backgroundColor = 'red';
+      }
+
+      if (localStorage.getItem('isChecked')) {
+        checkbox.checked = true;
+      }
+
+      change.addEventListener('click', () => {
+        if (localStorage.getItem('bg') === 'changed') {
+          localStorage.removeItem('bg');
+          form.style.backgroundColor = '#fff';
+        } else {
+          localStorage.setItem('bg', 'changed');
+          form.style.backgroundColor = 'red';
+        }
+      });
+
+      const persone2 = {
+        name: 'Alexander',
+        age: '32',
+        job: {
+          first: 'templateMonster',
+          second: 'Respond'
+        }
+      }
+
+      const serializedPersone = JSON.stringify(persone2);
+      localStorage.setItem('alexander', serializedPersone);
+
+      console.log(JSON.parse(localStorage.getItem('alexander')))
+
+
+
 let newSlider = new DokSlider('.b-slider', {
   navigation: {
     next: '.b-slider-counter_next',

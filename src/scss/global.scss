@@ -169,3 +169,21 @@
     }
   }
 }
+
+.b-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  background-color: #fff;
+
+  &_label {
+    padding-bottom: 15px;
+  }
+
+  &_btn {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
