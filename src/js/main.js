@@ -4,6 +4,7 @@ import '../index.html';
 import {pdpScripts} from './pdp-script.js';
 import {DokSlider} from './slider.js';
 import {HorSlider} from './slider.js';
+import {FitnessCalculator} from './calculator.js';
 
 pdpScripts();
 
@@ -40,19 +41,19 @@ const checkbox = document.querySelector('.b-form_checkbox'),
         }
       });
 
-      const persone2 = {
-        name: 'Alexander',
-        age: '32',
-        job: {
-          first: 'templateMonster',
-          second: 'Respond'
-        }
-      }
+      // const persone2 = {
+      //   name: 'Alexander',
+      //   age: '32',
+      //   job: {
+      //     first: 'templateMonster',
+      //     second: 'Respond'
+      //   }
+      // }
 
-      const serializedPersone = JSON.stringify(persone2);
-      localStorage.setItem('alexander', serializedPersone);
+      // const serializedPersone = JSON.stringify(persone2);
+      // localStorage.setItem('alexander', serializedPersone);
 
-      console.log(JSON.parse(localStorage.getItem('alexander')))
+      // console.log(JSON.parse(localStorage.getItem('alexander')))
 
 
 
@@ -61,8 +62,8 @@ const checkbox = document.querySelector('.b-form_checkbox'),
 // console.log(ans.match(reg));
 
 
-const str = 'My name is R2B2';
-console.log(str.match(/\D/i));
+// const str = 'My name is R2B2';
+// console.log(str.match(/\D/i));
 
 
 
@@ -118,6 +119,9 @@ let newSlider2 = new HorSlider('.b-horslider', {
     items: '.b-horslider-slide',
     slidesList: '.b-horslider-inner'
 });
+
+
+FitnessCalculator();
 
 
 // fetch('https://jsonplaceholder.typicode.com/todos/1')
