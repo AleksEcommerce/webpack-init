@@ -5,6 +5,7 @@ import {pdpScripts} from './pdp-script.js';
 import {DokSlider} from './slider.js';
 import {HorSlider} from './slider.js';
 import {FitnessCalculator} from './calculator.js';
+import {teacher} from './incapsulation.js';
 
 pdpScripts();
 
@@ -221,3 +222,53 @@ const getData = async (url) => {
     // }
 
 //postData('https://jsonplaceholder.typicode.com/todos/1', JSON.stringify(object));
+
+// const persone3 = {
+//   name: 'Alexander',
+//   age: 32,
+//   get userAge() {
+//     return this.age;
+//   },
+
+//   set userAge(num) {
+//     this.age = num;
+//   }
+// }
+
+// console.log(persone3.userAge = 30);
+// console.log(persone3.userAge);
+
+class User {
+  constructor(name, age) {
+    this.name = name;
+    this._age = age;
+  }
+
+  #surname = 'Taranov';
+
+  say = () => {
+    console.log(`Name User: ${this.name} ${this.#surname}, his age ${this._age}`);
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(age) {
+    if (typeof age === 'number' && age > 0 && age < 110) {
+      this._age = age;
+    } else {
+      console.log('Error');
+    }
+  }
+}
+
+// const Ivan = new User('Ivan', 29);
+// console.log(Ivan.age);
+// console.log(Ivan.surname);
+// Ivan.age = 99;
+// Ivan.say();
+
+// console.log('Домашнее задание потренироваться с инкапсуляцией')
+
+
