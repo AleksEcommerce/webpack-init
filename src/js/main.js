@@ -6,6 +6,7 @@ import {DokSlider} from './slider.js';
 import {HorSlider} from './slider.js';
 import {FitnessCalculator} from './calculator.js';
 import {teacher} from './incapsulation.js';
+import {warrior} from './classes.js';
 
 pdpScripts();
 
