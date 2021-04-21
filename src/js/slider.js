@@ -1,76 +1,48 @@
 'use strict';
 
+export { simpleSlider };
 
-export { DokSlider };
+// HTML Structure
+// <div class="b-horslider-container">
+//   <section class="b-horslider">
+//     <div class="b-horslider-nav">
+//       <span class="b-horslider-nav_prev"></span>
 
-export { HorSlider };
+//       <span class="b-horslider-nav_current-number"></span>
+//       /
+//       <span class="b-horslider-nav_total"></span>
 
-// Simple slider
-const DokSlider = function(selector, params) {
-    let parent = document.querySelector(selector),
-        nextSlide = parent.querySelector(params.navigation.next),
-        prevSlide = parent.querySelector(params.navigation.prev),
-        slides = parent.querySelectorAll('.b-slider-slide'),
-        indexSlides = 1,
-        currentSlide = parent.querySelector(params.counters.currentslide),
-        total = parent.querySelector(params.counters.allslides);
+//       <span class="b-horslider-nav_next"></span>
+//     </div>
+//     <div class="b-horslider-pagination">
 
-    params = {
-      navigation: {
-        next: 'selector',
-        prev: 'selector'
-      },
-      counters: {
-        currentslide: 'selector',
-        allslides: 'selector'
-      }
-    };
+//     </div>
+//     <div class="b-horslider-inner">
+//       <div class="b-horslider-slide">
+//         <img src="./img/slide-1.jpg" alt="">
+//       </div>
+//       <div class="b-horslider-slide">
+//         <img src="./img/slide-2.jpg" alt="">
+//       </div>
+//       <div class="b-horslider-slide">
+//         <img src="./img/slide-3.jpg" alt="">
+//       </div>
+//       <div class="b-horslider-slide">
+//         <img src="./img/slide-1.jpg" alt="">
+//       </div>
+//       <div class="b-horslider-slide">
+//         <img src="./img/slide-2.jpg" alt="">
+//       </div>
+//       <div class="b-horslider-slide">
+//         <img src="./img/slide-3.jpg" alt="">
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// End Of structure
 
-    if (slides.length < 10) {
-      total.textContent = '0' + slides.length;
-    } else {
-      total.textContent = slides.length;
-    };
-
-    showSlide(indexSlides);
-
-    function showSlide(n) {
-      if (n > slides.length) indexSlides = 1;
-      if (n < 1) indexSlides = slides.length;
-
-      slides.forEach(item => {
-        item.classList.remove('show');
-        item.classList.add('hide');
-      });
-      slides[indexSlides - 1].classList.remove('hide');
-      slides[indexSlides - 1].classList.add('show');
-
-      if (slides.length < 10) {
-        currentSlide.textContent = '0' + indexSlides;
-      } else {
-        currentSlide.textContent = indexSlides;
-      };
-    };
-
-    function nextSlides(n) {
-      showSlide(indexSlides += n);
-    };
-
-    nextSlide.addEventListener('click', () => {
-      nextSlides(1);
-    });
-    prevSlide.addEventListener('click', () => {
-      nextSlides(-1);
-    });
-}
-// Simple slider the END
-
-
-// Horizontsl Slider
-const HorSlider = function(selector, parametries) {
-
+const simpleSlider = function(selector, parametries) {
   let parent = document.querySelector(selector),
-              // parentWidth = window.getComputedStyle(parent).width;,
               parentWidth = parent.clientWidth,
               slidesWrapper = parent.querySelector(parametries.slidesList),
               slidesOffset = 0,
@@ -98,7 +70,7 @@ const HorSlider = function(selector, parametries) {
         allslides: 'selector'
       },
       items: 'selector',
-      slidesList: 'selector'
+      slidesList: 'selector',
     };
 
     slidesItems.forEach(item => {
@@ -175,5 +147,3 @@ const HorSlider = function(selector, parametries) {
       moveSlider(1);
     });
 };
-
-// Horizontsl Slider the END

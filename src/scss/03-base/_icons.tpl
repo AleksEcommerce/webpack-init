@@ -1,84 +1,105 @@
 /* stylelint-disable */
-/*md
-@no-stat
-# Icons
 
-## Icons from an icon font
-_icons.tpl - is a template for _icons.scss
 
-_icons.scss - is an automaticaly generated SCSS file. It contains:
-
-* placeholder class %icon - it's needed for mixin icon
-* function icon-char - it's needed for mixin icon
-* mixin icon - you can use this mixin to insert an icon into ::before or ::after pseudo-elements. this mixin takes two parameters: icon name (file name without a char prefix), and position (before or after)
-* and icon classes to use in HTML (content assets, content slots)
-
-```html_example
-<% _.each(glyphs, function(glyph) { %>
-    <div class='i-<%= glyph.name %>-before'><%= glyph.name %></div>
-<% }); %>
-```
-
-*/
-
-@mixin g-icon {
-    font-family: '<%= fontName %>';
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    speak: none;
-    text-decoration: none;
-    text-transform: none;
+@font-face {
+    font-family: "{{fontName}}";
+    src:
+        {{{src}}};
 }
 
-@function icon-char($filename) {
-    $char: '';
-<% _.each(glyphs, function(glyph) { %>
-    @if $filename == <%= glyph.name %> {
-        $char: '<%= glyph.unicode[0] %>';
-    }
-<% }); %>
-    @return $char;
+$webfont-icons: (
+        {{#each codepoints}}
+            '{{@key}}': ('{{../fontName}}' '\\{{this}}'),
+        {{/each}}
+);
+
+@function unicode($str) {
+    @return unquote('\"')+unquote(str-insert($str, '\\', 1))+unquote('\"');
 }
 
-@mixin icon($filename, $insert: before, $font-size: false) {
-
+@mixin icon($name: null, $insert: before, $size: inherit) {
     @if type-of($insert) != string {
-        $font-size: $insert;
+        $size: $insert;
         $insert: before;
     }
 
     &::#{$insert} {
-        @include g-icon;
+        font-family: "{{fontName}}";
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        speak: none;
+        text-decoration: none;
+        text-transform: none;
 
-        content: icon-char($filename);
-
-        @if $font-size {
-            font-size: $font-size;
+        @if $size {
+            font-size: $size;
         }
+    }
 
-        @content;
+    @if ($name != null) {
+        $icon: map-get($webfont-icons, $name);
+
+        @if ($icon != null and $insert == before) {
+            &::before {
+                content: #{'"' + nth($icon, 2) + '"'};
+                @content;
+            }
+        } @else if ($icon != null and $insert == after) {
+            &::after {
+                content: #{'"' + nth($icon, 2) + '"'};
+                @content;
+            }
+        }
     }
 }
 
-/*
-#Font icon variables
+.icon {
+    @include icon;
+
+    &-left::before {
+        right: auto;
+    }
+
+    &-right::before {
+        left: auto;
+    }
+}
+
+{{#each codepoints}}
+$icon-{{@key}}: '\\{{this}}';
+{{/each}}
+
+@each $name, $code in $webfont-icons {
+    .icon-#{$name}-before {
+        &::before {
+            content: #{'"' + nth($code, 2) + '"'};
+        }
+    }
+
+    .icon-#{$name}-after {
+        &::after {
+            content: #{'"' + nth($code, 2) + '"'};
+        }
+    }
+}
+
+/*md
+@no-stat
+
+# SVG icons
+
+<div class="row py-15 text-white bg-black border-bottom">
+    <div class="col-12">Icons set</div>
+</div>
+<div class="b-icon-list">
+    {{#each codepoints}}
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-{{@key}}-before"></div>
+            <div class="b-icon-list__class-name">icon-{{@key}}-before</div>
+        </div>
+    {{/each}}
+</div>
+
 */
-<% _.each(glyphs, function(glyph) { %>
-$icon-<%= glyph.name %>: '<%= glyph.unicode[0] %>';
-<% }); %>
-
-@mixin icons-classes {
-<% _.each(glyphs, function(glyph) { %>
-    .i-<%= glyph.name %>-before {
-        @include icon(<%= glyph.name %>);
-    }
-
-    .i-<%= glyph.name %>-after {
-        @include icon(<%= glyph.name %>, after);
-    }
-<% }); %>
-}
-/* stylelint-enable */

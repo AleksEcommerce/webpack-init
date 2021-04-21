@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --mode production",
+    "icons": "icon-font-generator ./src/fonts/icons/*svg -o ./src/fonts/ --csstp ./src/scss/03-base/_icons.tpl --csspath ./src/scss/03-base/_icons.scss --fontspath ./src/fonts/ --css true --html false --height 1024",
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "start": "cross-env NODE_ENV=development webpack serve --mode development",
     "json-server": "json-server ./src/assets/db.json"
@@ -23,6 +24,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^4.5.0",
+    "icon-font-generator": "^2.1.11",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0",

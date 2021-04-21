@@ -1,740 +1,373 @@
 /* stylelint-disable */
-/*md
-@no-stat
-# Icons
 
-## Icons from an icon font
-_icons.tpl - is a template for _icons.scss
 
-_icons.scss - is an automaticaly generated SCSS file. It contains:
-
-* placeholder class %icon - it's needed for mixin icon
-* function icon-char - it's needed for mixin icon
-* mixin icon - you can use this mixin to insert an icon into ::before or ::after pseudo-elements. this mixin takes two parameters: icon name (file name without a char prefix), and position (before or after)
-* and icon classes to use in HTML (content assets, content slots)
-
-```html_example
-
-    <div class='i-arrow-down-big-before'>arrow-down-big</div>
-
-    <div class='i-arrow-down-small-before'>arrow-down-small</div>
-
-    <div class='i-arrow-left-big-before'>arrow-left-big</div>
-
-    <div class='i-arrow-left-small-before'>arrow-left-small</div>
-
-    <div class='i-arrow-right-big-before'>arrow-right-big</div>
-
-    <div class='i-arrow-right-small-before'>arrow-right-small</div>
-
-    <div class='i-arrow-up-big-before'>arrow-up-big</div>
-
-    <div class='i-arrow-up-small-before'>arrow-up-small</div>
-
-    <div class='i-attention-before'>attention</div>
-
-    <div class='i-cart-before'>cart</div>
-
-    <div class='i-catalog-before'>catalog</div>
-
-    <div class='i-chat-before'>chat</div>
-
-    <div class='i-close-big-before'>close-big</div>
-
-    <div class='i-close-small-before'>close-small</div>
-
-    <div class='i-download-before'>download</div>
-
-    <div class='i-email-before'>email</div>
-
-    <div class='i-facebook-before'>facebook</div>
-
-    <div class='i-favorites-before'>favorites</div>
-
-    <div class='i-gift-before'>gift</div>
-
-    <div class='i-hamburger-before'>hamburger</div>
-
-    <div class='i-help-before'>help</div>
-
-    <div class='i-houzz-before'>houzz</div>
-
-    <div class='i-instagram-before'>instagram</div>
-
-    <div class='i-link-before'>link</div>
-
-    <div class='i-linkedin-before'>linkedin</div>
-
-    <div class='i-location-before'>location</div>
-
-    <div class='i-minus-before'>minus</div>
-
-    <div class='i-phone-before'>phone</div>
-
-    <div class='i-pinterest-before'>pinterest</div>
-
-    <div class='i-play-before'>play</div>
-
-    <div class='i-plus-before'>plus</div>
-
-    <div class='i-scan-before'>scan</div>
-
-    <div class='i-search-before'>search</div>
-
-    <div class='i-secure-before'>secure</div>
-
-    <div class='i-star-outlined-before'>star-outlined</div>
-
-    <div class='i-tick-big-before'>tick-big</div>
-
-    <div class='i-tracking-before'>tracking</div>
-
-    <div class='i-twitter-before'>twitter</div>
-
-    <div class='i-user-before'>user</div>
-
-    <div class='i-youtube-before'>youtube</div>
-
-    <div class='i-in-store-before'>in-store</div>
-
-    <div class='i-delivery-before'>delivery</div>
-
-```
-
-*/
-
-@mixin g-icon {
-    font-family: 'icons';
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    speak: none;
-    text-decoration: none;
-    text-transform: none;
+@font-face {
+    font-family: "icons";
+    src:
+        url("../../src/fonts/icons.eot?ee4c1c05bfc3857bcd0fb3cc7a368eba?#iefix") format("embedded-opentype"),
+url("../../src/fonts/icons.woff2?ee4c1c05bfc3857bcd0fb3cc7a368eba") format("woff2"),
+url("../../src/fonts/icons.woff?ee4c1c05bfc3857bcd0fb3cc7a368eba") format("woff"),
+url("../../src/fonts/icons.ttf?ee4c1c05bfc3857bcd0fb3cc7a368eba") format("truetype"),
+url("../../src/fonts/icons.svg?ee4c1c05bfc3857bcd0fb3cc7a368eba#icons") format("svg");
 }
 
-@function icon-char($filename) {
-    $char: '';
+$webfont-icons: (
+            'arrow-down-big': ('icons' '\f101'),
+            'arrow-down-small': ('icons' '\f102'),
+            'arrow-left-big': ('icons' '\f103'),
+            'arrow-left-small': ('icons' '\f104'),
+            'arrow-right-big': ('icons' '\f105'),
+            'arrow-right-small': ('icons' '\f106'),
+            'arrow-up-big': ('icons' '\f107'),
+            'arrow-up-small': ('icons' '\f108'),
+            'attention': ('icons' '\f109'),
+            'cart': ('icons' '\f10a'),
+            'catalog': ('icons' '\f10b'),
+            'chat': ('icons' '\f10c'),
+            'close-big': ('icons' '\f10d'),
+            'close-small': ('icons' '\f10e'),
+            'delivery': ('icons' '\f10f'),
+            'download': ('icons' '\f110'),
+            'email': ('icons' '\f111'),
+            'facebook': ('icons' '\f112'),
+            'favorites': ('icons' '\f113'),
+            'gift': ('icons' '\f114'),
+            'hamburger': ('icons' '\f115'),
+            'help': ('icons' '\f116'),
+            'houzz': ('icons' '\f117'),
+            'in-store': ('icons' '\f118'),
+            'instagram': ('icons' '\f119'),
+            'link': ('icons' '\f11a'),
+            'linkedin': ('icons' '\f11b'),
+            'location': ('icons' '\f11c'),
+            'minus': ('icons' '\f11d'),
+            'phone': ('icons' '\f11e'),
+            'pinterest': ('icons' '\f11f'),
+            'play': ('icons' '\f120'),
+            'plus': ('icons' '\f121'),
+            'quick-view': ('icons' '\f122'),
+            'sample': ('icons' '\f123'),
+            'scan': ('icons' '\f124'),
+            'search': ('icons' '\f125'),
+            'secure': ('icons' '\f126'),
+            'star-outlined': ('icons' '\f127'),
+            'tick-big': ('icons' '\f128'),
+            'tracking': ('icons' '\f129'),
+            'twitter': ('icons' '\f12a'),
+            'user': ('icons' '\f12b'),
+            'videos': ('icons' '\f12c'),
+            'visualizer': ('icons' '\f12d'),
+            'youtube': ('icons' '\f12e'),
+);
 
-    @if $filename == arrow-down-big {
-        $char: '';
-    }
-
-    @if $filename == arrow-down-small {
-        $char: '';
-    }
-
-    @if $filename == arrow-left-big {
-        $char: '';
-    }
-
-    @if $filename == arrow-left-small {
-        $char: '';
-    }
-
-    @if $filename == arrow-right-big {
-        $char: '';
-    }
-
-    @if $filename == arrow-right-small {
-        $char: '';
-    }
-
-    @if $filename == arrow-up-big {
-        $char: '';
-    }
-
-    @if $filename == arrow-up-small {
-        $char: '';
-    }
-
-    @if $filename == attention {
-        $char: '';
-    }
-
-    @if $filename == cart {
-        $char: '';
-    }
-
-    @if $filename == catalog {
-        $char: '';
-    }
-
-    @if $filename == chat {
-        $char: '';
-    }
-
-    @if $filename == close-big {
-        $char: '';
-    }
-
-    @if $filename == close-small {
-        $char: '';
-    }
-
-    @if $filename == download {
-        $char: '';
-    }
-
-    @if $filename == email {
-        $char: '';
-    }
-
-    @if $filename == facebook {
-        $char: '';
-    }
-
-    @if $filename == favorites {
-        $char: '';
-    }
-
-    @if $filename == gift {
-        $char: '';
-    }
-
-    @if $filename == hamburger {
-        $char: '';
-    }
-
-    @if $filename == help {
-        $char: '';
-    }
-
-    @if $filename == houzz {
-        $char: '';
-    }
-
-    @if $filename == instagram {
-        $char: '';
-    }
-
-    @if $filename == link {
-        $char: '';
-    }
-
-    @if $filename == linkedin {
-        $char: '';
-    }
-
-    @if $filename == location {
-        $char: '';
-    }
-
-    @if $filename == minus {
-        $char: '';
-    }
-
-    @if $filename == phone {
-        $char: '';
-    }
-
-    @if $filename == pinterest {
-        $char: '';
-    }
-
-    @if $filename == play {
-        $char: '';
-    }
-
-    @if $filename == plus {
-        $char: '';
-    }
-
-    @if $filename == scan {
-        $char: '';
-    }
-
-    @if $filename == search {
-        $char: '';
-    }
-
-    @if $filename == secure {
-        $char: '';
-    }
-
-    @if $filename == star-outlined {
-        $char: '';
-    }
-
-    @if $filename == tick-big {
-        $char: '';
-    }
-
-    @if $filename == tracking {
-        $char: '';
-    }
-
-    @if $filename == twitter {
-        $char: '';
-    }
-
-    @if $filename == user {
-        $char: '';
-    }
-
-    @if $filename == youtube {
-        $char: '';
-    }
-
-    @if $filename == in-store {
-        $char: '';
-    }
-
-    @if $filename == delivery {
-        $char: '';
-    }
-
-    @return $char;
+@function unicode($str) {
+    @return unquote('\"')+unquote(str-insert($str, '\\', 1))+unquote('\"');
 }
 
-@mixin icon($filename, $insert: before, $font-size: false) {
-
+@mixin icon($name: null, $insert: before, $size: inherit) {
     @if type-of($insert) != string {
-        $font-size: $insert;
+        $size: $insert;
         $insert: before;
     }
 
     &::#{$insert} {
-        @include g-icon;
+        font-family: "icons";
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        speak: none;
+        text-decoration: none;
+        text-transform: none;
 
-        content: icon-char($filename);
-
-        @if $font-size {
-            font-size: $font-size;
+        @if $size {
+            font-size: $size;
         }
+    }
 
-        @content;
+    @if ($name != null) {
+        $icon: map-get($webfont-icons, $name);
+
+        @if ($icon != null and $insert == before) {
+            &::before {
+                content: #{'"' + nth($icon, 2) + '"'};
+                @content;
+            }
+        } @else if ($icon != null and $insert == after) {
+            &::after {
+                content: #{'"' + nth($icon, 2) + '"'};
+                @content;
+            }
+        }
     }
 }
 
-/*
-#Font icon variables
+.icon {
+    @include icon;
+
+    &-left::before {
+        right: auto;
+    }
+
+    &-right::before {
+        left: auto;
+    }
+}
+
+$icon-arrow-down-big: '\f101';
+$icon-arrow-down-small: '\f102';
+$icon-arrow-left-big: '\f103';
+$icon-arrow-left-small: '\f104';
+$icon-arrow-right-big: '\f105';
+$icon-arrow-right-small: '\f106';
+$icon-arrow-up-big: '\f107';
+$icon-arrow-up-small: '\f108';
+$icon-attention: '\f109';
+$icon-cart: '\f10a';
+$icon-catalog: '\f10b';
+$icon-chat: '\f10c';
+$icon-close-big: '\f10d';
+$icon-close-small: '\f10e';
+$icon-delivery: '\f10f';
+$icon-download: '\f110';
+$icon-email: '\f111';
+$icon-facebook: '\f112';
+$icon-favorites: '\f113';
+$icon-gift: '\f114';
+$icon-hamburger: '\f115';
+$icon-help: '\f116';
+$icon-houzz: '\f117';
+$icon-in-store: '\f118';
+$icon-instagram: '\f119';
+$icon-link: '\f11a';
+$icon-linkedin: '\f11b';
+$icon-location: '\f11c';
+$icon-minus: '\f11d';
+$icon-phone: '\f11e';
+$icon-pinterest: '\f11f';
+$icon-play: '\f120';
+$icon-plus: '\f121';
+$icon-quick-view: '\f122';
+$icon-sample: '\f123';
+$icon-scan: '\f124';
+$icon-search: '\f125';
+$icon-secure: '\f126';
+$icon-star-outlined: '\f127';
+$icon-tick-big: '\f128';
+$icon-tracking: '\f129';
+$icon-twitter: '\f12a';
+$icon-user: '\f12b';
+$icon-videos: '\f12c';
+$icon-visualizer: '\f12d';
+$icon-youtube: '\f12e';
+
+@each $name, $code in $webfont-icons {
+    .icon-#{$name}-before {
+        &::before {
+            content: #{'"' + nth($code, 2) + '"'};
+        }
+    }
+
+    .icon-#{$name}-after {
+        &::after {
+            content: #{'"' + nth($code, 2) + '"'};
+        }
+    }
+}
+
+/*md
+@no-stat
+
+# SVG icons
+
+<div class="row py-15 text-white bg-black border-bottom">
+    <div class="col-12">Icons set</div>
+</div>
+<div class="b-icon-list">
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-down-big-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-down-big-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-down-small-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-down-small-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-left-big-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-left-big-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-left-small-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-left-small-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-right-big-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-right-big-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-right-small-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-right-small-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-up-big-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-up-big-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-arrow-up-small-before"></div>
+            <div class="b-icon-list__class-name">icon-arrow-up-small-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-attention-before"></div>
+            <div class="b-icon-list__class-name">icon-attention-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-cart-before"></div>
+            <div class="b-icon-list__class-name">icon-cart-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-catalog-before"></div>
+            <div class="b-icon-list__class-name">icon-catalog-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-chat-before"></div>
+            <div class="b-icon-list__class-name">icon-chat-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-close-big-before"></div>
+            <div class="b-icon-list__class-name">icon-close-big-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-close-small-before"></div>
+            <div class="b-icon-list__class-name">icon-close-small-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-delivery-before"></div>
+            <div class="b-icon-list__class-name">icon-delivery-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-download-before"></div>
+            <div class="b-icon-list__class-name">icon-download-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-email-before"></div>
+            <div class="b-icon-list__class-name">icon-email-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-facebook-before"></div>
+            <div class="b-icon-list__class-name">icon-facebook-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-favorites-before"></div>
+            <div class="b-icon-list__class-name">icon-favorites-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-gift-before"></div>
+            <div class="b-icon-list__class-name">icon-gift-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-hamburger-before"></div>
+            <div class="b-icon-list__class-name">icon-hamburger-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-help-before"></div>
+            <div class="b-icon-list__class-name">icon-help-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-houzz-before"></div>
+            <div class="b-icon-list__class-name">icon-houzz-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-in-store-before"></div>
+            <div class="b-icon-list__class-name">icon-in-store-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-instagram-before"></div>
+            <div class="b-icon-list__class-name">icon-instagram-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-link-before"></div>
+            <div class="b-icon-list__class-name">icon-link-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-linkedin-before"></div>
+            <div class="b-icon-list__class-name">icon-linkedin-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-location-before"></div>
+            <div class="b-icon-list__class-name">icon-location-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-minus-before"></div>
+            <div class="b-icon-list__class-name">icon-minus-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-phone-before"></div>
+            <div class="b-icon-list__class-name">icon-phone-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-pinterest-before"></div>
+            <div class="b-icon-list__class-name">icon-pinterest-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-play-before"></div>
+            <div class="b-icon-list__class-name">icon-play-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-plus-before"></div>
+            <div class="b-icon-list__class-name">icon-plus-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-quick-view-before"></div>
+            <div class="b-icon-list__class-name">icon-quick-view-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-sample-before"></div>
+            <div class="b-icon-list__class-name">icon-sample-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-scan-before"></div>
+            <div class="b-icon-list__class-name">icon-scan-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-search-before"></div>
+            <div class="b-icon-list__class-name">icon-search-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-secure-before"></div>
+            <div class="b-icon-list__class-name">icon-secure-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-star-outlined-before"></div>
+            <div class="b-icon-list__class-name">icon-star-outlined-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-tick-big-before"></div>
+            <div class="b-icon-list__class-name">icon-tick-big-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-tracking-before"></div>
+            <div class="b-icon-list__class-name">icon-tracking-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-twitter-before"></div>
+            <div class="b-icon-list__class-name">icon-twitter-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-user-before"></div>
+            <div class="b-icon-list__class-name">icon-user-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-videos-before"></div>
+            <div class="b-icon-list__class-name">icon-videos-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-visualizer-before"></div>
+            <div class="b-icon-list__class-name">icon-visualizer-before</div>
+        </div>
+        <div class="b-icon-list__item">
+            <div class="b-icon-list__icon icon icon-youtube-before"></div>
+            <div class="b-icon-list__class-name">icon-youtube-before</div>
+        </div>
+</div>
+
 */
-
-$icon-arrow-down-big: '';
-
-$icon-arrow-down-small: '';
-
-$icon-arrow-left-big: '';
-
-$icon-arrow-left-small: '';
-
-$icon-arrow-right-big: '';
-
-$icon-arrow-right-small: '';
-
-$icon-arrow-up-big: '';
-
-$icon-arrow-up-small: '';
-
-$icon-attention: '';
-
-$icon-cart: '';
-
-$icon-catalog: '';
-
-$icon-chat: '';
-
-$icon-close-big: '';
-
-$icon-close-small: '';
-
-$icon-download: '';
-
-$icon-email: '';
-
-$icon-facebook: '';
-
-$icon-favorites: '';
-
-$icon-gift: '';
-
-$icon-hamburger: '';
-
-$icon-help: '';
-
-$icon-houzz: '';
-
-$icon-instagram: '';
-
-$icon-link: '';
-
-$icon-linkedin: '';
-
-$icon-location: '';
-
-$icon-minus: '';
-
-$icon-phone: '';
-
-$icon-pinterest: '';
-
-$icon-play: '';
-
-$icon-plus: '';
-
-$icon-scan: '';
-
-$icon-search: '';
-
-$icon-secure: '';
-
-$icon-star-outlined: '';
-
-$icon-tick-big: '';
-
-$icon-tracking: '';
-
-$icon-twitter: '';
-
-$icon-user: '';
-
-$icon-youtube: '';
-
-$icon-in-store: '';
-
-$icon-delivery: '';
-
-
-@mixin icons-classes {
-
-    .i-arrow-down-big-before {
-        @include icon(arrow-down-big);
-    }
-
-    .i-arrow-down-big-after {
-        @include icon(arrow-down-big, after);
-    }
-
-    .i-arrow-down-small-before {
-        @include icon(arrow-down-small);
-    }
-
-    .i-arrow-down-small-after {
-        @include icon(arrow-down-small, after);
-    }
-
-    .i-arrow-left-big-before {
-        @include icon(arrow-left-big);
-    }
-
-    .i-arrow-left-big-after {
-        @include icon(arrow-left-big, after);
-    }
-
-    .i-arrow-left-small-before {
-        @include icon(arrow-left-small);
-    }
-
-    .i-arrow-left-small-after {
-        @include icon(arrow-left-small, after);
-    }
-
-    .i-arrow-right-big-before {
-        @include icon(arrow-right-big);
-    }
-
-    .i-arrow-right-big-after {
-        @include icon(arrow-right-big, after);
-    }
-
-    .i-arrow-right-small-before {
-        @include icon(arrow-right-small);
-    }
-
-    .i-arrow-right-small-after {
-        @include icon(arrow-right-small, after);
-    }
-
-    .i-arrow-up-big-before {
-        @include icon(arrow-up-big);
-    }
-
-    .i-arrow-up-big-after {
-        @include icon(arrow-up-big, after);
-    }
-
-    .i-arrow-up-small-before {
-        @include icon(arrow-up-small);
-    }
-
-    .i-arrow-up-small-after {
-        @include icon(arrow-up-small, after);
-    }
-
-    .i-attention-before {
-        @include icon(attention);
-    }
-
-    .i-attention-after {
-        @include icon(attention, after);
-    }
-
-    .i-cart-before {
-        @include icon(cart);
-    }
-
-    .i-cart-after {
-        @include icon(cart, after);
-    }
-
-    .i-catalog-before {
-        @include icon(catalog);
-    }
-
-    .i-catalog-after {
-        @include icon(catalog, after);
-    }
-
-    .i-chat-before {
-        @include icon(chat);
-    }
-
-    .i-chat-after {
-        @include icon(chat, after);
-    }
-
-    .i-close-big-before {
-        @include icon(close-big);
-    }
-
-    .i-close-big-after {
-        @include icon(close-big, after);
-    }
-
-    .i-close-small-before {
-        @include icon(close-small);
-    }
-
-    .i-close-small-after {
-        @include icon(close-small, after);
-    }
-
-    .i-download-before {
-        @include icon(download);
-    }
-
-    .i-download-after {
-        @include icon(download, after);
-    }
-
-    .i-email-before {
-        @include icon(email);
-    }
-
-    .i-email-after {
-        @include icon(email, after);
-    }
-
-    .i-facebook-before {
-        @include icon(facebook);
-    }
-
-    .i-facebook-after {
-        @include icon(facebook, after);
-    }
-
-    .i-favorites-before {
-        @include icon(favorites);
-    }
-
-    .i-favorites-after {
-        @include icon(favorites, after);
-    }
-
-    .i-gift-before {
-        @include icon(gift);
-    }
-
-    .i-gift-after {
-        @include icon(gift, after);
-    }
-
-    .i-hamburger-before {
-        @include icon(hamburger);
-    }
-
-    .i-hamburger-after {
-        @include icon(hamburger, after);
-    }
-
-    .i-help-before {
-        @include icon(help);
-    }
-
-    .i-help-after {
-        @include icon(help, after);
-    }
-
-    .i-houzz-before {
-        @include icon(houzz);
-    }
-
-    .i-houzz-after {
-        @include icon(houzz, after);
-    }
-
-    .i-instagram-before {
-        @include icon(instagram);
-    }
-
-    .i-instagram-after {
-        @include icon(instagram, after);
-    }
-
-    .i-link-before {
-        @include icon(link);
-    }
-
-    .i-link-after {
-        @include icon(link, after);
-    }
-
-    .i-linkedin-before {
-        @include icon(linkedin);
-    }
-
-    .i-linkedin-after {
-        @include icon(linkedin, after);
-    }
-
-    .i-location-before {
-        @include icon(location);
-    }
-
-    .i-location-after {
-        @include icon(location, after);
-    }
-
-    .i-minus-before {
-        @include icon(minus);
-    }
-
-    .i-minus-after {
-        @include icon(minus, after);
-    }
-
-    .i-phone-before {
-        @include icon(phone);
-    }
-
-    .i-phone-after {
-        @include icon(phone, after);
-    }
-
-    .i-pinterest-before {
-        @include icon(pinterest);
-    }
-
-    .i-pinterest-after {
-        @include icon(pinterest, after);
-    }
-
-    .i-play-before {
-        @include icon(play);
-    }
-
-    .i-play-after {
-        @include icon(play, after);
-    }
-
-    .i-plus-before {
-        @include icon(plus);
-    }
-
-    .i-plus-after {
-        @include icon(plus, after);
-    }
-
-    .i-scan-before {
-        @include icon(scan);
-    }
-
-    .i-scan-after {
-        @include icon(scan, after);
-    }
-
-    .i-search-before {
-        @include icon(search);
-    }
-
-    .i-search-after {
-        @include icon(search, after);
-    }
-
-    .i-secure-before {
-        @include icon(secure);
-    }
-
-    .i-secure-after {
-        @include icon(secure, after);
-    }
-
-    .i-star-outlined-before {
-        @include icon(star-outlined);
-    }
-
-    .i-star-outlined-after {
-        @include icon(star-outlined, after);
-    }
-
-    .i-tick-big-before {
-        @include icon(tick-big);
-    }
-
-    .i-tick-big-after {
-        @include icon(tick-big, after);
-    }
-
-    .i-tracking-before {
-        @include icon(tracking);
-    }
-
-    .i-tracking-after {
-        @include icon(tracking, after);
-    }
-
-    .i-twitter-before {
-        @include icon(twitter);
-    }
-
-    .i-twitter-after {
-        @include icon(twitter, after);
-    }
-
-    .i-user-before {
-        @include icon(user);
-    }
-
-    .i-user-after {
-        @include icon(user, after);
-    }
-
-    .i-youtube-before {
-        @include icon(youtube);
-    }
-
-    .i-youtube-after {
-        @include icon(youtube, after);
-    }
-
-    .i-in-store-before {
-        @include icon(in-store);
-    }
-
-    .i-in-store-after {
-        @include icon(in-store, after);
-    }
-
-    .i-delivery-before {
-        @include icon(delivery);
-    }
-
-    .i-delivery-after {
-        @include icon(delivery, after);
-    }
-
-}
-/* stylelint-enable */

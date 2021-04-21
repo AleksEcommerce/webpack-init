@@ -11,7 +11,7 @@ class warrior {
 }
 
 let horseman = new warrior('Horseman', 0, 200);
-console.log(horseman);
+// console.log(horseman);
 
 // const Sonik = new teacher('Sonik', 25, '380630285458');
 // console.log(Sonik.phone);
